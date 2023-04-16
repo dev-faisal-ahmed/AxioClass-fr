@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
+import { GlobalLayout } from '../layout/global_layout/GlobalLayout';
 
 export const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <GlobalLayout />
     </div>
   );
 };
