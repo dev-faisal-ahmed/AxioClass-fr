@@ -12,3 +12,27 @@ body {
   --color-secondary-light: "";
   --color-secondary-dark: "";
 }
+
+/* *********** utility class *********** */
+
+/* ********* display *********  */
+.text-justify {
+  text-align: justify;
+}
+.flex {
+  display: flex;
+}
+.center-y {
+  display: flex;
+  align-items: center;
+}
+.center-xy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ********* font-weight *********  */
+.font-semibold {
+  font-weight: 700;
+}
