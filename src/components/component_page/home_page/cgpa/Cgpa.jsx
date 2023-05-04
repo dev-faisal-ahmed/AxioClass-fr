@@ -36,7 +36,7 @@ const Cgpa = () => {
     },
   ];
   return (
-    <div className="cgpa_body w_full flex mt-20">
+    <div className="cgpa_body w_full flex mt-30">
       <div className="w_full">
         <div className="title">
           <h3>Your CGPA record</h3>
