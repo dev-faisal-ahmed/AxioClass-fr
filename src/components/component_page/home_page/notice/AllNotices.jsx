@@ -4,7 +4,7 @@ import { noticeData } from "../../../../fake_data/noticeData";
 
 export const AllNotices = () => {
   return (
-    <div className="allNotices">
+    <div className="allNotices mt-30">
       {noticeData.map((notice, index) => (
         <Notice
           key={index}

@@ -16,7 +16,7 @@ export const Notice = ({ title, description, category }) => {
   } else if (category === "academic-holiday") {
     color = "#CE76FE";
   } else if (category === "financial") {
-    color = "#ED6F71";
+    color = "#fe797a";
   }
   return (
     <section style={{ backgroundColor: color }} className="notice">
