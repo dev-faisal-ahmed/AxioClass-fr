@@ -1,0 +1,21 @@
+.flex{
+  display: flex;
+}
+.flex_col{
+  flex-direction: column;
+}
+.flex_col_r{
+  flex-direction: column-reverse;
+}
+.w_full{
+  width: 100%;
+}
+.h_full{
+  height: 100%;
+}
+.color_body{
+  width: 30%;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  padding: 20px;
+}
