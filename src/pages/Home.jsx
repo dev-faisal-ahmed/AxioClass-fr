@@ -5,7 +5,7 @@ import Cgpa from '../components/component_page/home_page/cgpa/Cgpa';
 export const Home = () => {
   return (
     <div>
-      <GlobalLayout second={<Cgpa/>} />
+      <GlobalLayout />
     </div>
   );
 };

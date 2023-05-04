@@ -51,7 +51,7 @@ const Cgpa = () => {
         </div>
         <div className="cgpa_container flex w_full">
           {fkData.map((item, index) => (
-            <div className="cgpa_parent_div h_full flex flex_col">
+            <div key={index} className="cgpa_parent_div h_full flex flex_col">
               <div className="cgpa_parent_div h_full flex">
                 {/* cgpa */}
                 <div className="cgpa_div h_full flex flex_col_r">
@@ -74,7 +74,7 @@ const Cgpa = () => {
         </div>
       </div>
       </div>
-        <ColorMarking />
+        <ColorMarking item={fkData[fkData.length-1]}/>
     </div>
   );
 };
