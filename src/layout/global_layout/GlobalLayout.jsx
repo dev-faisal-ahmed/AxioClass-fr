@@ -1,12 +1,13 @@
 import React from 'react';
 import './globalLayout.css';
+import { Sidebar } from '../../components/shared/sidebar/Sidebar';
 
-export const GlobalLayout = ({ first, second, third }) => {
+export const GlobalLayout = ({ children }) => {
   return (
-    <div className="global__root">
-      <div className="global__section--first">{first}</div>
-      <div className="global__section--second">{second}</div>
-      <div className="global__section--third">{third}</div>
-    </div>
+    <main className="global__root">
+      <section className="global__section--sidebar">{<Sidebar />}</section>
+      <section className="global__section--body">{children}</section>
+      {/* <section className="global__section--utility">{utility}</section> */}
+    </main>
   );
 };
