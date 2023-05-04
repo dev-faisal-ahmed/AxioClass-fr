@@ -3,20 +3,18 @@
   height: 100vh;
 }
 
-.global__section--first {
-  width: 25%;
+.global__section--sidebar {
+  width: 20%;
+  background-color: white;
 }
 
-.global__section--second {
+.global__section--body {
   width: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f6f7fb;
 }
 
-.global__section--second::-webkit-scrollbar {
+.global__section--body::-webkit-scrollbar {
   display: none;
 }
 
-.global__section--third {
-  width: 40%;
-}
