@@ -17,9 +17,10 @@ export const noticeData = [
     category: "financial",
   },
   {
-    title: "Tuition Fees!",
-    description: "Hey you are advised to pay your tuition fees with in this month.",
-    category: "financial",
+    title: "Summer Vacation",
+    description:
+      "From next 25 april the university will remain closed. susg gsgc fr rr gdcudn  o;chdvg dvdbdf vv vfrvgd vkdf dfvdf vdfgvd  pdfvhdfv df;v dgvdf vdfgvdf dfkgvdvdv hffv g'p gvr v dgfv vr'r grfv v gvf dv;ojfv gv rghr gfdvh ",
+    category: "academic-holiday",
   },
   {
     title: "Tuition Fees!",
