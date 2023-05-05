@@ -5,7 +5,7 @@ import { Avatar } from "./avatar/Avatar";
 
 export const Nav = () => {
   const fkID = {
-    name: "Free loader",
+    name: "aang",
     id: 20211105015,
     sec: 1,
     dept: "CSE",
@@ -13,7 +13,7 @@ export const Nav = () => {
   return (
     <div className="nav center-y  justify-between">
       <div>
-      <h1>{fkID.name}</h1>
+      <h1 className="capitalize">{fkID.name}</h1>
       <div className="id_container">
         <span>ID: {fkID.id}</span>
         <span>Section: {fkID.sec}</span>

@@ -21,8 +21,8 @@ export const Events = ({event}) => {
             <li className='flex' key={event.title}>
               <div style={{backgroundColor:`${color}`}} className='events__color' ></div>
               <div className='flex flex-col center-x'>
-              <span>{event.title}</span>
-              <span>{event.tag}</span>
+              <span style={{fontSize:'18px'}}>Event: {event.title}</span>
+              <span style={{fontSize:'15px'}}>#{event.tag}</span>
               </div>
             </li>
     </>
