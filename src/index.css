@@ -17,16 +17,27 @@ body {
   --color-secondary-dark: "";
 }
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   width: 5px;
-}
-*::-webkit-scrollbar-track {
-  /* background: white; */
+} */
+
+/* *::-webkit-scrollbar-track {
   border-radius: 10px;
-}
-*::-webkit-scrollbar-thumb {
+} */
+
+/* *::-webkit-scrollbar-thumb {
   background-color: gray;
   border-radius: 10px;
+} */
+
+
+/* Hide scrollbar for all browsers */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  ::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
 }
 
 .page-body {
@@ -43,12 +54,28 @@ body {
 .text-justify {
   text-align: justify;
 }
+.text-center {
+  text-align: center;
+}
 .flex {
   display: flex;
+}
+.flex-col{
+  flex-direction: column;
+}
+.flex-col-reverse{
+  flex-direction: column-reverse;
+}
+.justify-between{
+  justify-content: space-between;
 }
 .center-y {
   display: flex;
   align-items: center;
+}
+.center-x{
+  display: flex;
+  justify-content: center;
 }
 .center-xy {
   display: flex;

@@ -1,0 +1,43 @@
+.toDos__body{
+  background-color: #fff;
+  padding: 0 20px 0 20px ;
+}
+.toDos__today{
+  height: 100%;
+  font-size: larger;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6F7FB;
+  border-top: 6px solid #FF8D4B;
+  border-left: 6px solid #FF8D4B;
+  border-bottom: 6px solid #AD48FF;
+  border-right: 6px solid #0067FF;
+  border-radius: 25px;
+  padding: 20px ;
+}
+.toDos__calender--before{
+  position: relative;
+  min-height: 75px;
+  max-height: 150px;
+  height: 20%;
+}
+.toDos__calender--before::before {
+  content: "";
+  height: 25px;
+  width: 25px;
+  background-color: #ff4848;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 5px 0 25px 0;
+}
+.toDos__events{
+  height: 60%;
+  overflow-y: auto;
+}
+.toDos__color{
+  color: gray;
+}
+.toDos__gap-20{
+  gap: 20px;
+}
