@@ -3,9 +3,7 @@
   padding: 0 20px 0 20px ;
 }
 .toDos__today{
-  min-height: 75px;
-  max-height: 150px;
-  height: 20%;
+  height: 100%;
   font-size: larger;
   justify-content: center;
   align-items: center;
@@ -19,6 +17,9 @@
 }
 .toDos__calender--before{
   position: relative;
+  min-height: 75px;
+  max-height: 150px;
+  height: 20%;
 }
 .toDos__calender--before::before {
   content: "";
