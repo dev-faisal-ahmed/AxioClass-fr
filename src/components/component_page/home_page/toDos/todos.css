@@ -3,6 +3,7 @@
   padding: 0 20px 0 20px ;
 }
 .toDos__today{
+  position: relative;
   min-height: 75px;
   max-height: 150px;
   height: 20%;
@@ -16,6 +17,16 @@
   border-right: 6px solid #0067FF;
   border-radius: 25px;
   padding: 20px ;
+}
+.toDos__today::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-color: #ff4848;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 5px 0 25px 0;
 }
 .toDos__events{
   height: 60%;
