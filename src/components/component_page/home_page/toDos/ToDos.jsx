@@ -30,8 +30,10 @@ export const ToDos = () => {
   },[])
   return (
     <div className='toDos__body h-full'>
+      <div className='toDos__calender--before'>
       <div className='toDos__today flex text-center mt-30'>
       {today}
+      </div>
       </div>
       <div className='toDos__events flex flex-col toDos__gap-20 mt-30'>
       {Object.keys(events).map(date => (

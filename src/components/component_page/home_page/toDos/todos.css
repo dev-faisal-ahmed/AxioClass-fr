@@ -3,7 +3,6 @@
   padding: 0 20px 0 20px ;
 }
 .toDos__today{
-  position: relative;
   min-height: 75px;
   max-height: 150px;
   height: 20%;
@@ -18,10 +17,13 @@
   border-radius: 25px;
   padding: 20px ;
 }
-.toDos__today::before {
+.toDos__calender--before{
+  position: relative;
+}
+.toDos__calender--before::before {
   content: "";
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   background-color: #ff4848;
   position: absolute;
   bottom: 0;
