@@ -35,6 +35,9 @@ body {
 .text-justify {
   text-align: justify;
 }
+.text-center {
+  text-align: center;
+}
 .flex {
   display: flex;
 }
@@ -44,9 +47,16 @@ body {
 .flex-col-reverse{
   flex-direction: column-reverse;
 }
+.justify-between{
+  justify-content: space-between;
+}
 .center-y {
   display: flex;
   align-items: center;
+}
+.center-x{
+  display: flex;
+  justify-content: center;
 }
 .center-xy {
   display: flex;

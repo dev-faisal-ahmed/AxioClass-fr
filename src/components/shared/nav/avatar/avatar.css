@@ -1,0 +1,8 @@
+.avatar__body{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.avatar__img{
+  border-radius: 100%;
+}
