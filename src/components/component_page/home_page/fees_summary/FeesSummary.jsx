@@ -16,7 +16,7 @@ export const FeesSummary = () => {
       <div style={{ backgroundColor: bgColor, color: fontColor }} className="feesSummary__box">
         <div className="">
           {icon}
-          <h4 style={{ color: primary ? fontColor : "gray" }} className="feesSummary__box--title">
+          <h4 style={{ color: primary ? fontColor : "gray" }} className="feesSummary__title">
             {title}
           </h4>
           <h2>{amount} &#2547;</h2>
@@ -25,6 +25,15 @@ export const FeesSummary = () => {
       </div>
     );
   };
+
+  const data = {
+    "5 march 2023": [
+      { title: "Mid Exam", category: "Exam" },
+      { title: "Mid Exam", category: "Exam Dead" },
+    ],
+  };
+
+  console.log(data["5 march 2023"]);
 
   return (
     <section className="feesSummary mt-30">

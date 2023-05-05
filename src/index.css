@@ -48,9 +48,12 @@ body {
   justify-content: center;
 }
 
-/* ********* margin & padding *********  */
+/* ********* height-width *********  */
 .h-full {
   height: 100%;
+}
+.w-full {
+  width: 100%;
 }
 
 /* ********* margin & padding *********  */
@@ -61,7 +64,15 @@ body {
   margin: 10px 0;
 }
 
-/* ********* font-weight *********  */
+/* ********* typography *********  */
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
 .font-semibold {
   font-weight: 700;
 }

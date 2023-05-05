@@ -6,11 +6,13 @@ import { BsFillCreditCardFill } from "react-icons/bs";
 export const Notice = ({ title, description, category }) => {
   let icon;
   let color;
+
   if (category.includes("academic")) {
     icon = <HiAcademicCap size={25} />;
   } else if (category === "financial") {
     icon = <BsFillCreditCardFill size={20} />;
   }
+
   if (category === "academic-exam") {
     color = "#0067FF";
   } else if (category === "academic-holiday") {
@@ -18,6 +20,7 @@ export const Notice = ({ title, description, category }) => {
   } else if (category === "financial") {
     color = "#fe797a";
   }
+
   return (
     <section style={{ backgroundColor: color }} className="notice">
       <div className="notice__top">
