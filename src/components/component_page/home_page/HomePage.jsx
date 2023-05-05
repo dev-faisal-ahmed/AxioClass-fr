@@ -7,7 +7,7 @@ import { FeesSummary } from "./fees_summary/FeesSummary";
 
 export function HomePage() {
   return (
-    <section className="homePage">
+    <section className="page-body">
       <Nav />
       <section className="homePage__body">
         <FeesSummary />
