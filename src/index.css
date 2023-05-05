@@ -38,6 +38,12 @@ body {
 .flex {
   display: flex;
 }
+.flex-col{
+  flex-direction: column;
+}
+.flex-col-reverse{
+  flex-direction: column-reverse;
+}
 .center-y {
   display: flex;
   align-items: center;
