@@ -8,7 +8,7 @@ import { ToDos } from "./toDos/ToDos";
 
 export function HomePage() {
   return (
-    <section className="homePage">
+    <section className="homePage page-body">
       <Nav/>
       <section className="homePage__body">
         <FeesSummary />

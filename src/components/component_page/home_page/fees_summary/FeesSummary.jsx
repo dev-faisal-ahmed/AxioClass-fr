@@ -13,7 +13,10 @@ export const FeesSummary = () => {
   // total waiver, total fees, due, paid
   const summaryBox = ({ title, icon, amount, bgColor, fontColor, primary }) => {
     return (
-      <div style={{ backgroundColor: bgColor, color: fontColor }} className="feesSummary__box">
+      <div
+        style={{ backgroundColor: bgColor, color: fontColor }}
+        className="feesSummary__box shadow-1"
+      >
         <div className="">
           {icon}
           <h4 style={{ color: primary ? fontColor : "gray" }} className="feesSummary__title">
@@ -42,7 +45,7 @@ export const FeesSummary = () => {
         title: "Total Demand",
         icon: <BsCreditCard2BackFill size={30} style={{ color: "white" }} />,
         fontColor: "white",
-        bgColor: "#fe797a",
+        bgColor: "#db4d4d",
         primary: true,
       })}
       {summaryBox({

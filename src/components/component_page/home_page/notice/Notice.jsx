@@ -14,15 +14,15 @@ export const Notice = ({ title, description, category }) => {
   }
 
   if (category === "academic-exam") {
-    color = "#0067FF";
+    color = "#1762d3";
   } else if (category === "academic-holiday") {
-    color = "#CE76FE";
+    color = "#ba60eb";
   } else if (category === "financial") {
-    color = "#fe797a";
+    color = "#db4d4d";
   }
 
   return (
-    <section style={{ backgroundColor: color }} className="notice">
+    <section style={{ backgroundColor: color }} className="notice shadow-1">
       <div className="notice__top">
         {icon}
         <h3>{title}</h3>
