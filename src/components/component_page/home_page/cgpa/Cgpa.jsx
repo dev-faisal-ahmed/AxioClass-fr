@@ -36,35 +36,37 @@ const Cgpa = () => {
     },
   ];
   return (
-    <div className="cgpa_body w_full flex mt-30">
-      <div className="w_full">
-        <div className="title">
+    <div className="cgpa__body w-full flex mt-30">
+      <div className="w-full">
+        <div className="cgpa__title">
           <h3>Your CGPA record</h3>
         </div>
-        <div className="cgpa_container flex">
-          <div className="cgpa_lvl flex flex_col h_full">
+        <div className="cgpa__container flex">
+          <div className="cgpa__lvl flex flex-col h-full">
             <h5>4</h5>
             <h5>3</h5>
             <h5>2</h5>
             <h5>1</h5>
             <h5>0</h5>
           </div>
-          <div className="cgpa_container flex w_full">
+          <div className="cgpa__container flex w-full">
             {fkData.map((item, index) => (
-              <div key={index} className="cgpa_parent_div h_full flex flex_col">
-                <div className="cgpa_parent_div h_full flex">
+              <div key={index} className="cgpa__parent__div h-full flex flex-col">
+                <div className="cgpa__parent__div h-full flex">
                   {/* cgpa */}
-                  <div className="cgpa_div h_full flex flex_col_r">
+                  <div className="cgpa__div h-full flex flex-col-reverse">
                     <div
+                      title={item.cgpa}
                       style={{ height: `${(item.cgpa / 4) * 100}%` }}
                       className="w_full cgpa"
                     ></div>
                   </div>
                   {/* sgpa */}
-                  <div className="cgpa_div h_full flex flex_col_r">
+                  <div className="sgpa__div h-full flex flex-col-reverse">
                     <div
+                      title={item.sgpa}
                       style={{ height: `${(item.sgpa / 4) * 100}%` }}
-                      className="w_full sgpa"
+                      className="w-full sgpa"
                     ></div>
                   </div>
                 </div>
