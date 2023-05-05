@@ -2,10 +2,10 @@ import React from "react";
 import { BiFile } from "react-icons/bi";
 import calorMarking from "./colorMarking.css";
 
-const ColorMarking = ({ item }) => {
+export const ColorMarking = ({ item }) => {
   return (
     <div className="color__body">
-      <div className="color__black--text">
+      <div className="color__black--text uppercase">
         <h3>summery</h3>
       </div>
       <div className="color__container h-full flex flex-col">
@@ -36,5 +36,3 @@ const ColorMarking = ({ item }) => {
     </div>
   );
 };
-
-export default ColorMarking;

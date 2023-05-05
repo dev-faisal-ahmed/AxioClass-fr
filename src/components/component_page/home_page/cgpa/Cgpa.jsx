@@ -1,8 +1,8 @@
 import React from "react";
 import cgpa from "./cgpa.css";
-import ColorMarking from "./colorMarking/ColorMarking";
+import {ColorMarking} from "./colorMarking/ColorMarking";
 
-const Cgpa = () => {
+export const Cgpa = () => {
   const fkData = [
     {
       semester: 1,
@@ -38,7 +38,7 @@ const Cgpa = () => {
   return (
     <div className="cgpa__body w-full flex mt-30">
       <div className="w-full">
-        <div className="cgpa__title">
+        <div className="cgpa__title capitalize">
           <h3>Your CGPA record</h3>
         </div>
         <div className="cgpa__container flex">
@@ -80,5 +80,3 @@ const Cgpa = () => {
     </div>
   );
 };
-
-export default Cgpa;

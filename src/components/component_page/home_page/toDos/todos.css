@@ -1,0 +1,20 @@
+.toDos__body{
+  height: 80vh;
+  overflow-y: auto;
+}
+.toDos__today{
+  font-size: larger;
+  background-color: #F6F7FB;
+  border-top: 6px solid #FF8D4B;
+  border-left: 6px solid #FF8D4B;
+  border-bottom: 6px solid #AD48FF;
+  border-right: 6px solid #0067FF;
+  border-radius: 25px;
+  padding: 20px ;
+}
+.toDos__color{
+  color: gray;
+}
+.toDos__gap-20{
+  gap: 20px;
+}
