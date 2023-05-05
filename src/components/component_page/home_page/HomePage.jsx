@@ -15,7 +15,7 @@ export function HomePage() {
         <Cgpa />
         <AllNotices />
       </section>
-      <section>
+      <section className="homePage__toDos">
         <ToDos/>
       </section>
     </section>

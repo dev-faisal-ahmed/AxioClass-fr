@@ -29,11 +29,11 @@ export const ToDos = () => {
     setEvents(fakeData);
   },[])
   return (
-    <div className='toDos__body'>
-      <div className='toDos__today text-center mt-30'>
+    <div className='toDos__body h-full'>
+      <div className='toDos__today flex text-center mt-30'>
       {today}
       </div>
-      <div className='flex flex-col toDos__gap-20 mt-30'>
+      <div className='toDos__events flex flex-col toDos__gap-20 mt-30'>
       {Object.keys(events).map(date => (
         <div key={date}>
         <h4 className='toDos__color'>{date}</h4>
