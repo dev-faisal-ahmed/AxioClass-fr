@@ -1,9 +1,14 @@
 .toDos__body{
-  height: 80vh;
-  overflow-y: auto;
+  background-color: #fff;
+  padding: 0 20px 0 20px ;
 }
 .toDos__today{
+  min-height: 75px;
+  max-height: 150px;
+  height: 20%;
   font-size: larger;
+  justify-content: center;
+  align-items: center;
   background-color: #F6F7FB;
   border-top: 6px solid #FF8D4B;
   border-left: 6px solid #FF8D4B;
@@ -11,6 +16,10 @@
   border-right: 6px solid #0067FF;
   border-radius: 25px;
   padding: 20px ;
+}
+.toDos__events{
+  height: 60%;
+  overflow-y: auto;
 }
 .toDos__color{
   color: gray;
