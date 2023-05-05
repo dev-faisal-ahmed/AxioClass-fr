@@ -56,13 +56,15 @@ const Cgpa = () => {
                   {/* cgpa */}
                   <div className="cgpa__div h-full flex flex-col-reverse">
                     <div
+                      title={item.cgpa}
                       style={{ height: `${(item.cgpa / 4) * 100}%` }}
                       className="w_full cgpa"
                     ></div>
                   </div>
                   {/* sgpa */}
-                  <div className="cgpa__div h-full flex flex-col-reverse">
+                  <div className="sgpa__div h-full flex flex-col-reverse">
                     <div
+                      title={item.sgpa}
                       style={{ height: `${(item.sgpa / 4) * 100}%` }}
                       className="w-full sgpa"
                     ></div>

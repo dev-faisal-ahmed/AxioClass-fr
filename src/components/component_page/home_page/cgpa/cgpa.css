@@ -6,7 +6,7 @@
   background-color: #fff;
   border-radius: 25px;
   padding: 20px;
-  color: #c6cbd6;
+  color: #808080;
 }
 .cgpa__container {
   height: 350px;
@@ -15,23 +15,29 @@
 }
 .cgpa__parent__div {
   align-items: center;
-  gap: 3px;
+  gap: 2px;
 }
 .cgpa__div {
   width: 10px;
-  border-radius: 25px;
+  border-radius: 25px 0px 0px 25px;
   background: #000;
-  background-color: #f3f7f9;
+  background-color: #F6F7FB;
+}
+.sgpa__div {
+  width: 10px;
+  border-radius: 0px 25px 25px 0px;
+  background: #000;
+  background-color: #F6F7FB;
 }
 .cgpa {
   /* height: 30px; */
   background-color: rgb(173, 72, 255);
-  border-radius: 25px;
+  border-radius: 25px 0px 0px 25px;
 }
 .sgpa {
   /* height: 30px; */
   background-color: rgb(255, 141, 75);
-  border-radius: 25px;
+  border-radius: 0px 25px 25px 0px;
 }
 .cgpa__lvl {
   /* padding-right: 20px; */
