@@ -4,7 +4,7 @@ import calorMarking from "./colorMarking.css";
 
 export const ColorMarking = ({ item }) => {
   return (
-    <div className="color__body">
+    <div className="shadow-1 color__body">
       <div className="color__black--text uppercase">
         <h3>summery</h3>
       </div>
