@@ -8,26 +8,10 @@ import {
   MdOutlineCreditCardOff,
 } from "react-icons/md";
 import { feesData } from "../../../../fake_data/feesData";
+import { summaryBox } from "../../../../utilities/UI";
 
 export const FeesSummary = () => {
   // total waiver, total fees, due, paid
-  const summaryBox = ({ title, icon, amount, bgColor, fontColor, primary }) => {
-    return (
-      <div
-        style={{ backgroundColor: bgColor, color: fontColor }}
-        className="feesSummary__box shadow-1"
-      >
-        <div className="">
-          {icon}
-          <h4 style={{ color: primary ? fontColor : "gray" }} className="feesSummary__title">
-            {title}
-          </h4>
-          <h2>{amount} &#2547;</h2>
-        </div>
-        <MdOutlineArrowForwardIos size={25} className="cursor-pointer" />
-      </div>
-    );
-  };
 
   const data = {
     "5 march 2023": [
