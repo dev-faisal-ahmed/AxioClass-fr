@@ -13,8 +13,8 @@ export const LoginPage = () => {
     console.log(id,password)  
   }
   return (
-    <div className="login__body flex center-x center-y">
-      <div className={`login__div flex flex-col justify-between w-full ${door?'h-full':'h-0'}`}>
+    <div className="login__body flex center-y">
+      <div className={`login__div flex flex-col justify-between w-full ${door?'h-full p-20':'h-0 p-0'}`}>
         <div className="login__head">
           <div className="login__title">Login</div>
         </div>
