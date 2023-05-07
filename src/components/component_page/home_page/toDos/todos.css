@@ -1,6 +1,8 @@
 .toDos__body{
   background-color: #fff;
-  padding: 0 20px 0 20px ;
+  padding: 20px;
+  border-radius: 25px;
+  height: 95%;
 }
 .toDos__today{
   height: 100%;
@@ -32,7 +34,7 @@
   border-radius: 5px 0 25px 0;
 }
 .toDos__events{
-  height: 60%;
+  height: 70%;
   overflow-y: auto;
 }
 .toDos__color{

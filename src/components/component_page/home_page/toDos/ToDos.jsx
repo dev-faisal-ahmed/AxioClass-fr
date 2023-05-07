@@ -29,9 +29,9 @@ export const ToDos = () => {
     setEvents(fakeData);
   },[])
   return (
-    <div className='toDos__body h-full'>
+    <div className='toDos__body h-full mt-30'>
       <div className='toDos__calender--before'>
-      <div className='toDos__today flex text-center mt-30'>
+      <div className='toDos__today flex text-center'>
       {today}
       </div>
       </div>
