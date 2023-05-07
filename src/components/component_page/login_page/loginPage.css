@@ -1,14 +1,17 @@
 .login__body{
   height: 100vh;
   width: 100%;
-  background-image: url(./../../../assets/blue-brushstrokes-background.jpg);
+  background-image: url(./../../../assets/clg.jpg);
+  background-size: cover;
+  /* padding: 20px; */
+  justify-content: flex-start;
 }
 .login__div{
+  /* padding: 20px; */
   backdrop-filter: blur(10px); /* apply the blur effect */
-  max-width: 400px;
-  border-radius: 25px;
-  border: 2px #308edb9a solid;
-  max-height: 600px;
+  width: 40%;
+  /* border-radius: 25px; */
+  /* border: 2px #308edb9a solid; */
   text-align: center;
   transition: 2s ease-in-out;
   overflow: hidden ;
@@ -27,16 +30,16 @@
 }
 
 .login__form--input{
-  background-color: transparent;
+  background-color: #ffffff28;
   border-radius: 10px;
-  border: 2px #308edb9a solid;
+  border: 2px #C83644 solid;
   font-size: larger;
   padding: 2px;
   text-align: center;
 }
 .login__form--btn{
   font-size: larger;
-  background-color: #C7ECFE;
+  background-color: #FF855D;
   border: none;
   width: fit-content;
   border-radius: 10px;
@@ -45,14 +48,15 @@
 }
 .login__door{
   position: absolute;
-  background-color: #C7ECFE;
-  padding: 20px;
-  border: #308edb9a 4px solid;
+  background-color: #ff865d7e;
+  padding: 30px 40px;
+  border: #C83644 4px solid;
   border-radius: 15px;
   transition: 2s ease-in-out;
   cursor: pointer;
   font-weight: 600;
+  left: 15%;
 }
 .login__footer{
-  color: gray;
+  color: #FF855D;
 }
