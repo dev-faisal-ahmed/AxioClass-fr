@@ -1,0 +1,58 @@
+.login__body{
+  height: 100vh;
+  width: 100%;
+  background-image: url(./../../../assets/blue-brushstrokes-background.jpg);
+}
+.login__div{
+  backdrop-filter: blur(10px); /* apply the blur effect */
+  max-width: 400px;
+  border-radius: 25px;
+  border: 2px #308edb9a solid;
+  max-height: 600px;
+  text-align: center;
+  transition: 2s ease-in-out;
+  overflow: hidden ;
+}
+.login__head{
+  height: 40%;
+}
+.login__title{
+  font-size: 32px;
+  font-weight: 500;
+}
+.login__form{
+  height: 60%;
+  outline: none;
+  gap: 20px;
+}
+
+.login__form--input{
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px #308edb9a solid;
+  font-size: larger;
+  padding: 2px;
+  text-align: center;
+}
+.login__form--btn{
+  font-size: larger;
+  background-color: #C7ECFE;
+  border: none;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 2px 15px 2px 15px;
+  cursor: pointer;
+}
+.login__door{
+  position: absolute;
+  background-color: #C7ECFE;
+  padding: 20px;
+  border: #308edb9a 4px solid;
+  border-radius: 15px;
+  transition: 2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+}
+.login__footer{
+  color: gray;
+}

@@ -87,8 +87,14 @@ body {
 .h-full {
   height: 100%;
 }
+.h-0{
+  height: 0;
+}
 .w-full {
   width: 100%;
+}
+.hidden{
+  display: none;
 }
 
 /* ********* margin & padding *********  */
@@ -97,6 +103,10 @@ body {
 }
 .my-10 {
   margin: 10px 0;
+}
+/* *********border & outline*********** */
+input:focus{
+  outline: none;
 }
 
 /* ********* typography *********  */
