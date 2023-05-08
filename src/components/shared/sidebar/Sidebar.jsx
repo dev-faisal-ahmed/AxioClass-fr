@@ -11,9 +11,7 @@ import { BsFillCreditCard2FrontFill } from "react-icons/bs";
 export const Sidebar = () => {
   return (
     <div className="sidebar__root">
-      <h1 className="sidebar__logo">
-        Axio<span>Class</span>{" "}
-      </h1>
+      <h1 className="sidebar__logo">Axio Class</h1>
       <div className="sidebar__links">
         <Sidelink name={"dashboard"} url={"/"} icon={<MdDashboard />} />
         <Sidelink
