@@ -1,13 +1,22 @@
-import React from 'react';
-import './globalLayout.css';
-import { Sidebar } from '../../components/shared/sidebar/Sidebar';
+import React from "react";
+import { Sidebar } from "../../components/shared/sidebar/Sidebar";
+import { TopBarMiddle } from "../../components/shared/top_bar/TopBarMiddle";
+import { TopBarSide } from "../../components/shared/top_bar/TopBarSIde";
 
-export const GlobalLayout = ({ children }) => {
+export const GlobalLayout = ({ body, side }) => {
   return (
-    <main className="global__root">
-      <section className="global__section--sidebar">{<Sidebar />}</section>
-      <section className="global__section--body">{children}</section>
-      {/* <section className="global__section--utility">{utility}</section> */}
-    </main>
+    <section className=" bg-primary-50 h-screen grid grid-cols-[300px_1fr_400px]">
+      <Sidebar />
+      <section>
+        {/* for top bar middle */}
+        <TopBarMiddle />
+        <section className="overflow-y-auto">{body}</section>
+      </section>
+      <section className="bg-white">
+        {/* for top bar right */}
+        <TopBarSide />
+        <section className="overflow-y-auto">{side}</section>
+      </section>
+    </section>
   );
 };
