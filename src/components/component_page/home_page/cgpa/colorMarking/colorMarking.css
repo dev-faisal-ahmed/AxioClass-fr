@@ -1,0 +1,31 @@
+.color__black--text {
+  color: #000;
+}
+.color__body {
+  width: 30%;
+  background-color: #F6F7FB;
+  border-radius: 25px;
+  padding: 20px;
+}
+.color__container {
+  justify-content: space-evenly;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.color__div {
+  align-items: center;
+  gap: 10px;
+}
+.cgpa__color {
+  width: 5px;
+  height: 30px;
+  background-color: rgb(173, 72, 255);
+  border-radius: 25px 0 0 25px;
+}
+.sgpa__color {
+  width: 5px;
+  height: 30px;
+  background-color: rgb(255, 141, 75);
+  border-radius: 0 25px 25px 0;
+}
