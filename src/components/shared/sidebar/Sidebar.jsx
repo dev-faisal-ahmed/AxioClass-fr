@@ -7,7 +7,7 @@ export const Sidebar = () => {
   const location = useLocation();
   return (
     <div className="bg-white py-5">
-      <h1 className="sidebar--logo text-xl mb-5 text-center">Axio Class</h1>
+      <h1 className="sidebar--logo text-xl mb-12 text-center">Axio Class</h1>
       <div className="flex flex-col gap-2">
         {navLinks.map((data, index) => (
           <SidebarLink

@@ -1,5 +1,7 @@
-import { GlobalLayout } from "../../layout/global_layout/GlobalLayout";
+import GlobalLayout from "../../layout/global_layout/GlobalLayout";
 
-export const Home = () => {
+const Home = () => {
   return <GlobalLayout />;
 };
+
+export default Home;

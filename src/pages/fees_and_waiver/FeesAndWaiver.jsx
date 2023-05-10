@@ -1,6 +1,8 @@
 import React from "react";
-import { GlobalLayout } from "../../layout/global_layout/GlobalLayout";
+import GlobalLayout from "../../layout/global_layout/GlobalLayout";
+import FeesAndWaiverBody from "../../components/page_components/fees_and_waiver/FeesAndWaiverBody";
 
-export const FeesAndWaiver = () => {
-  return <GlobalLayout />;
+const FeesAndWaiver = () => {
+  return <GlobalLayout body={<FeesAndWaiverBody />} />;
 };
+export default FeesAndWaiver;
