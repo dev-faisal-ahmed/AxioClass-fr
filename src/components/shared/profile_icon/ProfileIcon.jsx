@@ -1,4 +1,4 @@
-export const ProfileIcon = ({ size, img }) => {
+const ProfileIcon = ({ size, img }) => {
   return (
     <div
       style={{
@@ -14,3 +14,4 @@ export const ProfileIcon = ({ size, img }) => {
     </div>
   );
 };
+export default ProfileIcon;

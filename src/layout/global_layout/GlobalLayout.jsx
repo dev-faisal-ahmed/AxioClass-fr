@@ -1,7 +1,7 @@
 import React from "react";
-import { Sidebar } from "../../components/shared/sidebar/Sidebar";
-import { TopBarMiddle } from "../../components/shared/top_bar/TopBarMiddle";
-import { TopBarSide } from "../../components/shared/top_bar/TopBarSIde";
+import Sidebar from "../../components/shared/sidebar/Sidebar";
+import TopBarMiddle from "../../components/shared/top_bar/TopBarMiddle";
+import TopBarSide from "../../components/shared/top_bar/TopBarSIde";
 
 const GlobalLayout = ({ body, side }) => {
   return (

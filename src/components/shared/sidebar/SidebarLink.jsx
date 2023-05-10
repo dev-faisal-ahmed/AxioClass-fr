@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function SidebarLink({ title, url, icon, currentRoute }) {
+const SidebarLink = ({ title, url, icon, currentRoute }) => {
   return (
     <div
       className={`px-5 border-r-4 ${
@@ -19,4 +19,5 @@ export default function SidebarLink({ title, url, icon, currentRoute }) {
       </Link>
     </div>
   );
-}
+};
+export default SidebarLink;

@@ -1,7 +1,7 @@
 import React from "react";
 import { RiSearchLine } from "react-icons/ri";
 
-export const Search = () => {
+const Search = () => {
   return (
     <div className="bg-primary-50 flex items-center px-4 py-2 rounded-lg w-full">
       <input
@@ -16,3 +16,4 @@ export const Search = () => {
     </div>
   );
 };
+export default Search;

@@ -1,6 +1,6 @@
 import { RiNotification2Line } from "react-icons/ri";
 
-export function NotificationIcon() {
+function NotificationIcon() {
   return (
     <div className="relative bg-primary-50 w-fit p-3 rounded-full">
       <RiNotification2Line size={20} />
@@ -10,3 +10,5 @@ export function NotificationIcon() {
     </div>
   );
 }
+
+export default NotificationIcon;

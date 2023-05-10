@@ -1,7 +1,7 @@
 import React from "react";
 import { user } from "../../../fake_data/user";
 
-export const TopBarMiddle = () => {
+const TopBarMiddle = () => {
   return (
     <div className="p-5">
       <h1 className="text-xl font-semibold mb-2">Hi, {user.userName} 👋</h1>
@@ -9,3 +9,4 @@ export const TopBarMiddle = () => {
     </div>
   );
 };
+export default TopBarMiddle;

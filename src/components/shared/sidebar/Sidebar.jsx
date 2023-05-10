@@ -3,7 +3,7 @@ import SidebarLink from "./SidebarLink";
 import { useLocation } from "react-router-dom";
 import { navLinks } from "../../../data/navLinks";
 
-export const Sidebar = () => {
+const Sidebar = () => {
   const location = useLocation();
   return (
     <div className="bg-white py-5">
@@ -22,3 +22,5 @@ export const Sidebar = () => {
     </div>
   );
 };
+
+export default Sidebar;
