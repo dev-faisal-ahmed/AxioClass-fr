@@ -7,9 +7,11 @@ const CircularGraph = () => {
       'conic-gradient(#6c4cdf 90deg, #DF4C76 90deg, #DF4C76 180deg, #eff0fe 0deg)',
   };
   return (
-    <div className="bg-white p-7 rounded-xl text-sm text-gray-600">
-      <div className="flex items-center justify-between mb-5">
-        <h2 className="text-xl text-blue-900 font-bold">Semester Fee</h2>
+    <div className="bg-white p-7 w-fit rounded-xl text-sm text-gray-600">
+      <div className="flex items-center justify-between gap-10 mb-5">
+        <h2 className="text-xl text-blue-900 font-bold whitespace-nowrap">
+          Semester Fee
+        </h2>
         <Link to="/" className="text-sm">
           More
         </Link>
