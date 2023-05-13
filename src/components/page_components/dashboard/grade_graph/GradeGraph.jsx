@@ -5,7 +5,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const GradeGraph = () => {
   return (
-    <div className="bg-white flex items-center py-6 px-8 rounded-lg text-gray-500">
+    <div className="col-span-3 bg-white flex items-center py-6 px-8 rounded-xl text-gray-500">
       <div className="w-full">
         {/* Top title section */}
         <div className="mb-8 flex items-center justify-between">

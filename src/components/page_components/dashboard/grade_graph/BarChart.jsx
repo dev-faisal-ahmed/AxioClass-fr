@@ -4,7 +4,7 @@ import BarLine from './BarLine';
 const BarChart = () => {
   return (
     <div className="text-gray-500 mx-5">
-      <div className="flex h-[200px] relative">
+      <div className="flex h-[210px] relative">
         {/* Y-axis data template */}
         <div className="w-fit flex flex-col justify-between text-sm font-semibold py-3">
           <div>4</div>
@@ -16,7 +16,7 @@ const BarChart = () => {
 
         {/* Main barlines that are placed upon the graph template */}
         <div className="w-full h-full absolute z-10 flex justify-between items-end px-16 py-5">
-          <BarLine data={3.2} />
+          {/* <BarLine data={3.2} /> */}
           <BarLine data={3.67} />
           <BarLine data={3.0} />
           <BarLine data={4.0} />
@@ -36,7 +36,7 @@ const BarChart = () => {
 
       {/* X-axis data template */}
       <div className="h-fit flex justify-between child:px-2 mt-1 px-12 text-sm font-semibold whitespace-nowrap">
-        <div>Sem 1</div>
+        {/* <div>Sem 1</div> */}
         <div>Sem 2</div>
         <div>Sem 3</div>
         <div>Sem 4</div>

@@ -6,11 +6,11 @@ import CircularGraph from '../../components/page_components/dashboard/circular_g
 const Dashboard = () => {
   return (
     <div>
-      <div className='grid grid-cols-3 mb-5'>
+      <div className="grid grid-cols-4 gap-5 mb-5">
         <CircularGraph />
+        <GradeGraph />
       </div>
 
-      <GradeGraph />
       <MyClasses />
     </div>
   );

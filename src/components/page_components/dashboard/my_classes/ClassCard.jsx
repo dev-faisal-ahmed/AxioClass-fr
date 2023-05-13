@@ -11,9 +11,9 @@ import { Link } from 'react-router-dom';
 
 const ClassCard = () => {
   return (
-    <div className="bg-white text-gray-500 rounded-lg overflow-hidden">
+    <div className="bg-white text-gray-500 rounded-xl overflow-hidden">
       {/* Top part of card with title and img */}
-      <div className="flex items-center gap-5 border-b border-gray-100 p-5">
+      <div className="flex items-center gap-5 border-b border-gray-100 p-6">
         <img
           className="h-[55px] w-[55px] rounded-lg"
           src="https://th.bing.com/th/id/R.d5e571abb4b3385e35b6fd2567a2ce72?rik=wf7RaVbYYkquJQ&pid=ImgRaw&r=0"
@@ -32,7 +32,7 @@ const ClassCard = () => {
       </div>
 
       {/* Bottom part of card with class info */}
-      <div className="p-5 border-b border-gray-100 ">
+      <div className="p-5 px-6 border-b border-gray-100 ">
         <div className="grid grid-cols-2 gap-3">
           <IconText icon={<IoFolderOutline />} title={'B class'} />
           <IconText icon={<BsFileEarmarkText />} title={'3 Credits'} />
@@ -42,7 +42,7 @@ const ClassCard = () => {
       </div>
 
       {/* Bottom button */}
-      <Link className="p-5 block text-center hover:bg-primary-600 transition text-primary-600 hover:text-white">
+      <Link className="p-4 block text-center hover:bg-primary-600 transition text-primary-600 hover:text-white">
         <p className="text-sm  font-semibold">
           {' '}
           View Class
