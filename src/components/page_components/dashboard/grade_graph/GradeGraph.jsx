@@ -12,7 +12,7 @@ const GradeGraph = () => {
           <h3 className="font-bold text-xl text-blue-900 ">Semester's Grade</h3>
 
           {/* Icon section */}
-          <div className="flex items-start gap-2 me-10 text-xl child:border child:p-1 child:rounded-lg child:cursor-pointer child-hover:text-purple-800 child-hover:border-purple-800 child:transition">
+          <div className="flex items-start gap-2 me-10 text-xl child:border child:p-1 child:rounded-lg child:cursor-pointer child-hover:text-primary-600 child-hover:border-primary-600 child:transition">
             <div>
               <IoIosArrowBack />
             </div>
