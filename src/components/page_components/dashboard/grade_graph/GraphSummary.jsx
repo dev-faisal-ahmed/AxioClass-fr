@@ -19,7 +19,7 @@ const GraphSummary = () => {
       <div className="mt-5">
         <SummaryInfo
           icon={<BsFillFileEarmarkBarGraphFill />}
-          title={'GPA'}
+          title={'CGPA'}
           data={3.79}
         />
         <SummaryInfo
