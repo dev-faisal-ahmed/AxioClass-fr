@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +12,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Hide scrollbar for all browsers */
@@ -27,7 +27,7 @@ body {
 
 .sidebar--logo {
   text-transform: uppercase;
-  font-family: "Bruno Ace SC", cursive;
+  font-family: 'Bruno Ace SC', cursive;
 }
 
 /* *********** tailwind combined styles *********** */
@@ -39,3 +39,4 @@ body {
     @apply transition-all duration-300;
   }
 }
+
