@@ -15,7 +15,7 @@ const GlobalLayout = ({ body, side }) => {
       <section className="bg-white h-full overflow-y-auto grid grid-rows-[auto_1fr]">
         {/* for top bar right */}
         <TopBarSide />
-        <section className="overflow-y-auto px-5">{side}</section>
+        <section className="overflow-y-auto px-6">{side}</section>
       </section>
     </section>
   );
