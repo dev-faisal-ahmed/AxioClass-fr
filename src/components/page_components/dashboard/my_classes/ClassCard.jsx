@@ -20,7 +20,7 @@ const ClassCard = () => {
           alt=""
         />
         <div>
-          <h2 className="font-semibold text-blue-900 mb-1">
+          <h2 className="font-semibold text-primary-900 mb-1">
             Interaction Engineering
           </h2>
           <div className="flex items-center gap-2">
@@ -43,10 +43,7 @@ const ClassCard = () => {
 
       {/* Bottom button */}
       <Link className="p-4 block text-center hover:bg-primary-600 transition text-primary-600 hover:text-white">
-        <p className="text-sm  font-semibold">
-          {' '}
-          View Class
-        </p>
+        <p className="text-sm  font-semibold"> View Class</p>
       </Link>
     </div>
   );

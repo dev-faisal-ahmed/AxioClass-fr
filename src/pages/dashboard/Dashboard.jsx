@@ -2,6 +2,7 @@ import React from 'react';
 import GradeGraph from '../../components/page_components/dashboard/grade_graph/GradeGraph';
 import MyClasses from '../../components/page_components/dashboard/my_classes/MyClasses';
 import CircularGraph from '../../components/page_components/dashboard/circular_graph/CircularGraph';
+import NoticeList from '../../components/page_components/dashboard/notice/NoticeList';
 
 const Dashboard = () => {
   return (
@@ -12,6 +13,7 @@ const Dashboard = () => {
       </div>
 
       <MyClasses />
+      <NoticeList />
     </div>
   );
 };

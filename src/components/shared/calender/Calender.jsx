@@ -36,7 +36,7 @@ const Calender = () => {
     <div className="bg-white border border-primary-50 px-7 py-6 rounded-xl select-none">
       {/* Top title bar */}
       <div className="flex justify-between items-center">
-        <h1 className="font-bold text-blue-900 text-lg">
+        <h1 className="font-bold text-primary-900 text-lg">
           {months[month]}, {year}
         </h1>
         {/* Icon section */}
@@ -52,7 +52,7 @@ const Calender = () => {
 
       {/* Calender grid */}
       <div>
-        <div className="grid grid-cols-7 gap-4 mt-5 text-blue-900  place-items-center">
+        <div className="grid grid-cols-7 gap-4 mt-5 text-primary-900  place-items-center">
           {/* Week line */}
           {weekdays.map((day) => (
             <div className="text-xs font-semibold opacity-70">{day}</div>
@@ -62,7 +62,9 @@ const Calender = () => {
             <div
               className={
                 'text-sm px-2 py-1 rounded cursor-pointer hover:bg-primary-100 transition ' +
-                (day === today ? 'bg-primary-600 hover:bg-primary-700 text-white' : '')
+                (day === today
+                  ? 'bg-primary-600 hover:bg-primary-700 text-white'
+                  : '')
               }
             >
               {day}

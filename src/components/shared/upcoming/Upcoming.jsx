@@ -6,11 +6,11 @@ const Upcoming = () => {
     <div className="border border-primary-50 rounded-xl p-6 grid gap-5">
       {/* Top titlebar */}
       <div className="flex justify-between items-center">
-        <h1 className="text-blue-900 text-lg font-bold">Upcoming</h1>
+        <h1 className="text-primary-900 text-lg font-bold">Upcoming</h1>
 
         {/* Right side select option */}
         <div className="border pr-2 py-1 rounded-lg">
-          <select className='pl-2' name="select-day" id="select-day">
+          <select className="pl-2" name="select-day" id="select-day">
             <option value="Today" selected>
               Today
             </option>
@@ -26,7 +26,7 @@ const Upcoming = () => {
       <p className="text-gray-500 mb-2">Monday, 15 May</p>
 
       {/* Event timeline */}
-      <div className='grid gap-3'>
+      <div className="grid gap-3">
         <EventTimeline />
         <div className="h-6 ml-3 w-px border-l border-dashed border-gray-400"></div>
         <EventTimeline />

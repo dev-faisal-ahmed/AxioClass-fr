@@ -28,7 +28,6 @@ body {
 .sidebar--logo {
   text-transform: uppercase;
   font-family: 'Bruno Ace SC', cursive;
-  color: #eff0fe80;
 }
 
 /* *********** tailwind combined styles *********** */
