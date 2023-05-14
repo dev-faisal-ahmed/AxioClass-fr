@@ -5,3 +5,8 @@
 - for a component you need to use two files one is jsx file and another for css file.
 - use separate css file for each component.
 - while adding class name make sure that you use this formate Ex: .componentName-className
+
+# rules
+
+- padding p-5
+- rounded-lg

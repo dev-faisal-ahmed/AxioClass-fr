@@ -1,29 +1,26 @@
 import React from "react";
-import "./sidebar.css";
-import { Sidelink } from "./sidelink/Sidelink";
+import SidebarLink from "./SidebarLink";
+import { useLocation } from "react-router-dom";
+import { navLinks } from "../../../data/navLinks";
 
-// Importing icons
-import { MdClass, MdDashboard } from "react-icons/md";
-import { IoCalendar } from "react-icons/io5";
-import { RiNumbersFill, RiSettings3Fill } from "react-icons/ri";
-import { BsFillCreditCard2FrontFill } from "react-icons/bs";
-
-export const Sidebar = () => {
+const Sidebar = () => {
+  const location = useLocation();
   return (
-    <div className="sidebar__root">
-      <h1 className="sidebar__logo">Axio Class</h1>
-      <div className="sidebar__links">
-        <Sidelink name={"dashboard"} url={"/"} icon={<MdDashboard />} />
-        <Sidelink
-          name={"Fees And Waiver"}
-          url={"/fees-and-waiver"}
-          icon={<BsFillCreditCard2FrontFill />}
-        />
-        <Sidelink name={"classes"} url={"/classes"} icon={<MdClass />} />
-        <Sidelink name={"schedule"} url={"/schedule"} icon={<IoCalendar />} />
-        <Sidelink name={"grades"} url={"/grades"} icon={<RiNumbersFill />} />
-        <Sidelink name={"settings"} url={"/settings"} icon={<RiSettings3Fill />} />
+    <div className="bg-white py-5">
+      <h1 className="sidebar--logo text-xl mb-12 text-center">Axio Class</h1>
+      <div className="flex flex-col gap-2">
+        {navLinks.map((data, index) => (
+          <SidebarLink
+            key={index}
+            title={data.title}
+            url={data.url}
+            icon={data.icon}
+            currentRoute={location.pathname}
+          />
+        ))}
       </div>
     </div>
   );
 };
+
+export default Sidebar;
