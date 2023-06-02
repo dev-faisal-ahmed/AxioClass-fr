@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalLayout from "../../layout/global_layout/GlobalLayout";
+import GlobalLayout from "../../layout/GlobalLayout";
 import FeesAndWaiverBody from "../../components/page_components/fees_and_waiver/FeesAndWaiverBody";
 
 const FeesAndWaiver = () => {

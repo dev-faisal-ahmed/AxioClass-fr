@@ -5,4 +5,5 @@ export const user = {
   section: "03",
   intake: "44",
   img: "https://i.ibb.co/0thTWpZ/Goku-Profile-Pic.jpg",
+  role: "admin",
 };

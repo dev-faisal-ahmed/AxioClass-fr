@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { feesDataSemWise } from "../../../fake_data/feesData";
 import { IoWalletSharp } from "react-icons/io5";
-import { GiReceiveMoney, GiPayMoney } from "react-icons/gi";
-import { AiTwotoneMoneyCollect } from "react-icons/ai";
+import { GiReceiveMoney, GiPayMoney, GiWallet } from "react-icons/gi";
 
 const FeesSummarySemesterWise = () => {
   const [activeSemester, setActiveSemester] = useState("All");
@@ -68,7 +67,7 @@ const FeesSummarySemesterWise = () => {
           amount: feesDataSemWise[activeSemester].paid,
         })}
         {summaryBox({
-          icon: <AiTwotoneMoneyCollect size={25} />,
+          icon: <GiWallet size={25} />,
           title: "Total Due",
           amount: feesDataSemWise[activeSemester].due,
         })}
