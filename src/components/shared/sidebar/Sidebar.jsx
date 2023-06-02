@@ -1,7 +1,7 @@
-import React from "react";
-import SidebarLink from "./SidebarLink";
-import { useLocation } from "react-router-dom";
-import { navLinks } from "../../../data/navLinks";
+import React from 'react';
+import SidebarLink from './SidebarLink';
+import { useLocation } from 'react-router-dom';
+import { navLinks } from '../../../data/navLinks';
 
 const Sidebar = () => {
   const location = useLocation();
