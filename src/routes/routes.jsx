@@ -1,9 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/home/Home";
 import FeesAndWaiver from "../pages/fees_and_waiver/FeesAndWaiver";
-import GlobalLayout from "../layout/GlobalLayout";
-import Dashboard from "../pages/dashboard/Dashboard";
-import DashboardSidebar from "../pages/dashboard/DashboardSidebar";
+import StudentProfile from "../components/page_components/student_profile/StudentProfile";
 
 export const routes = createBrowserRouter([
   {
@@ -11,4 +9,5 @@ export const routes = createBrowserRouter([
     element: <Home />,
   },
   { path: "/fees-and-waiver", element: <FeesAndWaiver /> },
+  { path: "/student-info", element: <StudentProfile /> },
 ]);
