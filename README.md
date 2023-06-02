@@ -8,5 +8,5 @@
 
 # rules
 
-- padding p-5
+- padding p-8
 - rounded-lg
