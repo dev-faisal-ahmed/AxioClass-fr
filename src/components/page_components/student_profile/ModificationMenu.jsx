@@ -21,7 +21,7 @@ const ModificationMenu = ({ open, setOpen }) => {
       {open && (
         <div
           ref={menuRef}
-          className="absolute p-5 bg-gray-200 rounded-lg right-0 flex flex-col gap-2"
+          className="absolute p-5 bg-gray-200 rounded-lg right-0 top-12 flex flex-col gap-2"
         >
           <button className={buttonClass}>Payment</button>
           <button className={buttonClass}>Update Waiver</button>

@@ -5,7 +5,7 @@ export const user = {
   dept: "CSE",
   section: "03",
   intake: "44",
-  img: "https://i.ibb.co/0thTWpZ/Goku-Profile-Pic.jpg",
+  img: "https://i.ibb.co/cbPDyRL/man-1.png",
   completedSemester: 8,
   cgpa: 3.78,
   // personal information
