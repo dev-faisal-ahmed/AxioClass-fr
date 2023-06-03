@@ -6,7 +6,8 @@ import { HiMail } from "react-icons/hi";
 import { FaPhone } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { BsTelephone } from "react-icons/bs";
-import { Margin } from "../../shared/UIHelper";
+import { HorizontalLine, Margin } from "../../shared/UIHelper";
+import StudentModification from "./StudentModification";
 
 const ProfileBox = () => {
   const dpStyle = { border: "10px solid white", position: "absolute", top: "-100%", left: "32px" };
@@ -37,11 +38,22 @@ const ProfileBox = () => {
       <div className="h-[100px] relative">
         <ProfileIcon img={user.img} size={"200px"} style={dpStyle} />
       </div>
+
       <div className="px-8 pb-8 pt-4">
-        <h1 className="text-2xl font-bold text-primary-900">{user.userName}</h1>
-        <p className="mt-2 text-gray-500">
-          Dept of {user.dept} &nbsp; || &nbsp; Intake: {user.intake}
-        </p>
+        {/* student information && modification*/}
+        <div className="flex justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-primary-900">{user.userName}</h1>
+            <p className="mt-2 text-gray-500">
+              Dept of {user.dept} &nbsp; || &nbsp; Intake: {user.intake}
+            </p>
+          </div>
+          {/* student modification */}
+          <div>
+            <StudentModification />
+          </div>
+        </div>
+
         <div className="mt-8 flex items-center gap-8">
           {/* address */}
           {iconBox({ icon: <MdLocationOn size={25} />, data: user.address })}
@@ -51,7 +63,7 @@ const ProfileBox = () => {
           {iconBox({ icon: <HiMail size={25} />, data: user.email })}
         </div>
         {/* line */}
-        <hr className="block my-5" />
+        <HorizontalLine className={"my-5"} />
         {/* Guardian information */}
         <h1 className="text-xl font-semibold mt-8 mb-5">Guardian Information.</h1>
         <div className="flex items-center gap-8">
