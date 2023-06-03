@@ -36,4 +36,6 @@ export const user = {
   },
   // role
   role: "admin",
+  // role: "teacher",
+  // role: "student",
 };
