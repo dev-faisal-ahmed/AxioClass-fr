@@ -12,7 +12,7 @@ const Login = () => {
   }
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className="flex flex-col gap-4 justify-center items-center w-[400px] border rounded-md p-4 text-center shadow-lg">
+      <div className="flex flex-col gap-4 justify-center items-center w-[400px] border rounded-md p-4 text-center shadow-lg hover:shadow-xl transition-all">
         <h3 className="text-xl font-semibold">Login</h3>
         <form onSubmit={loginInfo} className="flex flex-col items-center gap-4 w-full">
         <select className="border rounded p-2 w-full" name="user" id="user">
