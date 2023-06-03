@@ -1,7 +1,7 @@
 import React from "react";
 import TopBarMiddle from "../components/shared/top_bar/TopBarMiddle";
 import Sidebar from "../components/shared/sidebar/Sidebar";
-import TopBarSide from "../components/shared/top_bar/TopBarSIde";
+import TopBarSide from "../components/shared/top_bar/TopBarSide";
 
 const AdminLayout = ({ body, side, pageName, url }) => {
   return (
