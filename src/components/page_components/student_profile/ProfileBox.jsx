@@ -32,7 +32,7 @@ const ProfileBox = () => {
             </p>
           </div>
           {/* student modification */}
-          <div className="w-full">
+          <div className="flex-grow">
             <StudentModification />
           </div>
         </div>

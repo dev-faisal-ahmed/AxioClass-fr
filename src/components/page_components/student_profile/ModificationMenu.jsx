@@ -14,6 +14,7 @@ const ModificationMenu = ({ open, setOpen }) => {
       document.removeEventListener("click", handleClickOutside, true);
     };
   }, []);
+
   const buttonClass = `font-semibold text-left py-1 px-3 hover:bg-white w-full rounded-md`;
   return (
     <>
@@ -25,6 +26,7 @@ const ModificationMenu = ({ open, setOpen }) => {
           <button className={buttonClass}>Payment</button>
           <button className={buttonClass}>Update Waiver</button>
           <button className={buttonClass}>Password Recovery</button>
+          <button className={buttonClass}>Course Modification</button>
         </div>
       )}
     </>
