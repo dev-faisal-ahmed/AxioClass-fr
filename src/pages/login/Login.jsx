@@ -20,8 +20,8 @@ const Login = () => {
             <option value="teacher">Teacher</option>
             <option value="admin">Admin</option>
           </select>
-          <input className="border rounded p-2 w-full outline-none" placeholder="ID" type="text" name="id" id="id" />
-          <input className="border rounded p-2 w-full outline-none" placeholder="Password" type="password" name="pass" id="pass" />
+          <input required className="border rounded p-2 w-full outline-none" placeholder="ID" type="text" name="id" id="id" />
+          <input required className="border rounded p-2 w-full outline-none" placeholder="Password" type="password" name="pass" id="pass" />
           
           <button className="rounded bg-[#7A68EC] text-[#fff] p-2 w-fit hover:bg-transparent hover:text-[#000] border border-transparent hover:border-black transition-all">Login</button>
         </form>
