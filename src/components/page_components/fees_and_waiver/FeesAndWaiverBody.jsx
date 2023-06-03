@@ -1,5 +1,5 @@
 import FeesGraph from "./FeesGraph";
-import FeesSummarySemesterWise from "./feesSummarySemesterWise";
+import FeesSummarySemesterWise from "./FeesSummarySemesterWise";
 
 const FeesAndWaiverBody = () => {
   return (
