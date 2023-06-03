@@ -10,7 +10,7 @@ const AdminLayout = ({ body, side, pageName, url }) => {
       <section className="h-full overflow-y-auto grid grid-rows-[auto_1fr]">
         {/* for top bar middle */}
         <TopBarMiddle pageName={pageName} />
-        <section className="overflow-y-auto px-8">{body}</section>
+        <section className="overflow-y-auto px-8 pb-5">{body}</section>
       </section>
       <section className="bg-white h-full overflow-y-auto grid grid-rows-[auto_1fr]">
         {/* for top bar right */}

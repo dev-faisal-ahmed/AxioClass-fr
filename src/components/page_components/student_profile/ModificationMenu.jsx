@@ -14,12 +14,17 @@ const ModificationMenu = ({ open, setOpen }) => {
       document.removeEventListener("click", handleClickOutside, true);
     };
   }, []);
-
+  const buttonClass = `font-semibold text-left py-1 px-3 hover:bg-white w-full rounded-md`;
   return (
     <>
       {open && (
-        <div ref={menuRef} className="absolute p-8 bg-gray-100 rounded-lg right-0">
-          ModificationMenu
+        <div
+          ref={menuRef}
+          className="absolute p-5 bg-gray-200 rounded-lg right-0 flex flex-col gap-2"
+        >
+          <button className={buttonClass}>Payment</button>
+          <button className={buttonClass}>Update Waiver</button>
+          <button className={buttonClass}>Password Recovery</button>
         </div>
       )}
     </>
