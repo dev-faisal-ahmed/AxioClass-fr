@@ -2,12 +2,13 @@ import React from "react";
 import TopBarMiddle from "../components/shared/top_bar/TopBarMiddle";
 import Sidebar from "../components/shared/sidebar/Sidebar";
 import TopBarSide from "../components/shared/top_bar/TopBarSide";
-import { user } from "../fake_data/user";
 import Error404 from "../components/shared/Error404";
+import { getLocalUser } from "../utils/localStorage";
 
-const AdminLayout = ({ children, pageName, url }) => {
-  if (user.role !== "admin") return <Error404 />;
+const AdminLayout = ({ children, pageName }) => {
+  const { role } = getLocalUser();
 
+  if (role !== "admin") return <Error404 />;
   return (
     <main className="bg-primary-50 h-screen grid grid-cols-[280px_1fr_400px]">
       <Sidebar />
