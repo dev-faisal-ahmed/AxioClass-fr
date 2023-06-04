@@ -36,7 +36,7 @@ const AddStudentData = () => {
 
   return (
     <div className="pt-12">
-      <form onSubmit={onSubmit}>
+      <form className="flex flex-col gap-6" onSubmit={onSubmit}>
         <div className="rounded-md bg-[#7A68EC]">
           <h3 className="text-white text-xl font-bold p-2">
             Student Information
