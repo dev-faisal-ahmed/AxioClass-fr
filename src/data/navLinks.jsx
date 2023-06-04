@@ -50,7 +50,7 @@ export const adminNavLinks = [
   },
   {
     title: "Students",
-    url: "/student",
+    url: "/addStudent",
     icon: <FaUserGraduate size={20} />,
   },
   {
