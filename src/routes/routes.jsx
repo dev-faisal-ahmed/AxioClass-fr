@@ -5,6 +5,7 @@ import StudentProfile from "../components/page_components/student_profile/Studen
 import Login from "../pages/login/Login";
 import AdminFeesPage from "../components/page_components/admin_fees/AdminFeesPage";
 import AddStudent from "../pages/admin/addStudent/AddStudent";
+import AddNotice from "../pages/admin/addNotice/AddNotice";
 
 export const routes = createBrowserRouter([
   {
@@ -16,4 +17,5 @@ export const routes = createBrowserRouter([
   { path: "/login", element: <Login /> },
   { path: "/addStudent", element: <AddStudent /> },
   { path: "/fees", element: <AdminFeesPage /> },
+  { path: "/addnotice", element: <AddNotice /> },
 ]);
