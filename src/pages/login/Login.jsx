@@ -2,7 +2,7 @@ import React from "react";
 import { serverAddress } from "../../data/serverAddress";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../utils/toastConfig";
-import { setUser } from "../../utils/localStorage";
+import { setLocalUser } from "../../utils/localStorage";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -35,8 +35,11 @@ const Login = () => {
       toast.error(res?.msg, toastConfig);
       return;
     }
-    setUser(res.id);
+
+    setLocalUser({ id: res.id, role: res.role });
+    console.log(res);
     route("/");
+    // setTimeout(() => route("/"), 1000);
   };
 
   return (
