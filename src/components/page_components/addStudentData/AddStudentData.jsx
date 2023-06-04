@@ -160,7 +160,7 @@ const AddStudentData = () => {
                 <input
                   required
                   className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="John"
+                  placeholder="5.00"
                   type="number"
                   name="hsc"
                   id="hsc"
@@ -171,7 +171,7 @@ const AddStudentData = () => {
                 <input
                   required
                   className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="Wick"
+                  placeholder="5.00"
                   type="number"
                   name="ssc"
                   id="ssc"
