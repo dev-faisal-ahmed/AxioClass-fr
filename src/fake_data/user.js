@@ -1,11 +1,11 @@
 export const user = {
   // academic information
-  userName: "Son Goku Kakarot",
+  userName: "Faisal Ahmed",
   id: "19202103101",
   dept: "CSE",
   section: "03",
   intake: "44",
-  img: "https://i.ibb.co/cbPDyRL/man-1.png",
+  img: "https://i.ibb.co/rbBnRL5/faisal-ahmed.jpg",
   completedSemester: 8,
   cgpa: 3.78,
   // personal information
