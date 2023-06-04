@@ -3,6 +3,7 @@ import { IoCalendar } from "react-icons/io5";
 import { RiNumbersFill, RiSettings3Fill } from "react-icons/ri";
 import { BsFillCreditCard2FrontFill, BsCreditCardFill } from "react-icons/bs";
 import { FaUserGraduate, FaUserSecret } from "react-icons/fa";
+import {AiFillNotification} from "react-icons/ai"
 
 export const navLinks = [
   {
@@ -57,5 +58,10 @@ export const adminNavLinks = [
     title: "Teacher",
     url: "/teacher",
     icon: <FaUserSecret size={20} />,
+  },
+  {
+    title: "Notice",
+    url: "/addnotice",
+    icon: <AiFillNotification size={20} />,
   },
 ];
