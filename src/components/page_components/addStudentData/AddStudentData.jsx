@@ -1,7 +1,11 @@
 import React from "react";
+import { serverAddress } from "../../../data/serverAddress";
+import { toast } from "react-hot-toast";
+import { toastConfig } from "../../../utils/toastConfig";
 
 const AddStudentData = () => {
-  const onSubmit = (event) => {
+  // handle student admission
+  const onSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
     const image = form.image.value;
@@ -13,34 +17,57 @@ const AddStudentData = () => {
     const email = form.email.value;
     const number = form.number.value;
     const address = form.address.value;
-    const hsc = form.hsc.value
-    const ssc = form.ssc.value
-    const doc = form.doc.value
+    const hsc = form.hsc.value;
+    const ssc = form.ssc.value;
     const formData = {
       image: image,
-      fName: fName,
-      lName: lName,
-      pName: pName,
-      DOfBirth: DOfBirth,
-      DOfPlace: DOfPlace,
-      email: email,
-      number: number,
-      address: address,
-      hsc:hsc,
-      ssc:ssc,
-      doc:doc
+      fName: fName.trim(),
+      lName: lName.trim(),
+      pName: pName.trim(),
+      dob: DOfBirth,
+      birthPlace: DOfPlace.trim(),
+      email: email.trim(),
+      phone: number.trim(),
+      address: address.trim(),
+      hsc: hsc,
+      ssc: ssc,
     };
     console.log(formData);
-    form.reset();
+
+    // fetching data
+    const url = `${serverAddress}/add-student`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .catch((err) => {
+        toast.error(err, toastConfig);
+        return;
+      });
+
+    console.log(res);
+
+    // if (!res?.id) {
+    //   toast.error(res?.msg, toastConfig);
+    //   return;
+    // }
+
+    // setLocalUser({ id: res.id, role: res.role });
+    // route("/");
+
+    // form.reset();
   };
 
   return (
     <div className="pt-12">
       <form className="flex flex-col gap-6" onSubmit={onSubmit}>
         <div className="rounded-md bg-[#7A68EC]">
-          <h3 className="text-white text-xl font-bold p-2">
-            Student Information
-          </h3>
+          <h3 className="text-white text-xl font-bold p-2">Student Information</h3>
           <div className="bg-white rounded-b-md p-6 flex flex-col gap-6">
             <div className="flex flex-col items-end">
               <div>
@@ -146,21 +173,19 @@ const AddStudentData = () => {
                 rows="5"
               ></textarea>
             </div>
-            
           </div>
         </div>
         <div className="rounded-md bg-[#7A68EC]">
-          <h3 className="text-white text-xl font-bold p-2">
-            Student Academic info
-          </h3>
+          <h3 className="text-white text-xl font-bold p-2">Student Academic info</h3>
           <div className="bg-white rounded-b-md p-6 flex flex-col gap-6">
-          <div className="grid grid-cols-2 justify-around gap-6">
-          <div className="flex flex-col">
+            <div className="grid grid-cols-2 justify-around gap-6">
+              <div className="flex flex-col">
                 <label htmlFor="hsc">H.S.C</label>
                 <input
                   required
                   className="border border-[#7A68EC] rounded-md p-2"
                   placeholder="5.00"
+                  step={0.01}
                   type="number"
                   name="hsc"
                   id="hsc"
@@ -173,6 +198,7 @@ const AddStudentData = () => {
                   className="border border-[#7A68EC] rounded-md p-2"
                   placeholder="5.00"
                   type="number"
+                  step={0.01}
                   name="ssc"
                   id="ssc"
                 />
@@ -186,8 +212,8 @@ const AddStudentData = () => {
                   id="doc"
                 />
               </div>
-          </div>
-          <div className="flex w-full justify-center items-center text-white">
+            </div>
+            <div className="flex w-full justify-center items-center text-white">
               <div className="flex w-[200px]">
                 <button className="bg-[#7A68EC] hover:bg-[#22ca54] transition-all p-2 rounded-l-md w-1/2 hover:w-full">
                   Submit
@@ -201,7 +227,7 @@ const AddStudentData = () => {
               </div>
             </div>
           </div>
-          </div>
+        </div>
       </form>
     </div>
   );
