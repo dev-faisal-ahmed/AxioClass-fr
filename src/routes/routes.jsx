@@ -3,6 +3,7 @@ import Home from "../pages/home/Home";
 import FeesAndWaiver from "../pages/fees_and_waiver/FeesAndWaiver";
 import StudentProfile from "../components/page_components/student_profile/StudentProfile";
 import Login from "../pages/login/Login";
+import AdminFeesPage from "../components/page_components/admin_fees/AdminFeesPage";
 
 export const routes = createBrowserRouter([
   {
@@ -12,4 +13,5 @@ export const routes = createBrowserRouter([
   { path: "/fees-and-waiver", element: <FeesAndWaiver /> },
   { path: "/student-info", element: <StudentProfile /> },
   { path: "/login", element: <Login /> },
+  { path: "/fees", element: <AdminFeesPage /> },
 ]);

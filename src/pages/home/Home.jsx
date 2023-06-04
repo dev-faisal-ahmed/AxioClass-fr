@@ -9,7 +9,11 @@ const Home = () => {
   if (user.role === "student")
     return <GlobalLayout body={<Dashboard />} side={<DashboardSidebar />} />;
   else if (user.role === "admin")
-    return <AdminLayout body={<DashboardAdmin />} pageName={"Dashboard"} />;
+    return (
+      <AdminLayout pageName={"Dashboard"}>
+        <DashboardAdmin />
+      </AdminLayout>
+    );
 };
 
 export default Home;

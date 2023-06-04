@@ -1,19 +1,37 @@
 import React from "react";
 import ProfileIcon from "../../shared/profile_icon/ProfileIcon";
 import { user } from "../../../fake_data/user";
-import { IoWalletSharp } from "react-icons/io5";
-import { GiReceiveMoney, GiPayMoney, GiWallet } from "react-icons/gi";
 import { MdLocationOn } from "react-icons/md";
 import { HiMail } from "react-icons/hi";
 import { FaPhone } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { BsTelephone } from "react-icons/bs";
 import StudentModification from "./StudentModification";
-import { iconBox, showResult, Margin } from "../../shared/UIHelper";
+import { Margin } from "../../shared/UIHelper";
 
 const ProfileBox = () => {
   const dpStyle = { border: "10px solid white", position: "absolute", top: "-100%", left: "32px" };
   // ui functions
+
+  const showResult = ({ board, year, result, examName }) => {
+    return (
+      <div className="grid grid-cols-[auto_1fr] items-center gap-x-5">
+        <span className="block w-2 h-2 rounded-full bg-black"></span>
+        <p className="font-semibold center--y gap-5">
+          {examName},{board} Board ({year})
+        </p>
+        <p className="col-start-2 text-gray-500">Result: {result}</p>
+      </div>
+    );
+  };
+
+  const iconBox = ({ icon, data }) => {
+    return (
+      <div className="flex gap-2">
+        {icon} <span className="text-gray-500">{data}</span>
+      </div>
+    );
+  };
 
   return (
     <>

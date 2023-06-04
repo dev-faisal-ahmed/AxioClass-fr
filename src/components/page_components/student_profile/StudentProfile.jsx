@@ -4,14 +4,9 @@ import ProfileBox from "./ProfileBox";
 
 const StudentProfile = () => {
   return (
-    <AdminLayout
-      pageName={"Student Detail"}
-      body={
-        <>
-          <ProfileBox />
-        </>
-      }
-    />
+    <AdminLayout pageName={"Student Detail"}>
+      <ProfileBox />
+    </AdminLayout>
   );
 };
 
