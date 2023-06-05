@@ -31,13 +31,14 @@ const Login = () => {
         return;
       });
 
-    if (!res?.id) {
+    if (!res?.okay) {
       toast.error(res?.msg, toastConfig);
       return;
+    } else if (res?.okay) {
+      toast.success(res?.msg, toastConfig);
+      setLocalUser({ id: res?.id, role: res?.role, image: res?.image });
+      route("/");
     }
-
-    setLocalUser({ id: res.id, role: res.role });
-    route("/");
   };
 
   return (
