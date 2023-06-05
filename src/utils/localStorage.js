@@ -1,10 +1,12 @@
-export const setLocalUser = ({ id, role }) => {
+export const setLocalUser = ({ id, role, image }) => {
   localStorage.setItem("loggedUserId", id);
   localStorage.setItem("loggedUserRole", role);
+  localStorage.setItem("loggedUserImage", image);
 };
 
 export const getLocalUser = () => {
   const id = localStorage.getItem("loggedUserId");
   const role = localStorage.getItem("loggedUserRole");
-  return { id, role };
+  const image = localStorage.getItem("loggedUserImage");
+  return { id, role, image };
 };
