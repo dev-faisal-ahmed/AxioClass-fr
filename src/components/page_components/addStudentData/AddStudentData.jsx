@@ -1,7 +1,11 @@
 import React from "react";
+import { serverAddress } from "../../../data/serverAddress";
+import { toast } from "react-hot-toast";
+import { toastConfig } from "../../../utils/toastConfig";
 
 const AddStudentData = () => {
-  const onSubmit = (event) => {
+  // handle student admission
+  const onSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
     const image = form.image.value;
@@ -41,9 +45,50 @@ const AddStudentData = () => {
       semester:semester,
       intake:intake,
       id:id
+    //const hsc = form.hsc.value;
+    //const ssc = form.ssc.value;
+    //const formData = {
+      //image: image,
+      //fName: fName.trim(),
+      //lName: lName.trim(),
+      //pName: pName.trim(),
+      //dob: DOfBirth,
+      //birthPlace: DOfPlace.trim(),
+      //email: email.trim(),
+      //phone: number.trim(),
+      //address: address.trim(),
+     // hsc: hsc,
+      //ssc: ssc,
     };
     console.log(formData);
-    form.reset();
+
+    // fetching data
+    const url = `${serverAddress}/add-student`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .catch((err) => {
+        toast.error(err, toastConfig);
+        return;
+      });
+
+    console.log(res);
+
+    // if (!res?.id) {
+    //   toast.error(res?.msg, toastConfig);
+    //   return;
+    // }
+
+    // setLocalUser({ id: res.id, role: res.role });
+    // route("/");
+
+    // form.reset();
   };
 
   return (
@@ -177,7 +222,6 @@ const AddStudentData = () => {
                 rows="5"
               ></textarea>
             </div>
-            
           </div>
         </div>
         <div className="rounded-lg bg-[#7A68EC]">
@@ -192,6 +236,7 @@ const AddStudentData = () => {
                   required
                   className="border border-[#7A68EC] rounded-md p-2"
                   placeholder="5.00"
+                  step={0.01}
                   type="number"
                   name="hsc"
                   id="hsc"
@@ -204,6 +249,7 @@ const AddStudentData = () => {
                   className="border border-[#7A68EC] rounded-md p-2"
                   placeholder="5.00"
                   type="number"
+                  step={0.01}
                   name="ssc"
                   id="ssc"
                 />
