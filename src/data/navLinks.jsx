@@ -3,7 +3,7 @@ import { IoCalendar } from "react-icons/io5";
 import { RiNumbersFill, RiSettings3Fill } from "react-icons/ri";
 import { BsFillCreditCard2FrontFill, BsCreditCardFill } from "react-icons/bs";
 import { FaUserGraduate, FaUserSecret } from "react-icons/fa";
-import {AiFillNotification} from "react-icons/ai"
+import { AiFillNotification } from "react-icons/ai";
 
 export const navLinks = [
   {
@@ -51,7 +51,7 @@ export const adminNavLinks = [
   },
   {
     title: "Students",
-    url: "/addStudent",
+    url: "/add-student",
     icon: <FaUserGraduate size={20} />,
   },
   {
@@ -61,7 +61,7 @@ export const adminNavLinks = [
   },
   {
     title: "Notice",
-    url: "/addnotice",
+    url: "/add-notice",
     icon: <AiFillNotification size={20} />,
   },
 ];
