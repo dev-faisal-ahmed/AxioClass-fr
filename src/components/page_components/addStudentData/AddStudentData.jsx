@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { serverAddress } from "../../../data/serverAddress";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
 
 const AddStudentData = () => {
+  // handel image
+  const [imageLink,setImageLink] = useState("https://m.media-amazon.com/images/M/MV5BMzdjNjExMTgtZGFmNS00ZWRjLWJmNjAtOTliYzJjYjcxMWFhXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg")
   // handle student admission
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -100,19 +102,15 @@ const AddStudentData = () => {
           </h3>
           <div className="bg-white rounded-b-lg p-6 flex flex-col gap-6">
             <div className="flex flex-col items-end">
-              <div>
+              <div className="flex flex-col gap-2">
                 <label className="font-semibold" htmlFor="image">Photo</label>
                 <label
-                  className="border border-dashed border-[#7A68EC] rounded-md h-[150px] w-[150px] p-2 flex items-center justify-center"
+                style={{backgroundImage:`url(${imageLink})`}}
+                  className="bg-cover border border-dashed border-[#7A68EC] rounded-md h-[150px] w-[150px] p-2 flex items-center justify-center"
                   htmlFor="image"
                 >
-                  <span className="text-sm text-center text-gray-500">
-                    Drag and drop
-                    <br />
-                    your photo here
-                  </span>
                 </label>
-                <input className="hidden" type="file" name="image" id="image" />
+                <input onBlur={(e)=>{setImageLink(e.target.value)}} className="border border-[#7A68EC] rounded-md p-2 w-[150px] text-gray-500" type="text" placeholder="photo url here" name="image" id="image" />
               </div>
             </div>
             <div className="grid grid-cols-2 justify-around gap-6">
