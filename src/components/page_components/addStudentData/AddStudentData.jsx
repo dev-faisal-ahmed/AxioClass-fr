@@ -24,27 +24,27 @@ const AddStudentData = () => {
     const dept = form.dept.value
     const semester = form.semester.value
     const intake = form.intake.value
-    const id = form.id.value
+    // const id = form.id.value
 
 
     const formData = {
       image: image,
-      fName: fName,
-      lName: lName,
-      DOfBirth: DOfBirth,
-      DOfPlace: DOfPlace,
+      fName: fName.trim(),
+      lName: lName.trim(),
+      dob: DOfBirth,
+      birthPlace: DOfPlace,
       sex:sex,
-      email: email,
-      number: number,
-      pName: pName,
-      pNum: pNum,
-      address: address,
+      email: email.trim(),
+      number: number.trim(),
+      pName: pName.trim(),
+      pNum: pNum.trim(),
+      address: address.trim(),
       hsc:hsc,
       ssc:ssc,
       dept:dept,
       semester:semester,
       intake:intake,
-      id:id
+      // id:id
     //const hsc = form.hsc.value;
     //const ssc = form.ssc.value;
     //const formData = {
@@ -92,7 +92,7 @@ const AddStudentData = () => {
   };
 
   return (
-    <div className="pt-12">
+    <div>
       <form className="flex flex-col gap-6" onSubmit={onSubmit}>
         <div className="rounded-lg bg-[#7A68EC]">
           <h3 className="text-white text-xl font-bold p-2">
@@ -278,7 +278,7 @@ const AddStudentData = () => {
                   id="intake"
                 />
               </div>
-              <div className="flex flex-col">
+              {/* <div className="flex flex-col">
                 <label className="font-semibold pb-2" htmlFor="id">ID</label>
                 <input
                 required
@@ -288,22 +288,23 @@ const AddStudentData = () => {
                   name="id"
                   id="id"
                 />
-              </div>
+              </div> */}
           </div>
           
           </div>
           </div>
           <div className="flex w-full justify-end items-center text-white">
-              <div className="flex gap-12">
-                <button className="bg-[#7A68EC] hover:bg-[#22ca54] transition-all p-2 rounded-3xl w-[100px] font-bold">
-                  Submit
-                </button>
-                <button
+              <div className="flex gap-6">
+              <button
                   type="reset"
-                  className="bg-[#ec6868] hover:bg-[#ca2222] transition-all p-2 rounded-3xl w-[100px] font-bold"
+                  className="bg-[#ec6868] hover:bg-[#ca2222] animation p-2 rounded-lg w-[100px] font-bold"
                 >
                   Clear
                 </button>
+                <button className="bg-[#7A68EC] hover:bg-[#22ca54] animation p-2 rounded-lg w-[100px] font-bold">
+                  Submit
+                </button>
+                
               </div>
             </div>
       </form>

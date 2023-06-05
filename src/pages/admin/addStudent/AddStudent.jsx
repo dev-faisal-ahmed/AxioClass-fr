@@ -5,8 +5,8 @@ import AddStudentData from '../../../components/page_components/addStudentData/A
 
 const AddStudent = () => {
   return (
-    <AdminLayout>
-      <SumOfStudent/>
+    <AdminLayout pageName={"Add Student"}>
+      {/* <SumOfStudent/> */}
       <AddStudentData/>
     </AdminLayout>
   );
