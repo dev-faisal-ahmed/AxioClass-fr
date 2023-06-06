@@ -2,15 +2,16 @@ import React from "react";
 import SidebarLink from "./SidebarLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import { adminNavLinks, navLinks } from "../../../data/navLinks";
-import { user } from "../../../fake_data/user";
 import { HorizontalLine } from "../UIHelper";
 import { MdLogout } from "react-icons/md";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
+import { getLocalUser } from "../../../utils/localStorage";
 
 const Sidebar = () => {
   const location = useLocation();
   const route = useNavigate();
+  const {role} = getLocalUser()
 
   // logout function
   const handleLogout = () => {
@@ -27,7 +28,7 @@ const Sidebar = () => {
         <h1 className="sidebar--logo text-xl mb-12 text-center">Axio Class</h1>
         <div className="flex flex-col gap-2">
           {/* for admin */}
-          {user.role === "admin" &&
+          {role === "admin" &&
             adminNavLinks.map((data, index) => (
               <SidebarLink
                 key={index}
@@ -38,7 +39,7 @@ const Sidebar = () => {
               />
             ))}
           {/* for student */}
-          {user.role === "student" &&
+          {role === "student" &&
             navLinks.map((data, index) => (
               <SidebarLink
                 key={index}
