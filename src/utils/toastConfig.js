@@ -1,1 +1,1 @@
-export const toastConfig = { duration: 1000, position: "top-center" };
+export const toastConfig = { duration: 3000, position: "top-center" };

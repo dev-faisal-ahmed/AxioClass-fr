@@ -3,5 +3,5 @@ export const Margin = ({ className }) => {
 };
 
 export const HorizontalLine = ({ className }) => {
-  return <hr className={`block ${className}`} />;
+  return <div className={`block ${className}`}>&nbsp;</div>;
 };
