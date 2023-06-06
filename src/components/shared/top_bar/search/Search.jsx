@@ -1,19 +1,30 @@
 import React from "react";
 import { RiSearchLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+  const route = useNavigate();
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const searchKeyword = event.target.elements.search.value;
+    route(`/student-info/${searchKeyword}`);
+  };
+
   return (
-    <div className="bg-primary-50 flex items-center px-4 py-2 rounded-lg w-full">
+    <form
+      onSubmit={handleSearch}
+      className="bg-primary-50 flex items-center px-4 py-2 rounded-lg w-full"
+    >
       <input
+        name="search"
         className="bg-transparent w-full outline-none"
-        id="search"
         type="text"
         placeholder="Search ..."
       />
-      <label htmlFor="search">
+      <button className="outline-none">
         <RiSearchLine />
-      </label>
-    </div>
+      </button>
+    </form>
   );
 };
 export default Search;

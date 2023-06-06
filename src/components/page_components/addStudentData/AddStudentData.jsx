@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { serverAddress } from "../../../data/serverAddress";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
+import { useNavigate } from "react-router-dom";
 
 const AddStudentData = () => {
+  const route = useNavigate();
   // handel image
   const [imageLink, setImageLink] = useState(
     "https://m.media-amazon.com/images/M/MV5BMzdjNjExMTgtZGFmNS00ZWRjLWJmNjAtOTliYzJjYjcxMWFhXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg"
@@ -48,7 +50,6 @@ const AddStudentData = () => {
       intake,
       image,
     };
-    console.log(formData);
 
     // fetching data
     const url = `${serverAddress}/add-student`;
@@ -61,12 +62,20 @@ const AddStudentData = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
+      .then((res) => {
+        if (res.okay === false) {
+          console.log(res);
+          toast.error(res.msg, toastConfig);
+        }
+
+        toast.success("Student Admitted", toastConfig);
+        route(`/student-document/${res.id}`);
+      })
       .catch((err) => {
+        console.log(res);
         toast.error(err, toastConfig);
         return;
       });
-
-    console.log(res);
   };
 
   return (
