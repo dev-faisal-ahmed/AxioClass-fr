@@ -29,6 +29,16 @@ body {
   text-transform: uppercase;
   font-family: "Bruno Ace SC", cursive;
 }
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100dvh;
+  position: absolute;
+  width: 100vw;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* *********** tailwind combined styles *********** */
 @layer components {

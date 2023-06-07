@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SidebarLink from "./SidebarLink";
 import { useLocation, useNavigate } from "react-router-dom";
 import { adminNavLinks, navLinks } from "../../../data/navLinks";
@@ -9,9 +9,10 @@ import { toastConfig } from "../../../utils/toastConfig";
 import { getLocalUser } from "../../../utils/localStorage";
 
 const Sidebar = () => {
+  const [openModal, setOpenModal] = useState(false);
   const location = useLocation();
   const route = useNavigate();
-  const {role} = getLocalUser()
+  const { role } = getLocalUser();
 
   // logout function
   const handleLogout = () => {
