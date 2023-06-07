@@ -41,4 +41,7 @@ body {
   .animation {
     @apply transition-all duration-300;
   }
+  .card {
+    @apply bg-white rounded-md;
+  }
 }
