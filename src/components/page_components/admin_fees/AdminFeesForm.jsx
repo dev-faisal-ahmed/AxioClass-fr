@@ -15,10 +15,29 @@ const AdminFeesForm = ({ setStudentInfo }) => {
 
     if (studentId.length === null || studentId.trim() === "") return;
 
-    const url = `${serverAddress}/get-fees/${studentId}`;
+    const url = `${serverAddress}/payment/student/${studentId}`;
     fetch(url)
       .then((res) => res.json())
       .then((res) => setStudentInfo(res.data));
+  };
+
+  const payment = async () => {
+    const studentId = studentIdRef.current.value;
+    let amount = +amountRef.current.value; // converting the the amount into number
+    if (amount < 0) amount *= -1;
+
+    if (studentId === null || studentId.trim() === "" || amount < 0) return;
+
+    const url = `${serverAddress}/payment`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: studentId, amount }),
+    }).then((res) => res.json());
+    console.log(res);
   };
 
   return (
@@ -53,7 +72,7 @@ const AdminFeesForm = ({ setStudentInfo }) => {
       <div className="mt-4 center--y gap-5">
         <div className={`${inputDivClass} py-2 pl-5 center--y`}>
           {/* label */}
-          <label htmlFor={"How much? "}>
+          <label htmlFor={"amount"}>
             <BsFillCreditCard2BackFill size={25} />
           </label>
           {/* divider */}
@@ -61,14 +80,17 @@ const AdminFeesForm = ({ setStudentInfo }) => {
           {/* input */}
           <input
             ref={amountRef}
-            id={"student-id"}
+            id={"amount"}
             className="outline-none w-full"
-            type={"text"}
-            placeholder={"Input Student Id"}
+            type={"number"}
+            placeholder={"How much?"}
           />
         </div>
         {/* submit button */}
-        <button className="px-5 py-2 bg-primary-500 rounded-lg text-white animation hover:bg-primary-700">
+        <button
+          onClick={payment}
+          className="px-5 py-2 bg-primary-500 rounded-lg text-white animation hover:bg-primary-700"
+        >
           Submit
         </button>
       </div>
