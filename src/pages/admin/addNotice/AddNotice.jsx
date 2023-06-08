@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AdminLayout from "../../../layout/AdminLayout";
 import NoticeForm from "../../../components/page_components/noticeForm/NoticeForm";
 import NoticeCard from "../../../components/page_components/noticeCard/NoticeCard";
+import Modal from "../../../components/shared/modal/Modal";
 
 const AddNotice = () => {
   const [noticeForm,setNoticeForm] = useState(false)
@@ -13,15 +14,11 @@ const AddNotice = () => {
         </button>
       </div>
 
-      {/* {noticeForm?
-        <div onClick={()=>{setNoticeForm(!noticeForm)}} className="w-full h-full bg-slate-800/50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"></div>:null
-      } */}
-
-      {/* {noticeForm &&
-        <div className="">
+      <Modal modalState={noticeForm} setModalState={setNoticeForm} title={"Add Notice"} >
+      <div className="">
       <NoticeForm noticeForm={noticeForm} setNoticeForm={setNoticeForm} />
       </div>
-      } */}
+      </Modal>
 
       <div>
         <NoticeCard/>
