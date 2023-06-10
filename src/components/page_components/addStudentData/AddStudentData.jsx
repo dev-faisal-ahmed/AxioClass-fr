@@ -270,7 +270,7 @@ const AddStudentData = () => {
                   department
                 </label>
                 <select className="border border-[#7A68EC] rounded-md p-2" name="dept" id="dept">
-                  <option value="CSE">C.S.E</option>
+                  <option value="cse">C.S.E</option>
                 </select>
               </div>
               <div className="flex flex-col">

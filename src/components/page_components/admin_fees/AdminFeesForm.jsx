@@ -3,8 +3,10 @@ import { IoIosArrowForward } from "react-icons/io";
 import { FaUserGraduate } from "react-icons/fa";
 import { BsFillCreditCard2BackFill } from "react-icons/bs";
 import { serverAddress } from "../../../data/serverAddress";
+import { toast } from "react-hot-toast";
+import { toastConfig } from "../../../utils/toastConfig";
 
-const AdminFeesForm = ({ setStudentInfo }) => {
+const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
   const inputDivClass = `flex-grow flex gap-3 border border-gray-300 rounded-lg overflow-hidden`;
 
   const studentIdRef = useRef(null);
@@ -26,18 +28,26 @@ const AdminFeesForm = ({ setStudentInfo }) => {
     let amount = +amountRef.current.value; // converting the the amount into number
     if (amount < 0) amount *= -1;
 
-    if (studentId === null || studentId.trim() === "" || amount < 0) return;
+    if (studentId === null || studentId.trim() === "") return;
 
+    // api calling to pay
     const url = `${serverAddress}/payment`;
-    const res = await fetch(url, {
+    fetch(url, {
       method: "POST",
       headers: {
         Accept: "application.json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ id: studentId, amount }),
-    }).then((res) => res.json());
-    console.log(res);
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.okay) {
+          setPaymentInfo(res.data);
+        } else {
+          toast.error(res.msg, toastConfig);
+        }
+      });
   };
 
   return (
