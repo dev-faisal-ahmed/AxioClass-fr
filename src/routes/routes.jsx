@@ -9,6 +9,7 @@ import Error404 from "../components/shared/Error404";
 import StudentProfile from "../pages/admin/student/StudentProfile";
 import PrintPdf from "../pages/admin/student_document/PrintPdf";
 import AdminFeesPage from "../pages/admin/admin_fees_page/AdminFeesPage";
+import Courses from "../pages/student/courses/Courses";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -18,6 +19,10 @@ export const routes = createBrowserRouter([
   {
     path: "/",
     element: wrapperFunction(<Home />),
+  },
+  {
+    path: "/courses",
+    element: wrapperFunction(<Courses />),
   },
   {
     path: "/fees-and-waiver",

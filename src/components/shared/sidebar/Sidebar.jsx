@@ -7,6 +7,7 @@ import { MdLogout } from "react-icons/md";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
 import { getLocalUser } from "../../../utils/localStorage";
+import { removeUser } from "../../../utils/logout";
 
 const Sidebar = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -16,9 +17,7 @@ const Sidebar = () => {
 
   // logout function
   const handleLogout = () => {
-    localStorage.removeItem("loggedUserId");
-    localStorage.removeItem("loggedUserRole");
-    localStorage.removeItem("loggedUserImage");
+    removeUser();
     toast.success("User Logged out!", toastConfig);
     route("/login");
   };
@@ -56,7 +55,7 @@ const Sidebar = () => {
       <div>
         <HorizontalLine className={"mb-5"} />
         <button
-          className="px-8 py-3 bg-rose-500 hover:bg-red-600 mx-auto rounded-lg text-white center--xy gap-2 font-semibold animation"
+          className="px-8 py-3 bg-rose-500 border-2 hover:border-red-500 hover:text-red-500 hover:bg-white mx-auto rounded-lg text-white center--xy gap-2 font-semibold animation"
           onClick={handleLogout}
         >
           <MdLogout size={25} />
