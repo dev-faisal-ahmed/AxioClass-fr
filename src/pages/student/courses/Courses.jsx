@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GlobalLayout from "../../../layout/GlobalLayout";
-import AddCourses from "../../../components/page_components/student/course_page/AddCourse";
+import AddCourses from "../../../components/page_components/student/course_page/add_course/AddCourse";
+import CurrentCourses from "../../../components/page_components/student/course_page/current_course/CurrentCourses";
 
 const Courses = () => {
   const [addCourse, setAddCourse] = useState(false);
@@ -29,6 +30,7 @@ const Courses = () => {
 
           {/* add Courses */}
           {addCourse && <AddCourses />}
+          <CurrentCourses />
         </>
       }
     ></GlobalLayout>
