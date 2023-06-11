@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { getLocalUser } from "../../../../utils/localStorage";
-import { serverAddress } from "../../../../data/serverAddress";
-import { toastConfig } from "../../../../utils/toastConfig";
+import { getLocalUser } from "../../../../../utils/localStorage";
+import { serverAddress } from "../../../../../data/serverAddress";
+import { toastConfig } from "../../../../../utils/toastConfig";
 import AddCourseTable from "./AddCourseTable";
 
 const AddCourses = () => {
