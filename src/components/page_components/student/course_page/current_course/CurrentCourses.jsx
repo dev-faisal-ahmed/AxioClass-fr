@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { getLocalUser } from "../../../../../utils/localStorage";
-import { serverAddress } from "../../../../../data/serverAddress";
+
+import { useGetCurrentCourses } from "../../../../../hooks/courses/useGetCurrentCourses";
 
 const CurrentCourses = () => {
   const { id } = getLocalUser();
-  // state
-  const [currentCourses, setCurrentCourses] = useState([]);
-  useEffect(() => {
-    const url = `${serverAddress}/courses/current/${id}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        setCurrentCourses(res.data);
-      });
-  }, []);
+  const { currentCourses } = useGetCurrentCourses(id);
 
   return (
     <section className="mt-5 bg-white p-5 rounded-lg">
@@ -21,11 +13,13 @@ const CurrentCourses = () => {
       {currentCourses?.length > 0 && (
         <table className="w-full">
           <thead className="border-b text-left">
-            <th className="pb-3 pl-5">Course Code</th>
-            <th>Course Title</th>
-            <th className="pb-3 text-center">Credit</th>
-            <th className="pb-3 text-center">Type</th>
-            <th className="pb-3 text-center">Class Room</th>
+            <tr>
+              <th className="pb-3 pl-5">Course Code</th>
+              <th>Course Title</th>
+              <th className="pb-3 text-center">Credit</th>
+              <th className="pb-3 text-center">Type</th>
+              <th className="pb-3 text-center">Class Room</th>
+            </tr>
           </thead>
           <tbody>
             {currentCourses.map((course, index) => (
