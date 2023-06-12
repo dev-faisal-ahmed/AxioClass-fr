@@ -2,25 +2,27 @@ import React from "react";
 import CourseTableRow from "./CourseTableRow";
 import { serverAddress } from "../../../../../data/serverAddress";
 import { getLocalUser } from "../../../../../utils/localStorage";
+import { useGetCurrentCourses } from "../../../../../hooks/courses/useGetCurrentCourses";
+import { postReq } from "../../../../../utils/postReq";
+import { toast } from "react-hot-toast";
+import { toastConfig } from "../../../../../utils/toastConfig";
 
-const AddCourseTable = ({ allCourses, selectedCourses, setSelectedCourses }) => {
+const AddCourseTable = ({ allCourses, selectedCourses, setSelectedCourses, setAddCourse }) => {
   // variables
   const { id } = getLocalUser();
+  const { refetch } = useGetCurrentCourses(id);
   // functions
   const handleAddCourse = () => {
     const url = `${serverAddress}/courses/registration`;
     console.log("Clicked");
     // console.log(selectedCourses);
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Accept: "application.json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ selectedCourses, id }),
-    })
+    fetch(url, postReq({ selectedCourses, id }))
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.okay) refetch();
+        setAddCourse(false);
+        toast.success("Course Added", toastConfig);
+      });
   };
   // ui helper functions
   return (
@@ -28,11 +30,13 @@ const AddCourseTable = ({ allCourses, selectedCourses, setSelectedCourses }) => 
       <h1 className="mb-5 px-5 text-xl font-bold text-primary-900">Select Courses</h1>
       <table className="w-full">
         <thead className="border-b text-left">
-          <th className="pb-3 pl-5">Course Code</th>
-          <th>Course Title</th>
-          <th className="pb-3 text-center">Credit</th>
-          <th className="pb-3 text-center">Type</th>
-          <th className="pb-3 text-center">Remarks</th>
+          <tr>
+            <th className="pb-3 pl-5">Course Code</th>
+            <th>Course Title</th>
+            <th className="pb-3 text-center">Credit</th>
+            <th className="pb-3 text-center">Type</th>
+            <th className="pb-3 text-center">Remarks</th>
+          </tr>
         </thead>
         <tbody className="">
           {allCourses?.map((course, index) => (

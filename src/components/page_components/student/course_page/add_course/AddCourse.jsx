@@ -5,7 +5,7 @@ import { serverAddress } from "../../../../../data/serverAddress";
 import { toastConfig } from "../../../../../utils/toastConfig";
 import AddCourseTable from "./AddCourseTable";
 
-const AddCourses = () => {
+const AddCourses = ({ setAddCourse }) => {
   const [allCourses, setAllCourses] = useState([]);
   const [selectedCourses, setSelectedCourses] = useState({});
   const { id } = getLocalUser();
@@ -28,6 +28,7 @@ const AddCourses = () => {
           allCourses={allCourses}
           selectedCourses={selectedCourses}
           setSelectedCourses={setSelectedCourses}
+          setAddCourse={setAddCourse}
         />
       )}
     </section>

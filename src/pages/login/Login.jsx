@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { toastConfig } from "../../utils/toastConfig";
 import { setLocalUser } from "../../utils/localStorage";
 import { useNavigate } from "react-router-dom";
+import { postReq } from "../../utils/postReq";
 
 const Login = () => {
   const route = useNavigate();
@@ -17,14 +18,7 @@ const Login = () => {
     const url = `${serverAddress}/login/${user}`;
 
     // fetching data
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        Accept: "application.json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id, password }),
-    })
+    const res = await fetch(url, postReq({ id, password }))
       .then((res) => res.json())
       .catch((err) => {
         toast.error(err, toastConfig);

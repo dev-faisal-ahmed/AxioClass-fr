@@ -29,7 +29,7 @@ const Courses = () => {
           )}
 
           {/* add Courses */}
-          {addCourse && <AddCourses />}
+          {addCourse && <AddCourses setAddCourse={setAddCourse} />}
           <CurrentCourses />
         </>
       }
