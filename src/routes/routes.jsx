@@ -9,6 +9,7 @@ import LoginProvider from "../components/shared/guard/LoginProvider";
 import Error404 from "../components/shared/Error404";
 import StudentProfile from "../pages/admin/student/StudentProfile";
 import PrintPdf from "../pages/admin/student_document/PrintPdf";
+import AddTeacher from "../pages/addTeacher/AddTeacher";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -31,6 +32,10 @@ export const routes = createBrowserRouter([
   {
     path: "/add-student",
     element: wrapperFunction(<AddStudent />),
+  },
+  {
+    path: "/add-teacher",
+    element: wrapperFunction(<AddTeacher />),
   },
   {
     path: "/student-document/:id",

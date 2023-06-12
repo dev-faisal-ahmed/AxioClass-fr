@@ -56,7 +56,7 @@ export const adminNavLinks = [
   },
   {
     title: "Teacher",
-    url: "/teacher",
+    url: "/add-teacher",
     icon: <FaUserSecret size={20} />,
   },
   {
