@@ -52,7 +52,7 @@ const AddTeacherData = () => {
 
             <div className="w-full flex justify-end">
               <div className="flex flex-col gap-2">
-                <TeacherInfoLabel label={"photo"} htmlFor={"Image"} />
+                <TeacherInfoLabel label={"photo"} htmlFor={"image"} />
                 <label
                   style={{ backgroundImage: `url(${imageLink})` }}
                   className="bg-cover border border-dashed border-[#7A68EC] rounded-md h-[150px] w-[150px] p-2 flex items-center justify-center"
