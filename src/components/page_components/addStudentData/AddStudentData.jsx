@@ -3,6 +3,8 @@ import { serverAddress } from "../../../data/serverAddress";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
 import { useNavigate } from "react-router-dom";
+import StudentInfoLabel from "./StudentInfoLabel";
+import StudentInfoInput from "./StudentInfoInput";
 
 const AddStudentData = () => {
   const route = useNavigate();
@@ -26,7 +28,11 @@ const AddStudentData = () => {
     const pNum = form.pNum.value;
     const address = form.address.value;
     const hsc = form.hsc.value;
+    const hscyear = form.hscyear.value;
+    const hscboard = form.hscboard.value;
     const ssc = form.ssc.value;
+    const sscyear = form.sscyear.value;
+    const sscboard = form.sscboard.value;
     const dept = form.dept.value;
     const semester = form.semester.value;
     const intake = form.intake.value;
@@ -44,7 +50,11 @@ const AddStudentData = () => {
       pNum: pNum.trim(),
       address: address.trim(),
       hsc,
+      hscyear,
+      hscboard,
       ssc,
+      sscyear,
+      sscboard,
       dept,
       semester,
       intake,
@@ -86,9 +96,7 @@ const AddStudentData = () => {
           <div className="bg-white rounded-b-lg p-6 flex flex-col gap-6">
             <div className="flex flex-col items-end">
               <div className="flex flex-col gap-2">
-                <label className="font-semibold" htmlFor="image">
-                  Photo
-                </label>
+              <StudentInfoLabel label={"photo"} htmlFor={"image"} />
                 <label
                   style={{ backgroundImage: `url(${imageLink})` }}
                   className="bg-cover border border-dashed border-[#7A68EC] rounded-md h-[150px] w-[150px] p-2 flex items-center justify-center"
@@ -108,57 +116,42 @@ const AddStudentData = () => {
             </div>
             <div className="grid grid-cols-2 justify-around gap-6">
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="fName">
-                  First Name
-                </label>
-                <input
-                  required
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="John"
-                  type="text"
-                  name="fName"
-                  id="fName"
+              <StudentInfoLabel label={"First Name"} htmlFor={"fName"} />
+              <StudentInfoInput
+                  placeholder={"John"}
+                  type={"text"}
+                  id={"fName"}
+                  name={"fName"}
                 />
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="lName">
-                  Last Name
-                </label>
-                <input
-                  required
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="Wick"
-                  type="text"
-                  name="lName"
-                  id="lName"
+              <StudentInfoLabel label={"Last Name"} htmlFor={"lName"} />
+              <StudentInfoInput
+                  placeholder={"Wick"}
+                  type={"text"}
+                  id={"lName"}
+                  name={"lName"}
                 />
               </div>
               <div className="flex  flex-col">
-                <label className="font-semibold pb-2" htmlFor="DOfBirth">
-                  Date of birth & place
-                </label>
+              <StudentInfoLabel label={"Date of birth & place"} htmlFor={"DOfBirth"} />
                 <div className="flex gap-6 justify-between">
-                  <input
-                    required
-                    className="border border-[#7A68EC] rounded-md p-2"
-                    type="date"
-                    name="DOfBirth"
-                    id="DOfBirth"
-                  />
-                  <input
-                    required
-                    className="border border-[#7A68EC] rounded-md p-2"
-                    placeholder="Dhaka"
-                    type="text"
-                    name="DOfPlace"
-                    id="DOfPlace"
-                  />
+                <StudentInfoInput
+                  placeholder={""}
+                  type={"date"}
+                  id={"DOfBirth"}
+                  name={"DOfBirth"}
+                />
+                <StudentInfoInput
+                  placeholder={"Dhaka"}
+                  type={"text"}
+                  id={"DOfPlace"}
+                  name={"DOfPlace"}
+                />
                 </div>
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="sex">
-                  Sex
-                </label>
+              <StudentInfoLabel label={"Sex"} htmlFor={"Sex"} />
                 <select className="border border-[#7A68EC] rounded-md p-2" name="sex" id="sex">
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -166,62 +159,44 @@ const AddStudentData = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  required
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="johnwick@example.com"
-                  type="email"
-                  name="email"
-                  id="email"
+              <StudentInfoLabel label={"Email"} htmlFor={"email"} />
+              <StudentInfoInput
+                  placeholder={"johnwick@example.com"}
+                  type={"email"}
+                  id={"email"}
+                  name={"email"}
                 />
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="number">
-                  number
-                </label>
-                <input
-                  required
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="+8801234567890"
-                  type="number"
-                  name="number"
-                  id="number"
+              <StudentInfoLabel label={"number"} htmlFor={"number"} />
+              <StudentInfoInput
+                  placeholder={"+8801234567890"}
+                  type={"number"}
+                  id={"number"}
+                  name={"number"}
                 />
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="pName">
-                  Parents Name
-                </label>
-                <input
-                  required
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="Wick"
-                  type="text"
-                  name="pName"
-                  id="pName"
+              <StudentInfoLabel label={"Parents Name"} htmlFor={"pName"} />
+              <StudentInfoInput
+                  placeholder={"Wick"}
+                  type={"text"}
+                  id={"pName"}
+                  name={"pName"}
                 />
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="pNum">
-                  Parents Number
-                </label>
-                <input
-                  required
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="+8801234567890"
-                  type="number"
-                  name="pNum"
-                  id="pNum"
+              <StudentInfoLabel label={"Parents Number"} htmlFor={"pNum"} />
+              <StudentInfoInput
+                  placeholder={"+8801234567890"}
+                  type={"number"}
+                  id={"pNum"}
+                  name={"pNum"}
                 />
               </div>
             </div>
             <div className="flex flex-col">
-              <label className="font-semibold pb-2" htmlFor="address">
-                Address
-              </label>
+              <StudentInfoLabel label={"Address"} htmlFor={"address"} />
               <textarea
                 required
                 className="border border-[#7A68EC] rounded-md p-2"
@@ -238,45 +213,67 @@ const AddStudentData = () => {
           <div className="bg-white rounded-b-lg p-6 flex flex-col gap-6">
             <div className="grid grid-cols-2 justify-around gap-6">
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="hsc">
-                  H.S.C
-                </label>
-                <input
-                  required
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="5.00"
-                  step={0.01}
-                  type="number"
-                  name="hsc"
-                  id="hsc"
+              <StudentInfoLabel label={"H.S.C"} htmlFor={"hsc"} />
+              <StudentInfoInput
+                  placeholder={"5.00"}
+                  type={"number"}
+                  id={"hsc"}
+                  name={"hsc"}
                 />
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="ssc">
-                  S.S.C
-                </label>
-                <input
-                  required
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  placeholder="5.00"
-                  type="number"
-                  step={0.01}
-                  name="ssc"
-                  id="ssc"
+              <StudentInfoLabel label={"S.S.C"} htmlFor={"ssc"} />
+              <StudentInfoInput
+                  placeholder={"5.00"}
+                  type={"number"}
+                  id={"ssc"}
+                  name={"ssc"}
                 />
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="dept">
-                  department
-                </label>
+              <StudentInfoLabel label={"H.S.C year"} htmlFor={"hscyear"} />
+              <StudentInfoInput
+                  placeholder={"2123"}
+                  type={"number"}
+                  id={"hscyear"}
+                  name={"hscyear"}
+                />
+              </div>
+              <div className="flex flex-col">
+              <StudentInfoLabel label={"S.S.C year"} htmlFor={"sscyear"} />
+              <StudentInfoInput
+                  placeholder={"2120"}
+                  type={"number"}
+                  id={"sscyear"}
+                  name={"sscyear"}
+                />
+              </div>
+              <div className="flex flex-col">
+              <StudentInfoLabel label={"H.S.C board"} htmlFor={"hscboard"} />
+              <StudentInfoInput
+                  placeholder={"Barishal"}
+                  type={"text"}
+                  id={"hscboard"}
+                  name={"hscboard"}
+                />
+              </div>
+              <div className="flex flex-col">
+              <StudentInfoLabel label={"S.S.C board"} htmlFor={"sscboard"} />
+              <StudentInfoInput
+                  placeholder={"Barishal"}
+                  type={"text"}
+                  id={"sscboard"}
+                  name={"sscboard"}
+                />
+              </div>
+              <div className="flex flex-col">
+              <StudentInfoLabel label={"department"} htmlFor={"dept"} />
                 <select className="border border-[#7A68EC] rounded-md p-2" name="dept" id="dept">
                   <option value="cse">C.S.E</option>
                 </select>
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="semester">
-                  Semester
-                </label>
+              <StudentInfoLabel label={"Semester"} htmlFor={"semester"} />
                 <select
                   className="border border-[#7A68EC] rounded-md p-2"
                   name="semester"
@@ -287,16 +284,12 @@ const AddStudentData = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="intake">
-                  Intake
-                </label>
-                <input
-                  required
-                  placeholder="46"
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  type="number"
-                  name="intake"
-                  id="intake"
+              <StudentInfoLabel label={"Intake"} htmlFor={"Intake"} />
+              <StudentInfoInput
+                  placeholder={"5.00"}
+                  type={"number"}
+                  id={"intake"}
+                  name={"intake"}
                 />
               </div>
               {/* <div className="flex flex-col">
