@@ -5,6 +5,7 @@ import { BsFillCreditCard2BackFill } from "react-icons/bs";
 import { serverAddress } from "../../../data/serverAddress";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
+import { postReq } from "../../../utils/postReq";
 
 const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
   const inputDivClass = `flex-grow flex gap-3 border border-gray-300 rounded-lg overflow-hidden`;
@@ -32,18 +33,12 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
 
     // api calling to pay
     const url = `${serverAddress}/payment`;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        Accept: "application.json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id: studentId, amount }),
-    })
+    fetch(url, postReq({ id: studentId, amount }))
       .then((res) => res.json())
       .then((res) => {
         if (res.okay) {
           setPaymentInfo(res.data);
+          setStudentInfo({});
         } else {
           toast.error(res.msg, toastConfig);
         }

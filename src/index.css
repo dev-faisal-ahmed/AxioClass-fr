@@ -54,4 +54,7 @@ body {
   .card {
     @apply bg-white rounded-md;
   }
+  .button-primary {
+    @apply px-10 py-2 border-2 border-transparent rounded-lg font-semibold hover:border-primary-600 bg-primary-600 text-white hover:bg-transparent hover:text-primary-600 mx-auto animation;
+  }
 }
