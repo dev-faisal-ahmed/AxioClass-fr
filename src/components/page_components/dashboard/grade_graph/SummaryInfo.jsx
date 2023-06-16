@@ -18,7 +18,7 @@ const SummaryInfo = ({ icon, title, data, color }) => {
       </div>
       {/* Right side Content */}
       <div>
-        <h2 className="font-bold text-blue-900">{data}</h2>
+        <h2 className="font-bold text-primary-900">{data}</h2>
         <p className="text-xs">{title}</p>
       </div>
     </div>

@@ -9,7 +9,7 @@ const CircularGraph = () => {
   return (
     <div className="bg-white p-7 w-fit rounded-xl text-sm text-gray-600">
       <div className="flex items-center justify-between gap-10 mb-5">
-        <h2 className="text-xl text-blue-900 font-bold whitespace-nowrap">
+        <h2 className="text-xl text-primary-900 font-bold whitespace-nowrap">
           Semester Fee
         </h2>
         <Link to="/" className="text-sm">
@@ -20,8 +20,8 @@ const CircularGraph = () => {
       {/* Graph */}
       <div style={style} className="relative rounded-full h-36 w-36 mx-auto">
         <div className="w-20 h-20 rounded-full bg-white absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 flex flex-col justify-center items-center ">
-          <p className="text-xl font-bold text-blue-900">50%</p>
-          <p className="font-bold text-blue-900">Due</p>
+          <p className="text-xl font-bold text-primary-900">50%</p>
+          <p className="font-bold text-primary-900">Due</p>
         </div>
       </div>
 

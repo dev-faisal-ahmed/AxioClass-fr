@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +12,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Hide scrollbar for all browsers */
@@ -27,16 +27,34 @@ body {
 
 .sidebar--logo {
   text-transform: uppercase;
-  font-family: 'Bruno Ace SC', cursive;
+  font-family: "Bruno Ace SC", cursive;
+}
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100dvh;
+  position: absolute;
+  width: 100vw;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* *********** tailwind combined styles *********** */
 @layer components {
+  .center--y {
+    @apply flex items-center;
+  }
   .center--xy {
     @apply flex items-center justify-center;
   }
   .animation {
     @apply transition-all duration-300;
   }
+  .card {
+    @apply bg-white rounded-md;
+  }
+  .button-primary {
+    @apply px-10 py-2 border-2 border-transparent rounded-lg font-semibold hover:border-primary-600 bg-primary-600 text-white hover:bg-transparent hover:text-primary-600 mx-auto animation;
+  }
 }
-

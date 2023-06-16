@@ -9,7 +9,9 @@ const GradeGraph = () => {
       <div className="w-full">
         {/* Top title section */}
         <div className="mb-8 flex items-center justify-between">
-          <h3 className="font-bold text-xl text-blue-900 ">Semester's Grade</h3>
+          <h3 className="font-bold text-xl text-primary-900 ">
+            Semester's Grade
+          </h3>
 
           {/* Icon section */}
           <div className="flex items-start gap-2 me-10 text-xl child:border child:p-1 child:rounded-lg child:cursor-pointer child-hover:text-primary-600 child-hover:border-primary-600 child:transition">

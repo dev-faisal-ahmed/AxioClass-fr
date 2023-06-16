@@ -8,10 +8,10 @@ import SummaryInfo from './SummaryInfo';
 
 const GraphSummary = () => {
   return (
-    <div className="bg-primary-50 w-fit p-6 rounded-xl">
+    <div className="bg-primary-25 w-fit p-6 rounded-xl">
       {/* Top title bar */}
       <div className="flex items-center justify-between">
-        <h1 className="font-bold text-blue-900">Summary</h1>
+        <h1 className="font-bold text-primary-900">Summary</h1>
         <BsThreeDotsVertical className="text-lg" />
       </div>
 

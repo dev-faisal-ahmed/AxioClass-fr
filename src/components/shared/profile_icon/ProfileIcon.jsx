@@ -1,4 +1,4 @@
-const ProfileIcon = ({ size, img }) => {
+const ProfileIcon = ({ size, img, style }) => {
   return (
     <div
       style={{
@@ -8,6 +8,7 @@ const ProfileIcon = ({ size, img }) => {
         backgroundPosition: "center",
         backgroundSize: "cover",
         borderRadius: "50%",
+        ...style,
       }}
     >
       &nbsp;

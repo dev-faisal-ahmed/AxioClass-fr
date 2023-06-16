@@ -1,11 +1,10 @@
 import React from "react";
-import { user } from "../../../fake_data/user";
 
-const TopBarMiddle = () => {
+const TopBarMiddle = ({ pageName }) => {
+  // detecting scroll
   return (
-    <div className="p-5">
-      <h1 className="text-xl font-semibold mb-2">Hi, {user.userName} 👋</h1>
-      <p className="text-sm text-gray-500">Department of {user.dept}</p>
+    <div className={`py-5 px-8`}>
+      <h1 className="text-xl font-semibold mb-2">{pageName}</h1>
     </div>
   );
 };

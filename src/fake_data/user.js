@@ -1,8 +1,41 @@
 export const user = {
-  userName: "Son Goku",
+  // academic information
+  userName: "Faisal Ahmed",
   id: "19202103101",
   dept: "CSE",
   section: "03",
   intake: "44",
-  img: "https://i.ibb.co/0thTWpZ/Goku-Profile-Pic.jpg",
+  img: "https://i.ibb.co/rbBnRL5/faisal-ahmed.jpg",
+  completedSemester: 8,
+  cgpa: 3.78,
+  // personal information
+  guardian: {
+    name: "Grandpa Gohan",
+    phone: "+800-1923141970",
+  },
+  address: "Mirpur-13, Dhaka",
+  phone: "+880-1575008359",
+  email: "goku@dragon.verse",
+  // financial information
+  demand: 90800,
+  paid: 53200,
+  waiver: 22600,
+  due: 15000,
+  // educational information
+  education: {
+    ssc: {
+      board: "Dhaka",
+      year: "2016",
+      result: 4.94,
+    },
+    hsc: {
+      board: "Dhaka",
+      year: "2018",
+      result: 4.58,
+    },
+  },
+  // role
+  role: "admin",
+  // role: "teacher",
+  // role: "student",
 };
