@@ -1,19 +1,13 @@
 import React from "react";
 import ProfileIcon from "../../shared/profile_icon/ProfileIcon";
 import { HorizontalLine } from "../../shared/UIHelper";
+import { dpStyle } from "../../../utils/helper";
 
 const StudentDocument = ({ stdData }) => {
   if (!stdData) return null;
 
   const { name, dept, intake, id, password, image } = stdData;
 
-  const dpStyle = {
-    border: "10px solid white",
-    position: "absolute",
-    top: "-100%",
-    left: "50%",
-    transform: "translate(-50%)",
-  };
   return (
     <section className="bg-white rounded-xl w-[450px] mx-auto">
       <div className="bg-white rounded-xl">

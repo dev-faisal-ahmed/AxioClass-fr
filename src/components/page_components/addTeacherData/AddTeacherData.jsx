@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import TeacherInfoInput from "./TeacherInfoInput";
 import TeacherInfoLabel from "./TeacherInfoLabel";
+import { serverAddress } from "../../../data/serverAddress";
+import { postReq } from "../../../utils/postReq";
+import { toast } from "react-hot-toast";
+import { toastConfig } from "../../../utils/toastConfig";
+import { useNavigate } from "react-router-dom";
 
 const AddTeacherData = () => {
   const [imageLink, setImageLink] = useState(
     "https://m.media-amazon.com/images/M/MV5BMzdjNjExMTgtZGFmNS00ZWRjLWJmNjAtOTliYzJjYjcxMWFhXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg"
   );
+  const route = useNavigate();
   const onSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,39 +23,45 @@ const AddTeacherData = () => {
     const sex = form.sex.value;
     const email = form.email.value;
     const number = form.number.value;
-    const result = form.result.value;
     const dept = form.dept.value;
-    const school = form.school.value;
-    const eduinfo = form.eduinfo.value;
-    // const id = form.id.value
+    const address = form.address.value;
+    const degree = form.degree.value;
+    const institution = form.institution.value;
+    const subject = form.subject.value;
+    const passingYear = form.passingYear.value;
 
     const formData = {
-      fName: fName.trim(),
-      lName: lName.trim(),
+      name: fName.trim() + " " + lName.trim(),
       dob: DOfBirth,
       birthPlace: DOfPlace,
-      sex,
       email: email.trim(),
-      number: number.trim(),
-      result: result.trim(),
-      school: school.trim(),
-      eduinfo: eduinfo.trim(),
+      phone: number.trim(),
+      sex,
       dept,
       image,
+      address,
+      education: {
+        degree,
+        institution,
+        subject,
+        passingYear,
+      },
     };
+    // sending data to server
+    const url = `${serverAddress}/add-teacher`;
+    const response = await fetch(url, postReq(formData)).then((res) => res.json());
 
-    console.log(formData)
-
-  }
+    if (response.okay) {
+      toast.success("Teacher Added", toastConfig);
+      route(`/teacher-document/${response.id}`);
+    }
+  };
   return (
     <div>
       <form onSubmit={onSubmit} className="flex flex-col gap-6">
         <div className="rounded-lg bg-[#7A68EC]">
-          <h3 className="text-white text-xl font-bold p-2">
-            Teacher Information
-          </h3>
+          <h3 className="text-white text-xl font-bold p-2">Teacher Information</h3>
           <div className="bg-white rounded-b-lg p-6 flex flex-col gap-6">
-
             <div className="w-full flex justify-end">
               <div className="flex flex-col gap-2">
                 <TeacherInfoLabel label={"photo"} htmlFor={"image"} />
@@ -90,32 +102,25 @@ const AddTeacherData = () => {
                   name={"lname"}
                 />
               </div>
-
             </div>
             <div className="flex w-full gap-[50px]">
               <div className="flex flex-col w-full">
                 <TeacherInfoLabel label={"date of birth"} htmlFor={"dob"} />
                 <div className="w-full flex justify-between">
-                  <TeacherInfoInput
-                    placeholder={""}
-                    type={"date"}
-                    id={"dob"}
-                    name={"dob"}
+                  <input
+                    className="border border-[#7A68EC] rounded-md p-2"
+                    type="date"
+                    name="dob"
                   />
-                  <TeacherInfoInput
-                    placeholder={"Dhaka"}
-                    type={"text"}
-                    id={"dob"}
-                    name={"pob"}
-                  />
+                  <TeacherInfoInput placeholder={"Dhaka"} type={"text"} id={"pob"} name={"pob"} />
                 </div>
               </div>
               <div className="flex flex-col w-full">
                 <TeacherInfoLabel label={"sex"} htmlFor={"sex"} />
                 {/* <TeacherInfoInput placeholder={'Last Name'} type={'text'} id={'lname'} name={'lname'}/> */}
                 <select name="sex" className="border border-[#7A68EC] rounded-md p-2">
-                  <option value="men">Men</option>
-                  <option value="women">Woman</option>
+                  <option value="men">Male</option>
+                  <option value="women">Female</option>
                   <option value="others">Others</option>
                 </select>
               </div>
@@ -124,12 +129,7 @@ const AddTeacherData = () => {
             <div className="flex w-full gap-[50px]">
               <div className="flex flex-col w-full">
                 <TeacherInfoLabel label={"email"} htmlFor={"email"} />
-                <TeacherInfoInput
-                  placeholder={"Email"}
-                  type={"text"}
-                  id={"email"}
-                  name={"email"}
-                />
+                <TeacherInfoInput placeholder={"Email"} type={"text"} id={"email"} name={"email"} />
               </div>
               <div className="flex flex-col w-full">
                 <TeacherInfoLabel label={"Number"} htmlFor={"number"} />
@@ -142,7 +142,61 @@ const AddTeacherData = () => {
               </div>
             </div>
 
+            <div className="flex flex-col">
+              <TeacherInfoLabel label={"Address"} htmlFor={"address"} />
+              <textarea
+                required
+                className="border border-[#7A68EC] rounded-md p-2"
+                name="address"
+                id="address"
+                cols="30"
+                rows="3"
+              ></textarea>
+            </div>
+
             <div className="flex w-full gap-[50px]">
+              <div className="flex flex-col w-full">
+                <TeacherInfoLabel label={"Last Obtained Degree"} htmlFor={"degree-name"} />
+                <TeacherInfoInput
+                  placeholder={"Last Obtained Degree"}
+                  type={"text"}
+                  id={"degree-name"}
+                  name={"degree"}
+                />
+              </div>
+              <div className="flex flex-col w-full">
+                <TeacherInfoLabel label={"University / Institution"} htmlFor={"institution"} />
+                <TeacherInfoInput
+                  placeholder={"University / Institution"}
+                  type={"text"}
+                  id={"institution"}
+                  name={"institution"}
+                />
+              </div>
+            </div>
+
+            <div className="flex w-full gap-[50px]">
+              <div className="flex flex-col w-full">
+                <TeacherInfoLabel label={"Subject"} htmlFor={"subject-name"} />
+                <TeacherInfoInput
+                  placeholder={"Last Obtained Degree"}
+                  type={"text"}
+                  id={"subject-name"}
+                  name={"subject"}
+                />
+              </div>
+              <div className="flex flex-col w-full">
+                <TeacherInfoLabel label={"Passing Year"} htmlFor={"passing-year"} />
+                <TeacherInfoInput
+                  placeholder={"Passing Year"}
+                  type={"number"}
+                  id={"passing-year"}
+                  name={"passingYear"}
+                />
+              </div>
+            </div>
+
+            {/* <div className="flex w-full gap-[50px]">
               <div className="flex flex-col w-full">
                 <TeacherInfoLabel label={"educational qualification"} htmlFor={"eduinfo"} />
                 <TeacherInfoInput
@@ -161,10 +215,10 @@ const AddTeacherData = () => {
                   name={"result"}
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="flex w-full gap-[50px]">
-              <div className="flex flex-col w-full">
+              {/* <div className="flex flex-col w-full">
                 <TeacherInfoLabel label={"school name"} htmlFor={"school"} />
                 <TeacherInfoInput
                   placeholder={"School Name"}
@@ -172,16 +226,17 @@ const AddTeacherData = () => {
                   id={"school"}
                   name={"school"}
                 />
-              </div>
+              </div> */}
               <div className="flex flex-col w-full">
                 <TeacherInfoLabel label={"Department"} htmlFor={"dept"} />
-                <TeacherInfoInput
-                  placeholder={"Department"}
-                  type={"text"}
-                  id={"dept"}
-                  name={"dept"}
-                />
+                {/* <TeacherInfoInput placeholder={'Last Name'} type={'text'} id={'lname'} name={'lname'}/> */}
+                <select name="dept" className="border border-[#7A68EC] rounded-md p-2">
+                  <option value="CSE">CSE</option>
+                  <option value="EEE">EEE</option>
+                </select>
               </div>
+              {/* to prevent department taking full width */}
+              <div className="w-full"></div>
             </div>
           </div>
         </div>

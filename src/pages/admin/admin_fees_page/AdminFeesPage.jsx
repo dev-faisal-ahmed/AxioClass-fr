@@ -5,7 +5,6 @@ import AdminFeesForm from "../../../components/page_components/admin_fees/AdminF
 import AdminStudentFeesInfo from "../../../components/page_components/admin_fees/AdminStudentFeesInfo";
 import PaymentSlip from "../../../components/page_components/admin_fees/PaymentSlip";
 import { Margin } from "../../../components/shared/UIHelper";
-import { dateToStr } from "../../../utils/helper";
 
 const AdminFeesPage = () => {
   const [studentInfo, setStudentInfo] = useState({});
