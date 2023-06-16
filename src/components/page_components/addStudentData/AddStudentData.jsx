@@ -29,11 +29,11 @@ const AddStudentData = () => {
     const pNum = form.pNum.value;
     const address = form.address.value;
     const hsc = form.hsc.value;
-    const hscyear = form.hscyear.value;
-    const hscboard = form.hscboard.value;
+    const hscYear = form.hscYear.value;
+    const hscBoard = form.hscBoard.value;
     const ssc = form.ssc.value;
-    const sscyear = form.sscyear.value;
-    const sscboard = form.sscboard.value;
+    const sscYear = form.sscYear.value;
+    const sscBoard = form.sscBoard.value;
     const dept = form.dept.value;
     const semester = form.semester.value;
     const intake = form.intake.value;
@@ -50,12 +50,12 @@ const AddStudentData = () => {
       pName: pName.trim(),
       pNum: pNum.trim(),
       address: address.trim(),
-      hsc,
-      hscyear,
-      hscboard,
-      ssc,
-      sscyear,
-      sscboard,
+      hscResult: hsc,
+      hscYear,
+      hscBoard,
+      sscResult: ssc,
+      sscYear,
+      sscBoard,
       dept,
       semester,
       intake,
@@ -67,18 +67,12 @@ const AddStudentData = () => {
     fetch(url, postReq(formData))
       .then((res) => res.json())
       .then((res) => {
-        if (res.okay === false) {
+        if (!res || res?.okay === false) {
           console.log(res);
           toast.error(res.msg, toastConfig);
         }
-
         toast.success("Student Admitted", toastConfig);
-        route(`/student-document/${res.id}`);
-      })
-      .catch((err) => {
-        console.log(res);
-        toast.error(err, toastConfig);
-        return;
+        route(`/student-document/${res?.id}`);
       });
   };
 
@@ -193,52 +187,64 @@ const AddStudentData = () => {
             <div className="grid grid-cols-2 justify-around gap-6">
               <div className="flex flex-col">
                 <StudentInfoLabel label={"H.S.C"} htmlFor={"hsc"} />
-                <StudentInfoInput placeholder={"5.00"} type={"number"} id={"hsc"} name={"hsc"} />
+                <StudentInfoInput
+                  placeholder={"5.00"}
+                  type={"number"}
+                  step={0.01}
+                  id={"hsc"}
+                  name={"hsc"}
+                />
               </div>
               <div className="flex flex-col">
                 <StudentInfoLabel label={"S.S.C"} htmlFor={"ssc"} />
-                <StudentInfoInput placeholder={"5.00"} type={"number"} id={"ssc"} name={"ssc"} />
+                <StudentInfoInput
+                  placeholder={"5.00"}
+                  type={"number"}
+                  step={0.01}
+                  id={"ssc"}
+                  name={"ssc"}
+                />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={"H.S.C year"} htmlFor={"hscyear"} />
+                <StudentInfoLabel label={"H.S.C year"} htmlFor={"hscYear"} />
                 <StudentInfoInput
                   placeholder={"2123"}
                   type={"number"}
-                  id={"hscyear"}
-                  name={"hscyear"}
+                  id={"hscYear"}
+                  name={"hscYear"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={"S.S.C year"} htmlFor={"sscyear"} />
+                <StudentInfoLabel label={"S.S.C year"} htmlFor={"sscYear"} />
                 <StudentInfoInput
                   placeholder={"2120"}
                   type={"number"}
-                  id={"sscyear"}
-                  name={"sscyear"}
+                  id={"sscYear"}
+                  name={"sscYear"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={"H.S.C board"} htmlFor={"hscboard"} />
+                <StudentInfoLabel label={"H.S.C board"} htmlFor={"hscBoard"} />
                 <StudentInfoInput
                   placeholder={"Barishal"}
                   type={"text"}
-                  id={"hscboard"}
-                  name={"hscboard"}
+                  id={"hscBoard"}
+                  name={"hscBoard"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={"S.S.C board"} htmlFor={"sscboard"} />
+                <StudentInfoLabel label={"S.S.C board"} htmlFor={"sscBoard"} />
                 <StudentInfoInput
                   placeholder={"Barishal"}
                   type={"text"}
-                  id={"sscboard"}
-                  name={"sscboard"}
+                  id={"sscBoard"}
+                  name={"sscBoard"}
                 />
               </div>
               <div className="flex flex-col">
                 <StudentInfoLabel label={"department"} htmlFor={"dept"} />
                 <select className="border border-[#7A68EC] rounded-md p-2" name="dept" id="dept">
-                  <option value="cse">C.S.E</option>
+                  <option value="CSE">C.S.E</option>
                 </select>
               </div>
               <div className="flex flex-col">
@@ -261,17 +267,6 @@ const AddStudentData = () => {
                   name={"intake"}
                 />
               </div>
-              {/* <div className="flex flex-col">
-                <label className="font-semibold pb-2" htmlFor="id">ID</label>
-                <input
-                required
-                placeholder="cse20110137"
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  type="text"
-                  name="id"
-                  id="id"
-                />
-              </div> */}
             </div>
           </div>
         </div>
