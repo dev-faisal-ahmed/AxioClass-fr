@@ -55,6 +55,6 @@ body {
     @apply bg-white rounded-md;
   }
   .button-primary {
-    @apply px-10 py-2 border-2 border-transparent rounded-lg font-semibold hover:border-primary-600 bg-primary-600 text-white hover:bg-transparent hover:text-primary-600 mx-auto animation;
+    @apply px-10 py-2 border-2 border-transparent rounded-lg font-semibold hover:border-[#4D44B5] bg-[#4D44B5] text-white hover:bg-transparent hover:text-[#4D44B5] mx-auto animation;
   }
 }
