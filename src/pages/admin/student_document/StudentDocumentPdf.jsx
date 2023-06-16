@@ -27,6 +27,7 @@ const StudentDocumentPdf = () => {
     documentTitle: "info " + stdInfo?.id,
   });
 
+  if (!stdInfo) return null;
   if (Object.keys(stdInfo).length === 0) return null;
 
   return (
