@@ -7,12 +7,12 @@ import AddNotice from "../pages/admin/addNotice/AddNotice";
 import LoginProvider from "../components/shared/guard/LoginProvider";
 import Error404 from "../components/shared/Error404";
 import StudentProfile from "../pages/admin/student/StudentProfile";
-import PrintPdf from "../pages/admin/student_document/PrintPdf";
 
 import AddTeacher from "../pages/addTeacher/AddTeacher";
 
 import AdminFeesPage from "../pages/admin/admin_fees_page/AdminFeesPage";
 import Courses from "../pages/student/courses/Courses";
+import TeacherDocumentPdf from "../pages/admin/teacher_document/TeacherDocumentPdf";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -45,8 +45,13 @@ export const routes = createBrowserRouter([
     element: wrapperFunction(<AddTeacher />),
   },
   {
+    path: "/teacher-document/:id",
+    element: wrapperFunction(<TeacherDocumentPdf />),
+  },
+  {
     path: "/student-document/:id",
-    element: wrapperFunction(<PrintPdf />),
+    element: "student",
+    // element: wrapperFunction(<PrintPdf />),
   },
   {
     path: "/fees",
