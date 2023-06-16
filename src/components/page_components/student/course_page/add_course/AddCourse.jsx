@@ -23,7 +23,7 @@ const AddCourses = ({ setAddCourse }) => {
 
   return (
     <section>
-      {allCourses && (
+      {allCourses.length !== 0 && (
         <AddCourseTable
           allCourses={allCourses}
           selectedCourses={selectedCourses}

@@ -33,6 +33,7 @@ const CurrentCourses = () => {
           </tbody>
         </table>
       )}
+      {!currentCourses && <p className="text-center font-semibold">No Course Found</p>}
     </section>
   );
 };

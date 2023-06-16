@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import GlobalLayout from "../../../layout/GlobalLayout";
 import AddCourses from "../../../components/page_components/student/course_page/add_course/AddCourse";
 import CurrentCourses from "../../../components/page_components/student/course_page/current_course/CurrentCourses";
@@ -10,7 +10,7 @@ const Courses = () => {
     addCourse
       ? "hover:border-red-600 bg-red-600 hover:text-red-600"
       : "hover:border-primary-500 bg-primary-500 hover:text-primary-800"
-  }      `;
+  }`;
 
   return (
     <GlobalLayout
