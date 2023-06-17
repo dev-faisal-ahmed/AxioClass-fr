@@ -13,6 +13,7 @@ import Courses from "../pages/student/courses/Courses";
 import TeacherDocumentPdf from "../pages/admin/teacher_document/TeacherDocumentPdf";
 import StudentDocumentPdf from "../pages/admin/student_document/StudentDocumentPdf";
 import Classes from "../pages/classes/Classes";
+import Settings from "../pages/settings/Settings";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -34,6 +35,10 @@ export const routes = createBrowserRouter([
   {
     path: "/fees-and-waiver",
     element: wrapperFunction(<FeesAndWaiver />),
+  },
+  {
+    path:"/settings",
+    element:wrapperFunction(<Settings/>)
   },
   {
     path: "/student-info/:key",
