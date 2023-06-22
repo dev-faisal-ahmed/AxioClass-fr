@@ -18,7 +18,7 @@ const StudentDocumentPdf = () => {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        if (res) setStdInfo(res?.data);
+        if (res.okay) setStdInfo(res?.data);
       });
   }, [id]);
 
