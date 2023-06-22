@@ -31,7 +31,7 @@ const StudentDocumentPdf = () => {
 
   return (
     <AdminLayout pageName={"Student's Document"}>
-      {Object.keys(stdInfo).length === 0 && <h1>No Data Found</h1>}
+      {Object.keys(stdInfo).length === 0 && <h1 className="font-semibold">No Data Found</h1>}
       {Object.keys(stdInfo).length !== 0 && (
         <>
           <section
