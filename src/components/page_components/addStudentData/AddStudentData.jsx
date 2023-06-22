@@ -43,7 +43,7 @@ const AddStudentData = () => {
       birthPlace: DOfPlace,
       sex,
       email: email.trim(),
-      number: number.trim(),
+      phone: number.trim(),
       address: address.trim(),
       dept,
       intake,
