@@ -28,38 +28,34 @@ const AddStudentData = () => {
     const pName = form.pName.value;
     const pNum = form.pNum.value;
     const address = form.address.value;
-    const hsc = form.hsc.value;
+    const hscResult = form.hscResult.value;
     const hscYear = form.hscYear.value;
     const hscBoard = form.hscBoard.value;
-    const ssc = form.ssc.value;
+    const sscResult = form.sscResult.value;
     const sscYear = form.sscYear.value;
     const sscBoard = form.sscBoard.value;
     const dept = form.dept.value;
-    const semester = form.semester.value;
     const intake = form.intake.value;
-    // const id = form.id.value
 
     const formData = {
-      fName: fName.trim(),
-      lName: lName.trim(),
+      name: fName.trim() + " " + lName.trim(),
       dob: DOfBirth,
       birthPlace: DOfPlace,
       sex,
       email: email.trim(),
       number: number.trim(),
-      pName: pName.trim(),
-      pNum: pNum.trim(),
       address: address.trim(),
-      hscResult: hsc,
-      hscYear,
-      hscBoard,
-      sscResult: ssc,
-      sscYear,
-      sscBoard,
       dept,
-      semester,
       intake,
       image,
+      guardianInfo: {
+        name: pName.trim(),
+        number: pNum.trim(),
+      },
+      education: {
+        ssc: { result: sscResult, year: sscYear, board: sscBoard },
+        hsc: { result: hscResult, year: hscYear, board: hscBoard },
+      },
     };
 
     // fetching data
@@ -186,23 +182,23 @@ const AddStudentData = () => {
           <div className="bg-white rounded-b-lg p-6 flex flex-col gap-6">
             <div className="grid grid-cols-2 justify-around gap-6">
               <div className="flex flex-col">
-                <StudentInfoLabel label={"H.S.C"} htmlFor={"hsc"} />
+                <StudentInfoLabel label={"H.S.C"} htmlFor={"hsc-result"} />
                 <StudentInfoInput
                   placeholder={"5.00"}
                   type={"number"}
                   step={0.01}
-                  id={"hsc"}
-                  name={"hsc"}
+                  id={"hsc-result"}
+                  name={"hscResult"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={"S.S.C"} htmlFor={"ssc"} />
+                <StudentInfoLabel label={"S.S.C"} htmlFor={"ssc-result"} />
                 <StudentInfoInput
                   placeholder={"5.00"}
                   type={"number"}
                   step={0.01}
-                  id={"ssc"}
-                  name={"ssc"}
+                  id={"ssc-result"}
+                  name={"sscResult"}
                 />
               </div>
               <div className="flex flex-col">
@@ -248,20 +244,9 @@ const AddStudentData = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={"Semester"} htmlFor={"semester"} />
-                <select
-                  className="border border-[#7A68EC] rounded-md p-2"
-                  name="semester"
-                  id="semester"
-                >
-                  <option value="summer">Summer</option>
-                  <option value="fall">Fall</option>
-                </select>
-              </div>
-              <div className="flex flex-col">
                 <StudentInfoLabel label={"Intake"} htmlFor={"Intake"} />
                 <StudentInfoInput
-                  placeholder={"5.00"}
+                  placeholder={"46"}
                   type={"number"}
                   id={"intake"}
                   name={"intake"}
