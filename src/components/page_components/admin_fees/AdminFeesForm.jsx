@@ -21,7 +21,10 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
     const url = `${serverAddress}/payment/student/${studentId}`;
     fetch(url)
       .then((res) => res.json())
-      .then((res) => setStudentInfo(res.data));
+      .then((res) => {
+        if (res.okay) setStudentInfo(res.data);
+        else toast.error(res.msg, toastConfig);
+      });
   };
 
   const payment = async () => {
@@ -59,17 +62,13 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
           <span className="w-[2px] bg-gray-300">&nbsp;</span>
           {/* input */}
           <input
+            onBlur={getStudentInfo}
             ref={studentIdRef}
             id={"student-id"}
             className="outline-none w-full"
             type={"text"}
             placeholder={"Input Student Id"}
           />
-        </div>
-        <div>
-          <button onClick={getStudentInfo} className="bg-gray-400 block px-2 text-white h-full">
-            <IoIosArrowForward size={25} />
-          </button>
         </div>
       </div>
 
