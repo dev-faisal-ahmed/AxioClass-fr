@@ -14,15 +14,15 @@ const StudentProfile = () => {
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        setStudentInfo(res.data);
+        if (res.okay) setStudentInfo(res.data);
       });
-  }, [key]);
+  }, [key, studentInfo]);
 
   // jsx
   return (
     <AdminLayout pageName={"Student Detail"}>
-      <ProfileBox studentInfo={studentInfo} />
+      {Object.keys(studentInfo).length === 0 && <h1 className="font-semibold">No data found</h1>}
+      {Object.keys(studentInfo).length !== 0 && <ProfileBox studentInfo={studentInfo} />}
     </AdminLayout>
   );
 };
