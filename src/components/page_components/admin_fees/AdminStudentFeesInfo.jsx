@@ -1,11 +1,10 @@
 import React from "react";
 import { FaWallet } from "react-icons/fa";
-import { HiWallet } from "react-icons/hi2";
 import { IoMdWallet } from "react-icons/io";
 import { GiWallet } from "react-icons/gi";
 import ProfileIcon from "../../shared/profile_icon/ProfileIcon";
 
-const AdminStudentFeesInfo = ({ img, name, dept, intake, id, demand, paid, waiver, due }) => {
+const AdminStudentFeesInfo = ({ img, name, dept, intake, id, demand, paid }) => {
   const dpStyle = {
     border: "10px solid white",
     position: "absolute",
@@ -41,7 +40,7 @@ const AdminStudentFeesInfo = ({ img, name, dept, intake, id, demand, paid, waive
             Dept of {dept} &nbsp; || &nbsp; Intake: {intake} &nbsp;|| &nbsp; ID : {id}
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-4 gap-5 mx-auto w-fit">
+        <div className="mt-16 grid grid-cols-3 gap-5 mx-auto w-fit">
           {feesBoxStd({
             icon: <FaWallet size={25} />,
             title: "Total Demand",
@@ -56,15 +55,9 @@ const AdminStudentFeesInfo = ({ img, name, dept, intake, id, demand, paid, waive
             bgColor: "bg-gray-200",
           })}
           {feesBoxStd({
-            icon: <HiWallet size={25} />,
-            title: "Total Waiver",
-            amount: waiver,
-            bgColor: "bg-gray-200",
-          })}
-          {feesBoxStd({
             icon: <IoMdWallet size={25} />,
             title: "Total Due",
-            amount: due,
+            amount: demand - paid,
             bgColor: "bg-gray-200",
           })}
         </div>
