@@ -13,6 +13,7 @@ const LatestActivities = () => {
       <h4 className="text-sm text-gray-600 mb-3">{activeDate}</h4>
       {activityData.map((data, index) => (
         <ActivityCard
+          key={index}
           activity={data.activity}
           data={data.data}
           serial={index + 1}
