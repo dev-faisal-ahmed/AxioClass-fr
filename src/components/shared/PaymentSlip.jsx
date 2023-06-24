@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
 import { MdOutlineDownloadDone } from "react-icons/md";
-import { HorizontalLine } from "../../shared/UIHelper";
+import { HorizontalLine } from "./UIHelper";
 import { useReactToPrint } from "react-to-print";
 
-const PaymentSlip = ({ amount, name, id, dept, date, intake }) => {
-  console.log(amount, date);
+const PaymentSlip = ({ amount, name, id, dept, date, intake, trxId }) => {
   // ref
   const printRef = useRef(null);
   // function
@@ -42,6 +41,7 @@ const PaymentSlip = ({ amount, name, id, dept, date, intake }) => {
           {textContainer("Intake", intake)}
           {textContainer("ID", id)}
           {textContainer("Date", date)}
+          {textContainer("TrxId", trxId)}
         </div>
       </section>
       <button onClick={handlePrint} className="button-primary mt-8 block">

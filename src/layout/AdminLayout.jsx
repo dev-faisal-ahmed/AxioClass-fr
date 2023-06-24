@@ -1,15 +1,16 @@
-import React from 'react';
-import TopBarMiddle from '../components/shared/top_bar/TopBarMiddle';
-import Sidebar from '../components/shared/sidebar/Sidebar';
-import TopBarSide from '../components/shared/top_bar/TopBarSide';
-import Error404 from '../components/shared/Error404';
-import { getLocalUser } from '../utils/localStorage';
-import RightSideBar from '../components/shared/right_side_bar/RightSideBar';
+import React from "react";
+import TopBarMiddle from "../components/shared/top_bar/TopBarMiddle";
+import Sidebar from "../components/shared/sidebar/Sidebar";
+import TopBarSide from "../components/shared/top_bar/TopBarSide";
+import Error404 from "../components/shared/Error404";
+import { getLocalUser } from "../utils/localStorage";
+import RightSideBar from "../components/shared/right_side_bar/RightSideBar";
 
 const AdminLayout = ({ children, pageName }) => {
   const { role } = getLocalUser();
 
-  if (role !== 'admin') return <Error404 />;
+  if (role !== "admin") return <Error404 />;
+
   return (
     <main className="bg-primary-50 h-screen grid grid-cols-[280px_1fr_400px]">
       <Sidebar />

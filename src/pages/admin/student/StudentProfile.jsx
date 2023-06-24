@@ -1,28 +1,24 @@
-import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AdminLayout from "../../../layout/AdminLayout";
 import ProfileBox from "../../../components/page_components/student_profile/ProfileBox";
-import { serverAddress } from "../../../data/serverAddress";
+import useGetStudent from "../../../hooks/students/useGetStudent";
+import { useContext, useEffect } from "react";
+import { studentIdContext } from "../../../context_api/StudentIdProvider";
 
 const StudentProfile = () => {
-  const { key } = useParams();
-  const [studentInfo, setStudentInfo] = useState({});
-
-  // fetching data
-  useEffect(() => {
-    const url = `${serverAddress}/get-student/${key}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.okay) setStudentInfo(res.data);
-      });
-  }, [key, studentInfo]);
+  const { id } = useParams();
+  const { updateStudentId } = useContext(studentIdContext);
+  updateStudentId(id);
+  const { studentInfo, refetch } = useGetStudent(id);
 
   // jsx
   return (
     <AdminLayout pageName={"Student Detail"}>
-      {Object.keys(studentInfo).length === 0 && <h1 className="font-semibold">No data found</h1>}
-      {Object.keys(studentInfo).length !== 0 && <ProfileBox studentInfo={studentInfo} />}
+      {studentInfo && Object.keys(studentInfo).length !== 0 ? (
+        <ProfileBox studentInfo={studentInfo} />
+      ) : (
+        <h1 className="font-semibold">No Data Found</h1>
+      )}
     </AdminLayout>
   );
 };
