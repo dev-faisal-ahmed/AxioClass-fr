@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import AdminLayout from "../../../layout/AdminLayout";
 import NoticeForm from "../../../components/page_components/noticeForm/NoticeForm";
-import NoticeCard from "../../../components/page_components/noticeCard/NoticeCard";
 import Modal from "../../../components/shared/modal/Modal";
+import NoticeBoard from "../../../components/page_components/noticeBoard/NoticeBoard";
 
 const AddNotice = () => {
   const [noticeForm,setNoticeForm] = useState(false)
@@ -21,7 +21,7 @@ const AddNotice = () => {
       </Modal>
 
       <div>
-        <NoticeCard/>
+        <NoticeBoard/>
       </div>
     </AdminLayout>
   );
