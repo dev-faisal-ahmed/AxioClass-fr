@@ -3,8 +3,8 @@ import AdminLayout from "../../../layout/AdminLayout";
 import AdminFeesStat from "../../../components/page_components/admin_fees/AdminFeesStat";
 import AdminFeesForm from "../../../components/page_components/admin_fees/AdminFeesForm";
 import AdminStudentFeesInfo from "../../../components/page_components/admin_fees/AdminStudentFeesInfo";
-import PaymentSlip from "../../../components/page_components/admin_fees/PaymentSlip";
 import { Margin } from "../../../components/shared/UIHelper";
+import PaymentSlip from "../../../components/shared/PaymentSlip";
 
 const AdminFeesPage = () => {
   const [studentInfo, setStudentInfo] = useState({});

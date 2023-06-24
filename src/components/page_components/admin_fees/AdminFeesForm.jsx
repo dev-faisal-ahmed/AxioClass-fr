@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { IoIosArrowForward } from "react-icons/io";
 import { FaUserGraduate } from "react-icons/fa";
 import { BsFillCreditCard2BackFill } from "react-icons/bs";
 import { serverAddress } from "../../../data/serverAddress";

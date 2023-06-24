@@ -14,6 +14,7 @@ import TeacherDocumentPdf from "../pages/admin/teacher_document/TeacherDocumentP
 import StudentDocumentPdf from "../pages/admin/student_document/StudentDocumentPdf";
 import Classes from "../pages/classes/Classes";
 import Settings from "../pages/settings/Settings";
+import StudentIdProvider from "../context_api/StudentIdProvider";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -37,12 +38,16 @@ export const routes = createBrowserRouter([
     element: wrapperFunction(<FeesAndWaiver />),
   },
   {
-    path:"/settings",
-    element:wrapperFunction(<Settings/>)
+    path: "/settings",
+    element: wrapperFunction(<Settings />),
   },
   {
-    path: "/student-info/:key",
-    element: wrapperFunction(<StudentProfile />),
+    path: "/student-info/:id",
+    element: wrapperFunction(
+      <StudentIdProvider>
+        <StudentProfile />
+      </StudentIdProvider>
+    ),
   },
   { path: "/login", element: <Login /> },
   {

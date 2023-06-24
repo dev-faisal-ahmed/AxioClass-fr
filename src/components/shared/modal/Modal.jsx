@@ -2,14 +2,15 @@ import React from "react";
 import { createPortal } from "react-dom";
 import { VscChromeClose } from "react-icons/vsc";
 
-const Modal = ({ modalState, setModalState, title, children }) => {
+const Modal = ({ modalState, setModalState, title, children, width }) => {
   return createPortal(
     <>
       {modalState && (
         <section className="modal" onClick={() => setModalState(false)}>
           <div
+            style={{ maxWidth: "700px", width: width ? width : "66.67%" }}
             onClick={(event) => event.stopPropagation()}
-            className="bg-white rounded-lg overflow-hidden max-w-[700px] w-2/3"
+            className="bg-white rounded-lg overflow-hidden"
           >
             <header className="bg-primary-600 py-4 px-5 flex items-center justify-between text-white">
               <h1 className="font-semibold text-white">{title}</h1>

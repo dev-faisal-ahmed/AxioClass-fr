@@ -1,22 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BiDotsVerticalRounded, BiDotsHorizontalRounded } from "react-icons/bi";
 import ModificationMenu from "./ModificationMenu";
 
 const StudentModification = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  useEffect(() => {
-    console.log(openMenu);
-  }, [openMenu]);
-
   const showMenu = () => {
     setOpenMenu(true);
-    console.log("opened");
   };
 
   const hideMenu = () => {
     setOpenMenu(false);
-    console.log("closed");
   };
 
   return (
