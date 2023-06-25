@@ -7,6 +7,8 @@ const ModificationMenu = ({ open, setOpen }) => {
   const [paymentModal, setPaymentModal] = useState(false);
   const [passModal, setPassModal] = useState(false);
   const [courseModal, setCourseModal] = useState(false);
+  // this will be shown in the modal title on password modal
+  const [passModalTitle, setPassModalTitle] = useState("Are you sure?");
   // to track outside click from a component
   const menuRef = useRef(null);
   useEffect(() => {
@@ -59,8 +61,13 @@ const ModificationMenu = ({ open, setOpen }) => {
         <PaymentStudent />
       </Modal>
 
-      <Modal title={"Password Reset"} modalState={passModal} setModalState={setPassModal}>
-        <PasswordResetStudent />
+      <Modal
+        title={passModalTitle}
+        modalState={passModal}
+        setModalState={setPassModal}
+        width={"fit-content"}
+      >
+        <PasswordResetStudent setModalState={setPassModal} setPassModalTitle={setPassModalTitle} />
       </Modal>
     </>
   );

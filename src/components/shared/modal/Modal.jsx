@@ -8,11 +8,11 @@ const Modal = ({ modalState, setModalState, title, children, width }) => {
       {modalState && (
         <section className="modal" onClick={() => setModalState(false)}>
           <div
-            style={{ maxWidth: "700px", width: width ? width : "66.67%" }}
+            style={{ maxWidth: "700px", width: width ? width : "66.67%", minWidth: "300px" }}
             onClick={(event) => event.stopPropagation()}
             className="bg-white rounded-lg overflow-hidden"
           >
-            <header className="bg-primary-600 py-4 px-5 flex items-center justify-between text-white">
+            <header className="bg-primary-800 py-4 px-5 center--y gap-5 justify-between text-white">
               <h1 className="font-semibold text-white">{title}</h1>
               <VscChromeClose onClick={() => setModalState(false)} size={20} />
             </header>
