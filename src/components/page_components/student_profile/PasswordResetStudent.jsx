@@ -12,7 +12,7 @@ const PasswordResetStudent = ({ setPassModalTitle, setModalState }) => {
   const [pdfData, setPdfData] = useState({});
 
   useEffect(() => {
-    setPassModalTitle("Are you sure?");
+    setPassModalTitle("Please confirm to reset password");
   }, []);
 
   const passReset = () => {
@@ -45,13 +45,13 @@ const PasswordResetStudent = ({ setPassModalTitle, setModalState }) => {
             onClick={() => setModalState(false)}
             className="px-5 py-1 animation rounded-md hover:bg-gray-400 hover:text-white"
           >
-            No
+            Cancel
           </button>
           <button
             onClick={passReset}
-            className={`bg-primary-500 text-white px-5 py-1 rounded-md border-2 border-primary-500 hover:bg-transparent hover:text-primary-500 animation`}
+            className={`bg-primary-600 text-white px-5 py-1 rounded-md border-2 border-primary-600 hover:bg-transparent hover:text-primary-600 animation`}
           >
-            Yes
+            Confirm
           </button>
         </div>
       )}

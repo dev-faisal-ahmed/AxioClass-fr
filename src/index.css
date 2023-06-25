@@ -42,7 +42,7 @@ input[type="number"] {
   font-family: "Bruno Ace SC", cursive;
 }
 .modal {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   height: 100dvh;
   position: absolute;
   width: 100vw;
