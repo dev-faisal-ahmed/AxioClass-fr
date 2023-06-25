@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Modal from "../../shared/modal/Modal";
 import PaymentStudent from "./PaymentStudent";
+import PasswordResetStudent from "./PasswordResetStudent";
 
 const ModificationMenu = ({ open, setOpen }) => {
   const [paymentModal, setPaymentModal] = useState(false);
@@ -26,6 +27,11 @@ const ModificationMenu = ({ open, setOpen }) => {
     setPaymentModal(true);
   };
 
+  const openPasswordModal = () => {
+    setOpen(false);
+    setPassModal(true);
+  };
+
   const buttonClass = `font-semibold text-left py-1 px-3 hover:bg-white w-full rounded-md`;
   return (
     <>
@@ -37,7 +43,9 @@ const ModificationMenu = ({ open, setOpen }) => {
           <button onClick={openPaymentModal} className={buttonClass}>
             Payment
           </button>
-          <button className={buttonClass}>Password Recovery</button>
+          <button onClick={openPasswordModal} className={buttonClass}>
+            Password Recovery
+          </button>
           <button className={buttonClass}>Course Modification</button>
         </div>
       )}
@@ -49,6 +57,10 @@ const ModificationMenu = ({ open, setOpen }) => {
         width={"fit-content"}
       >
         <PaymentStudent />
+      </Modal>
+
+      <Modal title={"Password Reset"} modalState={passModal} setModalState={setPassModal}>
+        <PasswordResetStudent />
       </Modal>
     </>
   );
