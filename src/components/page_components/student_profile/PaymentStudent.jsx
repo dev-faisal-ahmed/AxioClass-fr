@@ -4,6 +4,7 @@ import { studentIdContext } from "../../../context_api/StudentIdProvider";
 import { serverAddress } from "../../../data/serverAddress";
 import { postReq } from "../../../utils/postReq";
 import PaymentSlip from "../../shared/PaymentSlip";
+import { IoWalletSharp } from "react-icons/io5";
 
 const PaymentStudent = () => {
   const { studentId } = useContext(studentIdContext);
@@ -49,10 +50,13 @@ const PaymentStudent = () => {
         )
       ) : (
         <form onSubmit={handleSubmit}>
-          <div className="flex gap-5 items-center">
-            <label htmlFor="">Amount</label>
+          <div className="center--y gap-5 border px-5 py-1 rounded-md">
+            <label className="border-r pr-5" htmlFor="amount">
+              <IoWalletSharp size={20} />
+            </label>
             <input
-              className="border outline-none rounded-md px-5 py-1"
+              id="amount"
+              className="outline-none rounded-md w-[300px]"
               placeholder="How much do you want to pay?"
               type="number"
               name="amount"
