@@ -12,7 +12,7 @@ const Modal = ({ modalState, setModalState, title, children, width }) => {
             onClick={(event) => event.stopPropagation()}
             className="bg-white rounded-lg overflow-hidden"
           >
-            <header className="bg-primary-800 py-4 px-5 center--y gap-5 justify-between text-white">
+            <header className="bg-primary-800 py-4 px-5 center--y gap-10 justify-between text-white">
               <h1 className="font-semibold text-white">{title}</h1>
               <VscChromeClose onClick={() => setModalState(false)} size={20} />
             </header>
