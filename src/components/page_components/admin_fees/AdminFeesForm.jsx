@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
-import { FaUserGraduate } from "react-icons/fa";
-import { BsFillCreditCard2BackFill } from "react-icons/bs";
-import { serverAddress } from "../../../data/serverAddress";
-import { toast } from "react-hot-toast";
-import { toastConfig } from "../../../utils/toastConfig";
-import { postReq } from "../../../utils/postReq";
+import React, { useRef } from 'react';
+import { FaUserGraduate } from 'react-icons/fa';
+import { BsFillCreditCard2BackFill } from 'react-icons/bs';
+import { serverAddress } from '../../../data/serverAddress';
+import { toast } from 'react-hot-toast';
+import { toastConfig } from '../../../utils/toastConfig';
+import { postReq } from '../../../utils/postReq';
 
 const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
   const inputDivClass = `flex-grow flex gap-3 border border-gray-300 rounded-lg overflow-hidden`;
@@ -15,7 +15,7 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
   const getStudentInfo = () => {
     const studentId = studentIdRef.current.value;
 
-    if (studentId.length === null || studentId.trim() === "") return;
+    if (studentId.length === null || studentId.trim() === '') return;
 
     const url = `${serverAddress}/payment/student/${studentId}`;
     fetch(url)
@@ -30,8 +30,9 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
     const studentId = studentIdRef.current.value;
     let amount = +amountRef.current.value; // converting the the amount into number
     if (amount < 0) amount *= -1;
+    else if (amount === 0) return;
 
-    if (studentId === null || studentId.trim() === "") return;
+    if (studentId === null || studentId.trim() === '') return;
 
     // api calling to pay
     const url = `${serverAddress}/payment`;
@@ -54,7 +55,7 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
       <div className={`${inputDivClass}`}>
         <div className="py-2 pl-5 flex-grow center--y gap-3">
           {/* label */}
-          <label htmlFor={"student-id"}>
+          <label htmlFor={'student-id'}>
             <FaUserGraduate size={25} />
           </label>
           {/* divider */}
@@ -63,10 +64,10 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
           <input
             onBlur={getStudentInfo}
             ref={studentIdRef}
-            id={"student-id"}
+            id={'student-id'}
             className="outline-none w-full"
-            type={"text"}
-            placeholder={"Input Student Id"}
+            type={'text'}
+            placeholder={'Input Student Id'}
           />
         </div>
       </div>
@@ -75,7 +76,7 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
       <div className="mt-4 center--y gap-5">
         <div className={`${inputDivClass} py-2 pl-5 center--y`}>
           {/* label */}
-          <label htmlFor={"amount"}>
+          <label htmlFor={'amount'}>
             <BsFillCreditCard2BackFill size={25} />
           </label>
           {/* divider */}
@@ -83,10 +84,10 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
           {/* input */}
           <input
             ref={amountRef}
-            id={"amount"}
+            id={'amount'}
             className="outline-none w-full"
-            type={"number"}
-            placeholder={"How much?"}
+            type={'number'}
+            placeholder={'How much?'}
           />
         </div>
         {/* submit button */}
