@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Import icons
 import { HiOutlineAcademicCap } from 'react-icons/hi';
@@ -9,9 +9,17 @@ import { TbBuildingBank, TbEdit, TbBellPlus } from 'react-icons/tb';
 import { BiSolidMessageSquareDetail } from 'react-icons/bi';
 import Modal from '../../shared/modal/Modal';
 import NoticeBoard from './NoticeBoard';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { serverAddress } from '../../../data/serverAddress';
+import { toastConfig } from '../../../utils/toastConfig';
+import { useGetNotices } from '../../../hooks/notices/useGetNotices';
 
-const NoticeCard = ({ title, category, date, description }) => {
+const NoticeCard = ({ title, category, date, description, id }) => {
+  console.log(id);
+  const route = useNavigate();
   const [seeDetails, setSeeDetails] = useState(false);
+  const {refetch} = useGetNotices();
   const icon =
     category === 'financial' ? (
       <GiTakeMyMoney />
@@ -39,6 +47,29 @@ const NoticeCard = ({ title, category, date, description }) => {
       ? 'bg-red-50'
       : 'bg-primary-50';
   const textModal = 'text-primary-900';
+
+  const handleDelete = () => {
+    const toastId = toast.loading('Deleting...');
+
+    const url = `${serverAddress}/notice/${id}`;
+    fetch(url, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application.json',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        toast.dismiss(toastId);
+        if (res.okay) {
+          toast.success(res.msg, toastConfig);
+          refetch();
+        } else {
+          toast.error(res.msg, toastConfig);
+        }
+      });
+  };
   return (
     <div className="w-full p-4 grid grid-cols-[min-content_1fr_min-content] gap-10 items-center justify-between rounded-lg border border-primary-25 hover:border-primary-100 hover:shadow-xl hover:shadow-primary-100 cursor-pointer transition font-semibold">
       {/* Modal */}
@@ -51,19 +82,19 @@ const NoticeCard = ({ title, category, date, description }) => {
       >
         <div className="child:mb-2 text-gray-600">
           <p>
-            <span className={" font-bold " + textModal}>Title: </span>
+            <span className={' font-bold ' + textModal}>Title: </span>
             {title}
           </p>
           <p className="capitalize">
-            <span className={" font-bold " + textModal}>Category: </span>
+            <span className={' font-bold ' + textModal}>Category: </span>
             {category}
           </p>
           <p>
-            <span className={" font-bold " + textModal}>Published date: </span>
+            <span className={' font-bold ' + textModal}>Published date: </span>
             {date}
           </p>
           <div>
-            <h2 className={" font-bold " + textModal}>Description: </h2>
+            <h2 className={' font-bold ' + textModal}>Description: </h2>
             <p className="mt-2">{description}</p>
           </div>
         </div>
@@ -94,7 +125,7 @@ const NoticeCard = ({ title, category, date, description }) => {
           title="Delete this notice"
           className="text-3xl text-primary-900 hover:text-red-600"
         >
-          <MdDelete />
+          <MdDelete onClick={handleDelete} />
         </div>
         <div
           onClick={() => setSeeDetails(!seeDetails)}

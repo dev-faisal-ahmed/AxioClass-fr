@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
-import { noticeData } from '../../../fake_data/noticeData';
+import React, { useEffect, useState } from 'react';
 import { TbBellPlus } from 'react-icons/tb';
 import NoticeCard from './NoticeCard';
 import Modal from '../../shared/modal/Modal';
 import NoticeForm from '../noticeForm/NoticeForm';
+import { serverAddress } from '../../../data/serverAddress';
+import { useGetNotices } from '../../../hooks/notices/useGetNotices';
 
 const NoticeBoard = () => {
   const [noticeForm, setNoticeForm] = useState(false);
+  // const [notices, setNotices] = useState([]);
+  const {notices} = useGetNotices();
+  console.log(notices);
+
+  // useEffect(() => {
+  //   const url = `${serverAddress}/notice`;
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       if (res.okay) setNotices(res.data);
+  //       else {
+  //         toast.error(res.msg, toastConfig);
+  //       }
+  //     });
+  // }, []);
   return (
     <div className="grid gap-4 p-5 bg-white rounded-xl border border-primary-100 shadow-xl shadow-primary-50 overflow-hidden mt-5">
       {/* Modal */}
@@ -35,10 +51,11 @@ const NoticeBoard = () => {
         </button>
       </div>
 
-      {noticeData.map(({ title, category, date, description, id }) => {
+      {notices.map(({ title, category, date, description, _id }) => {
         return (
           <NoticeCard
-            key={id}
+            id={_id}
+            key={_id}
             title={title}
             category={category}
             date={date}
