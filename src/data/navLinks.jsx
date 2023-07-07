@@ -68,6 +68,11 @@ export const adminNavLinks = [
     icon: <FaUserSecret size={20} />,
   },
   {
+    title: "Classroom",
+    url: "/classroom",
+    icon: <MdClass size={20} />,
+  },
+  {
     title: "Notice",
     url: "/add-notice",
     icon: <AiFillNotification size={20} />,

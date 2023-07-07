@@ -2,8 +2,11 @@ import React from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { serverAddress } from '../../../data/serverAddress';
 import { postReq } from '../../../utils/postReq';
+import { useGetNotices } from '../../../hooks/notices/useGetNotices';
 
-const NoticeForm = () => {
+const NoticeForm = ({setNoticeForm}) => {
+  console.log(setNoticeForm);
+  const {refetch} = useGetNotices();
   const handleNotice = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -24,8 +27,9 @@ const NoticeForm = () => {
           console.log(res);
           toast.error(res.msg, toastConfig);
         }
+        refetch();
         toast.success("Notice added successfully", toastConfig);
-        route(`/add-notice`);
+        setNoticeForm(false);
       });
 
     console.log(notice);

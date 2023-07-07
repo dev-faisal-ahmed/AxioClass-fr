@@ -15,6 +15,7 @@ import StudentDocumentPdf from "../pages/admin/student_document/StudentDocumentP
 import Classes from "../pages/classes/Classes";
 import Settings from "../pages/settings/Settings";
 import StudentIdProvider from "../context_api/StudentIdProvider";
+import Classroom from "../pages/admin/classroom/Classroom";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -73,6 +74,10 @@ export const routes = createBrowserRouter([
   {
     path: "/add-notice",
     element: wrapperFunction(<AddNotice />),
+  },
+  {
+    path: "/classroom",
+    element: wrapperFunction(<Classroom />),
   },
   {
     path: "*",
