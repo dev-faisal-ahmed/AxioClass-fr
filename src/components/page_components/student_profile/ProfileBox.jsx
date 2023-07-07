@@ -11,8 +11,15 @@ import { Margin } from "../../shared/UIHelper";
 const ProfileBox = ({ studentInfo }) => {
   const dpStyle = { border: "10px solid white", position: "absolute", top: "-100%", left: "32px" };
   // ui functions
-  const { basicInfo, financialInfo, academicInfo, personalInfo, guardianInfo, education } =
-    studentInfo;
+  const {
+    basicInfo,
+    financialInfo,
+    academicInfo,
+    personalInfo,
+    guardianInfo,
+    education,
+    registered,
+  } = studentInfo;
 
   const showResult = ({ board, year, result, examName }) => {
     return (
@@ -57,7 +64,8 @@ const ProfileBox = ({ studentInfo }) => {
             <h1 className="text-2xl font-bold text-primary-900">{basicInfo?.name}</h1>
             <p className="mt-2 text-gray-500">
               Dept of {basicInfo?.dept} &nbsp; || &nbsp; Intake: {basicInfo?.intake} &nbsp;|| &nbsp;
-              ID : {basicInfo?.id}
+              ID : {basicInfo?.id} &nbsp;|| &nbsp;
+              {registered ? "Registered" : "Not Registered"}
             </p>
           </div>
           {/* student modification */}

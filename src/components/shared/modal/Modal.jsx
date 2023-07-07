@@ -16,7 +16,7 @@ const Modal = ({
       {modalState && (
         <section className="modal" onClick={() => setModalState(false)}>
           <div
-            style={{ maxWidth: '700px', width: width ? width : '66.67%' }}
+            style={{ maxWidth: '700px', width: width ? width : '66.67%', minWidth: "300px" }}
             onClick={(event) => event.stopPropagation()}
             className="bg-white rounded-lg overflow-hidden"
           >
