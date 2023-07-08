@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Modal from '../../shared/modal/Modal';
 
 const ClassroomSearch = () => {
   const [searchType, setSearchType] = useState('code');
