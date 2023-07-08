@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import ActivityCard from './ActivityCard';
-import { activityData } from '../../../fake_data/activityData';
-import ActionButton from './ActionButton';
-import { serverAddress } from '../../../data/serverAddress';
+import React, { useEffect, useState } from "react";
+import ActivityCard from "./ActivityCard";
+import { activityData } from "../../../fake_data/activityData";
+import ActionButton from "./ActionButton";
+import { serverAddress } from "../../../data/serverAddress";
 
 const LatestActivities = () => {
   const [activities, setActivities] = useState([]);
@@ -19,12 +19,12 @@ const LatestActivities = () => {
   }, []);
   const activeDate = activityData[0].date;
   return (
-    <div>
+    <div className="">
       <h1 className="text-2xl font-bold text-primary-900 mt-5 mb-8 capitalize text-center">
         Latest Activities
       </h1>
       <h4 className="text-sm text-gray-600 mb-3">{activeDate}</h4>
-      <div className="grid grid-cols-[1fr_auto] gap-y-4 items-start mb-5 w-full overflow-x-hidden">
+      <div className="w-full grid grid-cols-4 gap-x-4 gap-y-4 mb-5">
         {activities.map((data, index) => (
           <ActivityCard
             key={index}
