@@ -9,7 +9,7 @@ const ClassroomList = ({ classrooms }) => {
       instructor: 'Md Shahidul Islam',
       teacherId: 'MSI',
       img: 'https://th.bing.com/th/id/R.d5e571abb4b3385e35b6fd2567a2ce72?rik=wf7RaVbYYkquJQ&pid=ImgRaw&r=0',
-      classNumber: 8,
+      courseCode: 'CSE-450',
       credits: 3,
       students: 26,
       hours: 3,
@@ -54,6 +54,7 @@ const ClassroomList = ({ classrooms }) => {
               credits,
               students,
               hours,
+              courseCode
             },
             index
           ) => (
@@ -62,6 +63,7 @@ const ClassroomList = ({ classrooms }) => {
               className={className}
               instructor={instructor}
               img={img}
+              courseCode={courseCode}
               classNumber={classNumber}
               credits={credits}
               students={students}

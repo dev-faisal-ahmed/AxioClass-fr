@@ -3,12 +3,21 @@ import AdminLayout from '../../../layout/AdminLayout';
 import ClassroomSearch from '../../../components/page_components/classroom/ClassroomSearch';
 import ClassroomList from '../../../components/page_components/classroom/ClassroomList';
 import { TbLayoutGridAdd } from 'react-icons/tb';
+import Modal from '../../../components/shared/modal/Modal';
+import CreateClassForm from '../../../components/page_components/classroom/CreateClassForm';
 
 const Classroom = () => {
   const [classModal, setClassModal] = useState(false);
   const [clasrooms, setClassrooms] = useState([]);
   return (
     <AdminLayout pageName={'Classroom'}>
+      <Modal
+        modalState={classModal}
+        setModalState={setClassModal}
+        title={'Create Classroom'}
+      >
+        <CreateClassForm setClassModal={setClassModal} />
+      </Modal>
       <div>
         <div className="flex gap-5 justify-between items-center p-3 rounded-xl bg-white">
           <ClassroomSearch />

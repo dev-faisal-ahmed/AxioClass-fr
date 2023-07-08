@@ -17,6 +17,7 @@ const ClassCard = ({
   students,
   hours,
   classNumber,
+  courseCode
 }) => {
   return (
     <div className="bg-white text-gray-500 rounded-xl overflow-hidden">
@@ -38,7 +39,7 @@ const ClassCard = ({
         <div className="grid grid-cols-2 gap-3">
           <IconText
             icon={<IoFolderOutline />}
-            title={`${classNumber} classes`}
+            title={`${courseCode}`}
           />
           <IconText icon={<BsFileEarmarkText />} title={`${credits} credits`} />
           <IconText
