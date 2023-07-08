@@ -1,0 +1,22 @@
+export const feeslistData =[
+  {
+    imgUrl:"https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg",
+    name:"esha",
+    id:"20211103015",
+    amount:2000,
+    trxId:"asjhdgs3",
+    date:"6/8/2023",
+    dept:"CSE",
+    intake:"46"
+  },
+  {
+    imgUrl:"https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg",
+    name:"sadia",
+    id:"20211103012",
+    amount:2000,
+    trxId:"asjhdgs3",
+    date:"7/8/2023",
+    dept:"CSE",
+    intake:"46"
+  },
+]

@@ -1,8 +1,9 @@
-import React from 'react';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { serverAddress } from '../../../data/serverAddress';
-import { postReq } from '../../../utils/postReq';
-import { useGetNotices } from '../../../hooks/notices/useGetNotices';
+import React from "react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { serverAddress } from "../../../data/serverAddress";
+import { postReq } from "../../../utils/postReq";
+import { useGetNotices } from "../../../hooks/notices/useGetNotices";
+import { BiSolidSend } from "react-icons/bi";
 
 const NoticeForm = ({ setNoticeForm }) => {
   console.log(setNoticeForm);
@@ -18,6 +19,7 @@ const NoticeForm = ({ setNoticeForm }) => {
       description: noticeBody,
       category: tag,
     };
+    setNoticeForm(false);
 
     const url = `${serverAddress}/notice/add`;
     fetch(url, postReq(notice))
@@ -37,47 +39,59 @@ const NoticeForm = ({ setNoticeForm }) => {
   };
   return (
     <div>
-      <div className="rounded-md">
+      <div className="rounded-lg">
         <form
           onSubmit={handleNotice}
-          className="flex flex-col gap-2 bg-white p-6"
+          className="flex flex-col items-center gap-4 bg-white p-6"
         >
-          <label className="text-primary-900 font-semibold" htmlFor="title">
-            Title
-          </label>
-          <input
-            required
-            className="border border-primary-200 rounded-md p-2"
-            type="text"
-            name="title"
-            id="title"
-          />
-          <label
-            className="text-primary-900 font-semibold"
-            htmlFor="noticeBody"
+          <div className="w-full flex items-center gap-4">
+            <div className="w-full">
+              <label className="text-primary-900 font-semibold" htmlFor="title">
+                Title
+              </label>
+              <input
+                required
+                className="border border-primary-200 rounded-md p-2 w-full bg-[#EFF0FE]"
+                type="text"
+                name="title"
+                id="title"
+              />
+            </div>
+            <div className="w-full">
+              <label className="text-primary-900 font-semibold" htmlFor="tag">
+                Tag
+              </label>
+              <input
+                required
+                className="border border-primary-200 rounded-md p-2 w-full bg-[#EFF0FE]"
+                type="text"
+                name="tag"
+                id="tag"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col w-full">
+            <label
+              className="text-primary-900 font-semibold"
+              htmlFor="noticeBody"
+            >
+              Notice
+            </label>
+            <textarea
+              required
+              className="border border-primary-200 rounded-md p-2 bg-[#EFF0FE]"
+              name="noticeBody"
+              id="noticeBody"
+              cols="30"
+              rows="5"
+            ></textarea>
+          </div>
+          <button
+            // onClick={() => setNoticeForm(false)}
+            className="w-fit border bg-[#EFF0FE] border-primary-200 hover:border-primary-400 text-primary-900 hover:bg-gray-200 animation p-2 px-6 rounded-lg font-bold mt-4 flex items-center justify-center gap-3"
           >
-            Notice
-          </label>
-          <textarea
-            required
-            className="border border-primary-200 rounded-md p-2"
-            name="noticeBody"
-            id="noticeBody"
-            cols="30"
-            rows="10"
-          ></textarea>
-          <label className="text-primary-900 font-semibold" htmlFor="tag">
-            Tag
-          </label>
-          <input
-            required
-            className="border border-primary-200 rounded-md p-2"
-            type="text"
-            name="tag"
-            id="tag"
-          />
-          <button className="bg-[#7A68EC] hover:bg-[#22ca54] animation p-2 rounded-lg font-bold text-white mt-4">
-            Post
+            <span>Post</span>
+            <BiSolidSend />
           </button>
         </form>
       </div>
