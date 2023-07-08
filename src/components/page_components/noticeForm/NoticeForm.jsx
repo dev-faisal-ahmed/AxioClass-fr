@@ -13,7 +13,7 @@ const NoticeForm = ({ setNoticeForm }) => {
     const form = event.target;
     const title = form.title.value;
     const noticeBody = form.noticeBody.value;
-    const tag = form.tag.value;
+    const tag = form.tag.value.toLowerCase();
     const notice = {
       title: title,
       description: noticeBody,
@@ -30,7 +30,7 @@ const NoticeForm = ({ setNoticeForm }) => {
           toast.error(res.msg, toastConfig);
         }
         refetch();
-        toast.success("Notice added successfully", toastConfig);
+        toast.success('Notice added successfully', toastConfig);
         setNoticeForm(false);
       });
 
