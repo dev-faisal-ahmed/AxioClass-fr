@@ -4,15 +4,15 @@ import { serverAddress } from '../../../data/serverAddress';
 import { postReq } from '../../../utils/postReq';
 import { useGetNotices } from '../../../hooks/notices/useGetNotices';
 
-const NoticeForm = ({setNoticeForm}) => {
+const NoticeForm = ({ setNoticeForm }) => {
   console.log(setNoticeForm);
-  const {refetch} = useGetNotices();
+  const { refetch } = useGetNotices();
   const handleNotice = (event) => {
     event.preventDefault();
     const form = event.target;
     const title = form.title.value;
     const noticeBody = form.noticeBody.value;
-    const tag = form.tag.value;
+    const tag = form.tag.value.toLowerCase();
     const notice = {
       title: title,
       description: noticeBody,
@@ -28,7 +28,7 @@ const NoticeForm = ({setNoticeForm}) => {
           toast.error(res.msg, toastConfig);
         }
         refetch();
-        toast.success("Notice added successfully", toastConfig);
+        toast.success('Notice added successfully', toastConfig);
         setNoticeForm(false);
       });
 
@@ -42,7 +42,9 @@ const NoticeForm = ({setNoticeForm}) => {
           onSubmit={handleNotice}
           className="flex flex-col gap-2 bg-white p-6"
         >
-          <label className='text-primary-900 font-semibold' htmlFor="title">Title</label>
+          <label className="text-primary-900 font-semibold" htmlFor="title">
+            Title
+          </label>
           <input
             required
             className="border border-primary-200 rounded-md p-2"
@@ -50,7 +52,12 @@ const NoticeForm = ({setNoticeForm}) => {
             name="title"
             id="title"
           />
-          <label className='text-primary-900 font-semibold' htmlFor="noticeBody">Notice</label>
+          <label
+            className="text-primary-900 font-semibold"
+            htmlFor="noticeBody"
+          >
+            Notice
+          </label>
           <textarea
             required
             className="border border-primary-200 rounded-md p-2"
@@ -59,7 +66,9 @@ const NoticeForm = ({setNoticeForm}) => {
             cols="30"
             rows="10"
           ></textarea>
-          <label className='text-primary-900 font-semibold' htmlFor="tag">Tag</label>
+          <label className="text-primary-900 font-semibold" htmlFor="tag">
+            Tag
+          </label>
           <input
             required
             className="border border-primary-200 rounded-md p-2"
