@@ -5,6 +5,7 @@ import AdminFeesForm from "../../../components/page_components/admin_fees/AdminF
 import AdminStudentFeesInfo from "../../../components/page_components/admin_fees/AdminStudentFeesInfo";
 import { Margin } from "../../../components/shared/UIHelper";
 import PaymentSlip from "../../../components/shared/PaymentSlip";
+import AdminFeesHistory from "../../../components/page_components/admin_fees/AdminFeesHistory";
 
 const AdminFeesPage = () => {
   const [studentInfo, setStudentInfo] = useState({});
@@ -15,7 +16,10 @@ const AdminFeesPage = () => {
       <>
         <section className="grid grid-cols-4 gap-8">
           <AdminFeesStat />
-          <AdminFeesForm setStudentInfo={setStudentInfo} setPaymentInfo={setPaymentInfo} />
+          <AdminFeesForm
+            setStudentInfo={setStudentInfo}
+            setPaymentInfo={setPaymentInfo}
+          />
         </section>
 
         {/* student fess info */}
@@ -48,6 +52,9 @@ const AdminFeesPage = () => {
             </section>
           </>
         )}
+        <section>
+          <AdminFeesHistory/>
+        </section>
       </>
     </AdminLayout>
   );
