@@ -36,6 +36,8 @@ const ClassroomList = ({ classrooms }) => {
       hours: 3,
     },
   ];
+
+  console.log(classrooms[0]);
   return (
     <div className="">
       {/* <h1 className="mt-10 text-2xl font-semibold text-primary-900">
@@ -44,15 +46,15 @@ const ClassroomList = ({ classrooms }) => {
 
       {/* Class cards */}
       <div className="grid grid-cols-3 gap-5 mt-5">
-        {classes.length ? classes.map(
+        {classrooms?.length ? classrooms.map(
           (
             {
               className,
               instructor,
               img,
               classNumber,
-              credits,
-              students,
+              credit,
+              studentList,
               hours,
               courseCode
             },
@@ -65,8 +67,8 @@ const ClassroomList = ({ classrooms }) => {
               img={img}
               courseCode={courseCode}
               classNumber={classNumber}
-              credits={credits}
-              students={students}
+              credits={credit}
+              students={studentList.length}
               hours={hours}
             />
           )

@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AdminLayout from '../../../layout/AdminLayout';
 import ClassroomSearch from '../../../components/page_components/classroom/ClassroomSearch';
 import ClassroomList from '../../../components/page_components/classroom/ClassroomList';
 import { TbLayoutGridAdd } from 'react-icons/tb';
 import Modal from '../../../components/shared/modal/Modal';
 import CreateClassForm from '../../../components/page_components/classroom/CreateClassForm';
+import { serverAddress } from '../../../data/serverAddress';
 
 const Classroom = () => {
   const [classModal, setClassModal] = useState(false);
-  const [clasrooms, setClassrooms] = useState([]);
+  const [classrooms, setClassrooms] = useState([]);
+
+  useEffect(() => {
+    const url = `${serverAddress}/classroom/get-admin`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.okay) {
+          setClassrooms(res.data);
+        } else {
+          toast.error(res.msg, toastConfig);
+        }
+      });
+  }, []);
   return (
     <AdminLayout pageName={'Classroom'}>
       <Modal
@@ -33,7 +47,7 @@ const Classroom = () => {
           </button>
         </div>
 
-        <ClassroomList />
+        <ClassroomList classrooms={classrooms}/>
       </div>
     </AdminLayout>
   );
