@@ -27,17 +27,17 @@ const ActionPanel = () => {
         <ActionButton
           icon={<MdOutlineNotificationAdd />}
           title="Post Notice"
-          link="/add-student"
+          link="/add-notice"
         />
         <ActionButton
           icon={<MdOutlineAddChart />}
           title="Add Payment"
-          link="/add-student"
+          link="/fees"
         />
         <ActionButton
           icon={<HiOutlineViewGridAdd />}
           title="Create Classroom"
-          link="/add-student"
+          link="/classroom"
         />
       </div>
     </div>
