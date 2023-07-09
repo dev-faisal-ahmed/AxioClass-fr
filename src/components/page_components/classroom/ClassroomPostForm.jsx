@@ -20,15 +20,24 @@ const ClassroomPostForm = ({ showForm }) => {
   return (
     <div
       className={`w-full flex gap-4 bg-white rounded-lg animation ${
-        showForm ? 'p-4' : "h-0 overflow-hidden"
+        showForm ? "p-4" : "h-0 overflow-hidden"
       } `}
     >
-      <div style={{backgroundImage:`url(https://e0.pxfuel.com/wallpapers/392/773/desktop-wallpaper-deathpool-marvel-art-drawings-deadpool-artwork-polygon-art-deadpool-polygon.jpg)`}} className="w-12 h-12 border-2 border-primary-500 rounded-full bg-cover bg-center"></div>
+      <div
+        style={{
+          backgroundImage: `url(https://e0.pxfuel.com/wallpapers/392/773/desktop-wallpaper-deathpool-marvel-art-drawings-deadpool-artwork-polygon-art-deadpool-polygon.jpg)`,
+        }}
+        className="w-12 h-12 border-2 border-primary-500 rounded-full bg-cover bg-center"
+      ></div>
       <form
         onSubmit={onSubmitForm}
         className="flex flex-col gap-4 items-center w-full"
       >
-        <div className={`w-full flex flex-col items-center ${allow?null:'hidden'}`}>
+        <div
+          className={`w-full flex flex-col items-center ${
+            allow ? null : "hidden"
+          }`}
+        >
           <img
             className={`max-h-[400px] max-w-[400px] ${
               imglink ? null : "hidden"
@@ -62,10 +71,12 @@ const ClassroomPostForm = ({ showForm }) => {
         <div className="w-full flex items-center justify-between">
           <div
             className={`flex items-center gap-4 ${
-              allow ? "text-green-500" : "text-red-500"
-            } font-bold text-lg border-2 border-primary-500 rounded-full p-2 cursor-pointer`}
+              allow ? "text-green-500" : "text-gray-500"
+            } text-sm rounded-full p-2 cursor-pointer`}
             onClick={() => setAllow(!allow)}
-          > <ImImages /> 
+          >
+            <ImImages size={20} />
+            <span>Add image</span>
           </div>
           <button className="w-fit p-1 px-10 animation hover:bg-gray-200 border-2 border-primary-500 text-primary-500 rounded-lg text-lg">
             Post
