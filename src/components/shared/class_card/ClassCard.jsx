@@ -51,7 +51,7 @@ const ClassCard = ({
       </div>
 
       {/* Bottom button */}
-      <Link className="p-4 block text-center hover:bg-primary-600 transition text-primary-600 hover:text-white">
+      <Link to={"/classroom/234"} className="p-4 block text-center hover:bg-primary-600 transition text-primary-600 hover:text-white">
         <p className="text-sm  font-semibold"> View Class</p>
       </Link>
     </div>
