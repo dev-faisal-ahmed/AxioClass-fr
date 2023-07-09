@@ -5,7 +5,7 @@ import ClassroomFeedCard from "./ClassroomFeedCard";
 const ClassroomFeeds = () => {
   const [showForm, setShowForm] = useState(false);
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 text-gray-700">
       <div
         style={{
           backgroundImage: `url(https://releases.kialo-edu.com/wp-content/uploads/sites/15/2023/04/00-Kialo-Blog-GoogleClassroom-Cover-1.png)`,
