@@ -7,7 +7,7 @@ const ClassroomFeedCard = () => {
         <div style={{backgroundImage:`url(https://e0.pxfuel.com/wallpapers/392/773/desktop-wallpaper-deathpool-marvel-art-drawings-deadpool-artwork-polygon-art-deadpool-polygon.jpg)`}} className='w-12 h-12 border border-primary-500 bg-cover bg-center rounded-full'></div>
         <div>
           <div className='font-semibold'>Raisul</div>
-          <div>7/9/2023</div>
+          <div className='text-gray-500 text-sm'>7/9/2023</div>
         </div>
       </div>
       <div>
