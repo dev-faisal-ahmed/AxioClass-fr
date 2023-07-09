@@ -19,13 +19,14 @@ const ClassroomPostForm = ({ showForm }) => {
   };
   return (
     <div
-      className={`w-full bg-white rounded-lg animation ${
+      className={`w-full flex gap-4 bg-white rounded-lg animation ${
         showForm ? 'p-4' : "h-0 overflow-hidden"
       } `}
     >
+      <div style={{backgroundImage:`url(https://e0.pxfuel.com/wallpapers/392/773/desktop-wallpaper-deathpool-marvel-art-drawings-deadpool-artwork-polygon-art-deadpool-polygon.jpg)`}} className="w-12 h-12 border-2 border-primary-500 rounded-full bg-cover bg-center"></div>
       <form
         onSubmit={onSubmitForm}
-        className="flex flex-col gap-4 items-center"
+        className="flex flex-col gap-4 items-center w-full"
       >
         <div className={`w-full flex flex-col items-center ${allow?null:'hidden'}`}>
           <img
@@ -38,7 +39,7 @@ const ClassroomPostForm = ({ showForm }) => {
           <div className="flex flex-col w-full">
             {/* <label htmlFor="image">Image</label> */}
             <input
-              className="border-b-2 border-b-primary-500 bg-gray-100 rounded-lg p-2 w-full outline-none"
+              className=" bg-gray-100 rounded-lg p-2 w-full outline-none"
               onBlur={(e) => setImglink(e.target.value)}
               placeholder="image link here"
               type="text"
@@ -50,12 +51,12 @@ const ClassroomPostForm = ({ showForm }) => {
         <div className="w-full flex flex-col">
           {/* <label htmlFor="text">Text</label> */}
           <textarea
-            className="border-b-2 border-b-primary-500 bg-gray-100 rounded-lg p-2 outline-none"
+            className=" bg-gray-100 rounded-lg p-2 outline-none"
             placeholder="Enter your text"
             name="text"
             id="text"
             cols="30"
-            rows="5"
+            rows="2"
           ></textarea>
         </div>
         <div className="w-full flex items-center justify-between">
@@ -66,7 +67,7 @@ const ClassroomPostForm = ({ showForm }) => {
             onClick={() => setAllow(!allow)}
           > <ImImages /> 
           </div>
-          <button className="w-fit p-2 px-10 animation hover:bg-gray-200 border-2 border-primary-500 text-primary-500 rounded-lg text-lg">
+          <button className="w-fit p-1 px-10 animation hover:bg-gray-200 border-2 border-primary-500 text-primary-500 rounded-lg text-lg">
             Post
           </button>
         </div>
