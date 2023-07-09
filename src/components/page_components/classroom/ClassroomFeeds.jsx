@@ -50,24 +50,9 @@ const ClassroomFeeds = () => {
         </div>
       </div>
       <div className="flex flex-col gap-6">
-        <div className="w-full flex flex-col gap-4">
-          {/* <div className="flex flex-col gap-2 bg-white rounded-lg p-2">
-            <span>Class code:</span>{" "}
-            <span className="border-2 border-primary-500 text-primary-500 p-2 rounded text-center">
-              haosuhf9
-            </span>
-          </div> */}
-          <div className="w-full">
-            <button
-              onClick={() => setShowForm(!showForm)}
-              className="w-full p-3 bg-white rounded-lg text-primary-500 text-lg shadow-sm"
-            >
-              Make a announcement to students
-            </button>
-          </div>
-        </div>
+        <div className="w-full flex flex-col gap-4"></div>
         <div className="w-full flex flex-col gap-6">
-          <ClassroomPostForm showForm={showForm} />
+          <ClassroomPostForm showForm={showForm} setShowForm={setShowForm} />
           <div className="w-full flex flex-col gap-4">
             <ClassroomFeedCard />
             <ClassroomFeedCard />

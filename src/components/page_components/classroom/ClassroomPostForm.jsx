@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ImImages } from "react-icons/im";
 
-const ClassroomPostForm = ({ showForm }) => {
+const ClassroomPostForm = ({ showForm,setShowForm}) => {
   const [imglink, setImglink] = useState(false);
   const [allow, setAllow] = useState(null);
   const onSubmitForm = (e) => {
@@ -19,8 +19,9 @@ const ClassroomPostForm = ({ showForm }) => {
   };
   return (
     <div
-      className={`w-full flex gap-4 bg-white rounded-lg animation ${
-        showForm ? "p-4" : "h-0 overflow-hidden"
+    onClick={() => setShowForm(true)}
+      className={`w-full px-4 py-2 flex gap-4 bg-white rounded-lg animation ${
+        showForm ? "p-4" : "h-[65px] overflow-hidden"
       } `}
     >
       <div
@@ -48,7 +49,7 @@ const ClassroomPostForm = ({ showForm }) => {
           <div className="flex flex-col w-full">
             {/* <label htmlFor="image">Image</label> */}
             <input
-              className=" bg-gray-100 rounded-lg p-2 w-full outline-none"
+              className=" bg-gray-100 p-2 w-full outline-none placeholder:text-primary-500 rounded-md"
               onBlur={(e) => setImglink(e.target.value)}
               placeholder="image link here"
               type="text"
@@ -60,8 +61,8 @@ const ClassroomPostForm = ({ showForm }) => {
         <div className="w-full flex flex-col">
           {/* <label htmlFor="text">Text</label> */}
           <textarea
-            className=" bg-gray-100 rounded-lg p-2 outline-none"
-            placeholder="Enter your text"
+            className={` p-2 outline-none placeholder:text-primary-500 ${showForm?'bg-gray-100':'bg-white'} rounded-md`}
+            placeholder="Make a announcement to students"
             name="text"
             id="text"
             cols="30"
