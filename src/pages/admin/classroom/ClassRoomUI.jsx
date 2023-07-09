@@ -9,7 +9,7 @@ const ClassRoomUI = () => {
   console.log(classCode);
 
   return (
-    <AdminLayout>
+    <AdminLayout pageName={classCode.id}>
       <ClassroomFeeds />
     </AdminLayout>
   );
