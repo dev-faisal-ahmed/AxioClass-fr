@@ -1,16 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import AdminLayout from "../../../layout/AdminLayout";
-import { useParams } from "react-router-dom";
 import { serverAddress } from "../../../data/serverAddress";
 import { dpStyle } from "../../../utils/helper";
 import ProfileIcon from "../../../components/shared/profile_icon/ProfileIcon";
 import { HorizontalLine } from "../../../components/shared/UIHelper";
 import { useReactToPrint } from "react-to-print";
-import { toast } from "react-hot-toast";
-import { toastConfig } from "../../../utils/toastConfig";
 
-const StudentDocumentPdf = () => {
-  const { id } = useParams();
+const StudentDocumentPdf = ({ id }) => {
   const [stdInfo, setStdInfo] = useState({});
   const documentRef = useRef(null);
 
@@ -30,21 +26,21 @@ const StudentDocumentPdf = () => {
   });
 
   return (
-    <AdminLayout pageName={"Student's Document"}>
+    <>
       {Object.keys(stdInfo).length === 0 && <h1 className="font-semibold">No Data Found</h1>}
       {Object.keys(stdInfo).length !== 0 && (
         <>
           <section
             ref={documentRef}
-            className="bg-white rounded-xl mt-10 w-[450px] mx-auto overflow-hidden border-2 border-[#4D44B5]"
+            className="bg-white rounded-xl mt-5 w-[450px] mx-auto overflow-hidden border-2 border-[#4D44B5]"
           >
             <div className="bg-white rounded-xl">
-              <div className="bg-[#4D44B5] h-[150px] rounded-b-[50%]"></div>
-              <div className="h-[75px] relative">
-                <ProfileIcon img={stdInfo.image} size={"150px"} style={dpStyle} />
+              <div className="bg-[#4D44B5] h-[100px] rounded-b-[50%]"></div>
+              <div className="h-[50px] relative">
+                <ProfileIcon img={stdInfo.image} size={"120px"} style={dpStyle} />
               </div>
             </div>
-            <div className="w-fit mx-auto py-5">
+            <div className="w-fit mx-auto py-5 mt-5">
               <h1 className="text-2xl font-semibold mb-5 text-center">{stdInfo.name}</h1>
               {/* <p className="text-center text-gray-500 mb-5">Dept of CSE</p> */}
               <div className="flex flex-col gap-1">
@@ -66,7 +62,7 @@ const StudentDocumentPdf = () => {
           </button>
         </>
       )}
-    </AdminLayout>
+    </>
   );
 };
 

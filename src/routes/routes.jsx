@@ -76,10 +76,6 @@ export const routes = createBrowserRouter([
     element: wrapperFunction(<TeacherDocumentPdf />),
   },
   {
-    path: "/student-document/:id",
-    element: wrapperFunction(<StudentDocumentPdf />),
-  },
-  {
     path: "/fees",
     element: wrapperFunction(<AdminFeesPage />),
   },
