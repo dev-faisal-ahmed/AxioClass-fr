@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ActionButton = ({ icon, title, link }) => {
+const ActionButton = ({ icon, title, link, onClick }) => {
   return (
     <Link
+    onClick={onClick}
       to={link}
       className="p-4 border border-primary-100 rounded-lg hover:shadow-xl hover:shadow-primary-100 hover:border-primary-300 transition"
     >

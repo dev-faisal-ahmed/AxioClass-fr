@@ -36,7 +36,7 @@ const ClassroomSearch = ({ setClassrooms }) => {
         if (res.okay) {
           setClassrooms(res.data);
         } else{
-          setClassrooms([]);
+          setClassrooms([]); 
           toast.error(res.msg, toastConfig);
         } 
       });
