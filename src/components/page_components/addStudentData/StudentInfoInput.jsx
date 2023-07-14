@@ -5,7 +5,7 @@ const StudentInfoInput = ({ placeholder, type, name, id, step }) => {
     return (
       <input
         required
-        className="border border-[#7A68EC] rounded-md p-2"
+        className="border border-[#7A68EC] rounded-md p-2 min-w-[50px]"
         placeholder={placeholder}
         type={type}
         name={name}
@@ -17,7 +17,7 @@ const StudentInfoInput = ({ placeholder, type, name, id, step }) => {
   return (
     <input
       required
-      className="border border-[#7A68EC] rounded-md p-2"
+      className="border border-[#7A68EC] rounded-md p-2  min-w-[50px]"
       placeholder={placeholder}
       type={type}
       name={name}

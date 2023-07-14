@@ -59,7 +59,7 @@ export const adminNavLinks = [
   },
   {
     title: "Students",
-    url: "/add-student",
+    url: "/student",
     icon: <FaUserGraduate size={20} />,
   },
   {
