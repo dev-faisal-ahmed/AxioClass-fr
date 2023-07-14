@@ -11,15 +11,22 @@ import { Margin } from "../../shared/UIHelper";
 const ProfileBox = ({ studentInfo }) => {
   const dpStyle = { border: "10px solid white", position: "absolute", top: "-100%", left: "32px" };
   // ui functions
-  const { basicInfo, financialInfo, academicInfo, personalInfo, guardianInfo, education } =
-    studentInfo;
+  const {
+    basicInfo,
+    financialInfo,
+    academicInfo,
+    personalInfo,
+    guardianInfo,
+    education,
+    registered,
+  } = studentInfo;
 
   const showResult = ({ board, year, result, examName }) => {
     return (
       <div className="grid grid-cols-[auto_1fr] items-center gap-x-5">
         <span className="block w-2 h-2 rounded-full bg-black"></span>
         <p className="font-semibold center--y gap-5">
-          {examName},{board} Board ({year})
+          {examName},&nbsp;{board} Board ({year})
         </p>
         <p className="col-start-2 text-gray-500">Result: {result}</p>
       </div>
@@ -44,10 +51,6 @@ const ProfileBox = ({ studentInfo }) => {
     );
   };
 
-  if (!studentInfo) {
-    return null;
-  }
-
   return (
     <>
       <div className="bg-white rounded-xl">
@@ -61,7 +64,8 @@ const ProfileBox = ({ studentInfo }) => {
             <h1 className="text-2xl font-bold text-primary-900">{basicInfo?.name}</h1>
             <p className="mt-2 text-gray-500">
               Dept of {basicInfo?.dept} &nbsp; || &nbsp; Intake: {basicInfo?.intake} &nbsp;|| &nbsp;
-              ID : {basicInfo?.id}
+              ID : {basicInfo?.id} &nbsp;|| &nbsp;
+              {registered ? "Registered" : "Not Registered"}
             </p>
           </div>
           {/* student modification */}
@@ -78,10 +82,14 @@ const ProfileBox = ({ studentInfo }) => {
           {spanBox({ title: "Demand", value: financialInfo?.demand, taka: true })}
           &nbsp; || &nbsp;
           {spanBox({ title: "Paid", value: financialInfo?.paid, taka: true })}
+          {/* &nbsp; || &nbsp;
+          {spanBox({ title: "Waiver", value: financialInfo?.waiver, taka: true })} */}
           &nbsp; || &nbsp;
-          {spanBox({ title: "Waiver", value: financialInfo?.waiver, taka: true })}
-          &nbsp; || &nbsp;
-          {spanBox({ title: "Due", value: financialInfo?.due, taka: true })}
+          {spanBox({
+            title: "Due",
+            value: financialInfo.demand - financialInfo.paid,
+            taka: true,
+          })}
         </p>
 
         {/* academic information */}
@@ -93,7 +101,7 @@ const ProfileBox = ({ studentInfo }) => {
           })}
           &nbsp; || &nbsp;
           {spanBox({
-            title: "Completed Semester",
+            title: "Cgpa",
             value: academicInfo?.cgpa ? academicInfo?.cgpa : "N/A",
           })}
         </p>
@@ -109,25 +117,25 @@ const ProfileBox = ({ studentInfo }) => {
         {/* Guardian information */}
         <h1 className="text-xl font-semibold mt-8 mb-3">Guardian Information.</h1>
         <div className="flex items-center gap-8">
-          {iconBox({ icon: <FiUser size={25} />, data: guardianInfo?.guardianName })}
-          {iconBox({ icon: <BsTelephone size={20} />, data: guardianInfo?.guardianNumber })}
+          {iconBox({ icon: <FiUser size={25} />, data: guardianInfo?.name })}
+          {iconBox({ icon: <BsTelephone size={20} />, data: guardianInfo?.phone })}
         </div>
         {/* Education Information */}
-        {/* <h1 className="text-xl font-semibold mt-8 mb-3">Education.</h1> */}
+        <h1 className="text-xl font-semibold mt-8 mb-3">Education.</h1>
         {/* ssc */}
-        {/* {showResult({
+        {showResult({
           examName: "SSC",
-          board: user.education.ssc.board,
-          result: user.education.ssc.result,
-          year: user.education.ssc.year,
-        })} */}
-        {/* <Margin className={"my-2"} />
+          board: education.ssc.board,
+          result: education.ssc.result,
+          year: education.ssc.year,
+        })}
+        <Margin className={"my-2"} />
         {showResult({
           examName: "HSC",
-          board: user.education.hsc.board,
-          result: user.education.hsc.result,
-          year: user.education.hsc.year,
-        })} */}
+          board: education.hsc.board,
+          result: education.hsc.result,
+          year: education.hsc.year,
+        })}
       </div>
     </>
   );

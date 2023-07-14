@@ -13,6 +13,8 @@ const TopBarSide = () => {
       <div>
         <ProfileIcon size={"50px"} img={image} />
       </div>
+      <div>
+      </div>
     </div>
   );
 };

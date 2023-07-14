@@ -1,15 +1,19 @@
 import React, { useRef } from "react";
-import { IoIosArrowForward } from "react-icons/io";
 import { FaUserGraduate } from "react-icons/fa";
 import { BsFillCreditCard2BackFill } from "react-icons/bs";
 import { serverAddress } from "../../../data/serverAddress";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
 import { postReq } from "../../../utils/postReq";
+import { useGetPaymentStat } from "../../../hooks/payment/useGetPaymentStat";
+import { useGetTransactionAdmin } from "../../../hooks/payment/useGetTransactionAdmin";
+import { useActivities } from "../../../hooks/activities/useActivities";
 
-const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
+const AdminFeesForm = ({ setStudentInfo }) => {
   const inputDivClass = `flex-grow flex gap-3 border border-gray-300 rounded-lg overflow-hidden`;
-
+  const { refetch: paymentStatRefetch } = useGetPaymentStat();
+  const { refetch: transactionsRefetch } = useGetTransactionAdmin();
+  const { refetch:activitiesRefetch } = useActivities();
   const studentIdRef = useRef(null);
   const amountRef = useRef(null);
 
@@ -21,28 +25,37 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
     const url = `${serverAddress}/payment/student/${studentId}`;
     fetch(url)
       .then((res) => res.json())
-      .then((res) => setStudentInfo(res.data));
+      .then((res) => {
+        if (res.okay) {
+          setStudentInfo(res.data);
+        } else toast.error(res.msg, toastConfig);
+      });
   };
 
   const payment = async () => {
+    const paymentToast = toast.loading("Proceeding to payment ... ", toastConfig);
     const studentId = studentIdRef.current.value;
     let amount = +amountRef.current.value; // converting the the amount into number
     if (amount < 0) amount *= -1;
+    else if (amount === 0) return;
 
     if (studentId === null || studentId.trim() === "") return;
-
     // api calling to pay
     const url = `${serverAddress}/payment`;
     fetch(url, postReq({ id: studentId, amount }))
       .then((res) => res.json())
       .then((res) => {
         if (res.okay) {
-          setPaymentInfo(res.data);
+          paymentStatRefetch();
+          transactionsRefetch();
+          activitiesRefetch();
           setStudentInfo({});
+          toast.success("Payment Completed 🔥");
         } else {
           toast.error(res.msg, toastConfig);
         }
       });
+    toast.dismiss(paymentToast);
   };
 
   return (
@@ -59,17 +72,13 @@ const AdminFeesForm = ({ setStudentInfo, setPaymentInfo }) => {
           <span className="w-[2px] bg-gray-300">&nbsp;</span>
           {/* input */}
           <input
+            onBlur={getStudentInfo}
             ref={studentIdRef}
             id={"student-id"}
             className="outline-none w-full"
             type={"text"}
             placeholder={"Input Student Id"}
           />
-        </div>
-        <div>
-          <button onClick={getStudentInfo} className="bg-gray-400 block px-2 text-white h-full">
-            <IoIosArrowForward size={25} />
-          </button>
         </div>
       </div>
 

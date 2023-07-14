@@ -4,11 +4,13 @@ import Sidebar from "../components/shared/sidebar/Sidebar";
 import TopBarSide from "../components/shared/top_bar/TopBarSide";
 import Error404 from "../components/shared/Error404";
 import { getLocalUser } from "../utils/localStorage";
+import RightSideBar from "../components/shared/right_side_bar/RightSideBar";
 
 const AdminLayout = ({ children, pageName }) => {
   const { role } = getLocalUser();
 
   if (role !== "admin") return <Error404 />;
+
   return (
     <main className="bg-primary-50 h-screen grid grid-cols-[280px_1fr_400px]">
       <Sidebar />
@@ -20,7 +22,7 @@ const AdminLayout = ({ children, pageName }) => {
       <section className="bg-white h-full overflow-y-auto grid grid-rows-[auto_1fr]">
         {/* for top bar right */}
         <TopBarSide />
-        <section className="overflow-y-auto px-6">{}</section>
+        <section className="overflow-y-auto px-6">{<RightSideBar />}</section>
       </section>
     </main>
   );

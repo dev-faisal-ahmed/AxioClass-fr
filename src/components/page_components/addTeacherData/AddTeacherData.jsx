@@ -106,7 +106,7 @@ const AddTeacherData = () => {
             <div className="flex w-full gap-[50px]">
               <div className="flex flex-col w-full">
                 <TeacherInfoLabel label={"date of birth"} htmlFor={"dob"} />
-                <div className="w-full flex justify-between">
+                <div className="w-full flex gap-6 justify-between">
                   <input
                     className="border border-[#7A68EC] rounded-md p-2"
                     type="date"

@@ -14,7 +14,6 @@ const AddCourseTable = ({ allCourses, selectedCourses, setSelectedCourses, setAd
   // functions
   const handleAddCourse = () => {
     const url = `${serverAddress}/courses/registration`;
-    console.log("Clicked");
     // console.log(selectedCourses);
     fetch(url, postReq({ selectedCourses, id }))
       .then((res) => res.json())
@@ -38,9 +37,10 @@ const AddCourseTable = ({ allCourses, selectedCourses, setSelectedCourses, setAd
             <th className="pb-3 text-center">Remarks</th>
           </tr>
         </thead>
-        <tbody className="">
+        <tbody>
           {allCourses?.map((course, index) => (
             <CourseTableRow
+              key={index}
               code={course.code}
               title={course.title}
               credit={course.credit}
