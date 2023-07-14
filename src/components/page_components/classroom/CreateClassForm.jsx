@@ -5,8 +5,11 @@ import { serverAddress } from '../../../data/serverAddress';
 import { postReq } from '../../../utils/postReq';
 import { toast } from 'react-hot-toast';
 import { toastConfig } from '../../../utils/toastConfig';
+import { useActivities } from '../../../hooks/activities/useActivities';
 
 const CreateClassForm = ({ setClassModal }) => {
+  const { refetch:activitiesRefetch } = useActivities();
+
   const [className, setClassName] = useState('');
   const [img, setImg] = useState('');
   const [dept, setDept] = useState('');
@@ -28,6 +31,7 @@ const CreateClassForm = ({ setClassModal }) => {
         if (res.okay) {
           setCourseCodeList(res.data.courseCodeList);
           setInstructorList(res.data.teacherInfoList.map((t) => t.name));
+          activitiesRefetch();
         } else {
           setCourseCodeList([]);
           setInstructorList([]);

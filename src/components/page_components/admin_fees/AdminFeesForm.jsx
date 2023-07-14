@@ -7,11 +7,13 @@ import { toastConfig } from "../../../utils/toastConfig";
 import { postReq } from "../../../utils/postReq";
 import { useGetPaymentStat } from "../../../hooks/payment/useGetPaymentStat";
 import { useGetTransactionAdmin } from "../../../hooks/payment/useGetTransactionAdmin";
+import { useActivities } from "../../../hooks/activities/useActivities";
 
 const AdminFeesForm = ({ setStudentInfo }) => {
   const inputDivClass = `flex-grow flex gap-3 border border-gray-300 rounded-lg overflow-hidden`;
   const { refetch: paymentStatRefetch } = useGetPaymentStat();
   const { refetch: transactionsRefetch } = useGetTransactionAdmin();
+  const { refetch:activitiesRefetch } = useActivities();
   const studentIdRef = useRef(null);
   const amountRef = useRef(null);
 
@@ -46,6 +48,7 @@ const AdminFeesForm = ({ setStudentInfo }) => {
         if (res.okay) {
           paymentStatRefetch();
           transactionsRefetch();
+          activitiesRefetch();
           setStudentInfo({});
           toast.success("Payment Completed 🔥");
         } else {

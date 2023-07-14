@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from "react";
-import ActivityCard from "./ActivityCard";
-import { activityData } from "../../../fake_data/activityData";
-import ActionButton from "./ActionButton";
-import { serverAddress } from "../../../data/serverAddress";
+import React, { useEffect, useState } from 'react';
+import ActivityCard from './ActivityCard';
+import { activityData } from '../../../fake_data/activityData';
+import ActionButton from './ActionButton';
+import { serverAddress } from '../../../data/serverAddress';
+import { useActivities } from '../../../hooks/activities/useActivities';
 
 const LatestActivities = () => {
-  const [activities, setActivities] = useState([]);
-  useEffect(() => {
-    const url = `${serverAddress}/activities`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.okay) setActivities(res.data);
-        else {
-          toast.error(res.msg, toastConfig);
-        }
-      });
-  }, []);
+  const { activities } = useActivities();
+  // const [activities, setActivities] = useState([]);
+
+  // useEffect(() => {
+  //   const url = `${serverAddress}/activities`;
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       if (res.okay) setActivities(res.data);
+  //       else {
+  //         toast.error(res.msg, toastConfig);
+  //       }
+  //     });
+  // }, []);
   const activeDate = activityData[0].date;
   return (
     <div className="">
@@ -25,7 +28,7 @@ const LatestActivities = () => {
       </h1>
       <h4 className="text-sm text-gray-600 mb-3">{activeDate}</h4>
       <div className="w-full grid grid-cols-4 gap-x-4 gap-y-4 mb-5">
-        {activities.map((data, index) => (
+        {activities?.data?.map((data, index) => (
           <ActivityCard
             key={index}
             activity={data.activity}

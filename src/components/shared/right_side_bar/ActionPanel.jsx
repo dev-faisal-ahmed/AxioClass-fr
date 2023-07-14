@@ -16,7 +16,7 @@ const ActionPanel = () => {
   const [newSemesterModal, setNewSemesterModal] = useState(false);
   return (
     <div className="mb-12">
-      {/* Modal */}
+      {/* Modal for creating new semester*/}
       <Modal
         modalState={newSemesterModal}
         setModalState={setNewSemesterModal}

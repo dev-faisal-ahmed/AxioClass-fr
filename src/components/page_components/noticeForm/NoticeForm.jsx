@@ -1,13 +1,15 @@
-import React from "react";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import { serverAddress } from "../../../data/serverAddress";
-import { postReq } from "../../../utils/postReq";
-import { useGetNotices } from "../../../hooks/notices/useGetNotices";
-import { BiSolidSend } from "react-icons/bi";
+import React from 'react';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { serverAddress } from '../../../data/serverAddress';
+import { postReq } from '../../../utils/postReq';
+import { useGetNotices } from '../../../hooks/notices/useGetNotices';
+import { BiSolidSend } from 'react-icons/bi';
+import { useActivities } from '../../../hooks/activities/useActivities';
 
 const NoticeForm = ({ setNoticeForm }) => {
   console.log(setNoticeForm);
   const { refetch } = useGetNotices();
+  const { refetch:activitiesRefetch } = useActivities();
   const handleNotice = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -30,6 +32,7 @@ const NoticeForm = ({ setNoticeForm }) => {
           toast.error(res.msg, toastConfig);
         }
         refetch();
+        activitiesRefetch();
         toast.success('Notice added successfully', toastConfig);
         setNoticeForm(false);
       });
