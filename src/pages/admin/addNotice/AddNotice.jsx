@@ -6,6 +6,7 @@ import NoticeBoard from '../../../components/page_components/noticeBoard/NoticeB
 
 const AddNotice = () => {
   
+  
   return (
     <AdminLayout pageName={'Notice'}>
       <div>
