@@ -34,7 +34,7 @@ const Classroom = () => {
       </Modal>
       <div>
         <div className="flex gap-5 justify-between items-center p-3 rounded-xl bg-white">
-          <ClassroomSearch />
+          <ClassroomSearch setClassrooms={setClassrooms}/>
           <button
             onClick={() => {
               setClassModal(!classModal);
