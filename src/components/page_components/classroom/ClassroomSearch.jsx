@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import Modal from '../../shared/modal/Modal';
+import { serverAddress } from '../../../data/serverAddress';
+import { toastConfig } from '../../../utils/toastConfig';
+import { toast } from 'react-hot-toast';
 
-const ClassroomSearch = () => {
+const ClassroomSearch = ({ setClassrooms }) => {
   const [searchType, setSearchType] = useState('code');
   const [dept, setDept] = useState('cse');
   const [code, setCode] = useState('');
@@ -18,6 +21,25 @@ const ClassroomSearch = () => {
   //   handleSubmit function
   const handleSubmit = (e) => {
     e.preventDefault();
+    const query =
+      searchType === 'code'
+        ? `search?type=code&&classCode=${code}`
+        : searchType === 'teacher'
+        ? `search?type=teacher&&teacherId=${teacherCode}`
+        : `search?type=intake-dept&&intake=44&dept=${dept.toUpperCase()}`;
+
+    const url = `${serverAddress}/classroom/${query}`;
+    console.log(url);
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.okay) {
+          setClassrooms(res.data);
+        } else{
+          setClassrooms([]);
+          toast.error(res.msg, toastConfig);
+        } 
+      });
   };
   console.log(searchType);
   return (
