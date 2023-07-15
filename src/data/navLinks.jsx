@@ -78,3 +78,15 @@ export const adminNavLinks = [
     icon: <AiFillNotification size={20} />,
   },
 ];
+export const teacherNavLinks = [
+  {
+    title: "Dashboard",
+    url: "/",
+    icon: <MdDashboard size={20} />,
+  },
+  {
+    title: "Classrooms",
+    url: "/teacherclassrooms",
+    icon: <MdClass size={20} />,
+  },
+];
