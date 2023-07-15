@@ -6,8 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import StudentInfoLabel from './StudentInfoLabel';
 import StudentInfoInput from './StudentInfoInput';
 import { postReq } from '../../../utils/postReq';
+import { useActivities } from '../../../hooks/activities/useActivities';
 
 const AddStudentData = () => {
+  const { refetch: activitiesRefetch } = useActivities();
   const route = useNavigate();
   // handel image
   const [imageLink, setImageLink] = useState(
@@ -68,6 +70,7 @@ const AddStudentData = () => {
           toast.error(res.msg, toastConfig);
         } else {
           toast.success('Student Admitted', toastConfig);
+          useActivities();
         }
       });
   };

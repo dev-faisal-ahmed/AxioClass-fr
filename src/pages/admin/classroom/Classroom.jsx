@@ -6,23 +6,26 @@ import { TbLayoutGridAdd } from 'react-icons/tb';
 import Modal from '../../../components/shared/modal/Modal';
 import CreateClassForm from '../../../components/page_components/classroom/CreateClassForm';
 import { serverAddress } from '../../../data/serverAddress';
+import { useClassroom } from '../../../hooks/classroom/useClassroom';
 
 const Classroom = () => {
   const [classModal, setClassModal] = useState(false);
-  const [classrooms, setClassrooms] = useState([]);
+  const { classrooms, refetch } = useClassroom();
+  const [searchResult, setSearchResult] = useState(false);
+  // const [classrooms, setClassrooms] = useState([]);
 
-  useEffect(() => {
-    const url = `${serverAddress}/classroom/get-admin`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.okay) {
-          setClassrooms(res.data);
-        } else {
-          toast.error(res.msg, toastConfig);
-        }
-      });
-  }, []);
+  // useEffect(() => {
+  //   const url = `${serverAddress}/classroom/get-admin`;
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       if (res.okay) {
+  //         setClassrooms(res.data);
+  //       } else {
+  //         toast.error(res.msg, toastConfig);
+  //       }
+  //     });
+  // }, []);
   return (
     <AdminLayout pageName={'Classroom'}>
       <Modal
@@ -34,7 +37,7 @@ const Classroom = () => {
       </Modal>
       <div>
         <div className="flex gap-5 justify-between items-center p-3 rounded-xl bg-white">
-          <ClassroomSearch setClassrooms={setClassrooms}/>
+          <ClassroomSearch setClassrooms={setSearchResult} />
           <button
             onClick={() => {
               setClassModal(!classModal);
@@ -47,7 +50,9 @@ const Classroom = () => {
           </button>
         </div>
 
-        <ClassroomList classrooms={classrooms}/>
+        <ClassroomList
+          classrooms={searchResult ? searchResult : classrooms?.data}
+        />
       </div>
     </AdminLayout>
   );
