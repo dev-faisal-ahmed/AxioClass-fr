@@ -20,6 +20,7 @@ import ClassRoomUI from "../pages/admin/classroom/ClassRoomUI";
 import Students from "../pages/admin/students/Students";
 import TeacherData from "../components/page_components/teacherData/TeacherData";
 import Teacher from "../pages/admin/teacher/Teacher";
+import TeacherClassrooms from "../pages/teacher/classrooms/TeacherClassrooms";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -86,6 +87,10 @@ export const routes = createBrowserRouter([
   {
     path: "/classroom",
     element: wrapperFunction(<Classroom />),
+  },
+  {
+    path: "/teacherclassrooms",
+    element: wrapperFunction(<TeacherClassrooms />),
   },
   {
     path: "/classroom/:id",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SidebarLink from "./SidebarLink";
 import { useLocation, useNavigate } from "react-router-dom";
-import { adminNavLinks, navLinks } from "../../../data/navLinks";
+import { adminNavLinks, navLinks, teacherNavLinks } from "../../../data/navLinks";
 import { HorizontalLine } from "../UIHelper";
 import { MdLogout } from "react-icons/md";
 import { toast } from "react-hot-toast";
@@ -38,6 +38,19 @@ const Sidebar = () => {
                 currentRoute={location.pathname}
               />
             ))}
+
+          {/* for teacher */}
+          {role === "teacher" &&
+            teacherNavLinks.map((data, index) => (
+              <SidebarLink
+                key={index}
+                title={data.title}
+                url={data.url}
+                icon={data.icon}
+                currentRoute={location.pathname}
+              />
+            ))}
+
           {/* for student */}
           {role === "student" &&
             navLinks.map((data, index) => (
