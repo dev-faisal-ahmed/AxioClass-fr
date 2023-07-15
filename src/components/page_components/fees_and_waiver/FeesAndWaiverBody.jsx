@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import FeesGraph from "./FeesGraph";
 import FeesSummarySemesterWise from "./FeesSummarySemesterWise";
 import { serverAddress } from "../../../data/serverAddress";
 import { getLocalUser } from "../../../utils/localStorage";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
+import FeesTable from "./FeesTable";
 
 const FeesAndWaiverBody = () => {
   const { id } = getLocalUser();
@@ -26,7 +26,7 @@ const FeesAndWaiverBody = () => {
   return (
     <section>
       <FeesSummarySemesterWise stat={feesInfo?.stat} />
-      <FeesGraph />
+      <FeesTable transactions={feesInfo?.transactions} />
     </section>
   );
 };
