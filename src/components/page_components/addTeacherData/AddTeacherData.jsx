@@ -6,8 +6,10 @@ import { postReq } from "../../../utils/postReq";
 import { toast } from "react-hot-toast";
 import { toastConfig } from "../../../utils/toastConfig";
 import { useNavigate } from "react-router-dom";
+import { useActivities } from "../../../hooks/activities/useActivities";
 
 const AddTeacherData = () => {
+  const { refetch: activitiesRefetch } = useActivities();
   const [imageLink, setImageLink] = useState(
     "https://m.media-amazon.com/images/M/MV5BMzdjNjExMTgtZGFmNS00ZWRjLWJmNjAtOTliYzJjYjcxMWFhXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg"
   );
@@ -53,6 +55,7 @@ const AddTeacherData = () => {
 
     if (response.okay) {
       toast.success("Teacher Added", toastConfig);
+      activitiesRefetch();
       route(`/teacher-document/${response.id}`);
     }
   };
