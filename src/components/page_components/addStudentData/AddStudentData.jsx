@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
-import { serverAddress } from '../../../data/serverAddress';
-import { toast } from 'react-hot-toast';
-import { toastConfig } from '../../../utils/toastConfig';
-import { useNavigate } from 'react-router-dom';
-import StudentInfoLabel from './StudentInfoLabel';
-import StudentInfoInput from './StudentInfoInput';
-import { postReq } from '../../../utils/postReq';
-import { useActivities } from '../../../hooks/activities/useActivities';
+
+import React, { useState } from "react";
+import { serverAddress } from "../../../data/serverAddress";
+import { toast } from "react-hot-toast";
+import { toastConfig } from "../../../utils/toastConfig";
+import StudentInfoLabel from "./StudentInfoLabel";
+import StudentInfoInput from "./StudentInfoInput";
+import { postReq } from "../../../utils/postReq";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import Modal from "../../shared/modal/Modal";
+import StudentDocumentPdf from "../../../pages/admin/student_document/StudentDocumentPdf";
+  import { useActivities } from '../../../hooks/activities/useActivities';
 
 const AddStudentData = () => {
   const { refetch: activitiesRefetch } = useActivities();
-  const route = useNavigate();
-  // handel image
-  const [imageLink, setImageLink] = useState(
-    'https://m.media-amazon.com/images/M/MV5BMzdjNjExMTgtZGFmNS00ZWRjLWJmNjAtOTliYzJjYjcxMWFhXkEyXkFqcGdeQXVyMjYwNDA2MDE@._V1_.jpg'
-  );
+  const [imageLink, setImageLink] = useState();
+  const [studentPdfModal, setStudentPdfModal] = useState(false);
+  const [studentId, setStudentId] = useState("");
+
   // handle student admission
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -65,12 +67,15 @@ const AddStudentData = () => {
     fetch(url, postReq(formData))
       .then((res) => res.json())
       .then((res) => {
-        if (res?.okay) {
+        if (!res.okay) {
           console.log(res);
           toast.error(res.msg, toastConfig);
         } else {
-          toast.success('Student Admitted', toastConfig);
+          toast.success("Student Admitted", toastConfig);
           useActivities();
+          setStudentId(res.id);
+          setStudentPdfModal(true);
+          form.reset();
         }
       });
   };
@@ -90,7 +95,9 @@ const AddStudentData = () => {
                   style={{ backgroundImage: `url(${imageLink})` }}
                   className="bg-cover border border-dashed border-[#7A68EC] rounded-md h-[150px] w-[150px] p-2 flex items-center justify-center"
                   htmlFor="image"
-                ></label>
+                >
+                  {!imageLink && <AiOutlineFileAdd size={35} />}
+                </label>
                 <input
                   onBlur={(e) => {
                     setImageLink(e.target.value);
@@ -302,6 +309,9 @@ const AddStudentData = () => {
           </div>
         </div>
       </form>
+      <Modal title={"Student PDF"} modalState={studentPdfModal} setModalState={setStudentPdfModal}>
+        <StudentDocumentPdf id={studentId} />
+      </Modal>
     </div>
   );
 };

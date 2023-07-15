@@ -8,8 +8,9 @@ import { toastConfig } from '../../../utils/toastConfig';
 import { useActivities } from '../../../hooks/activities/useActivities';
 import { useClassroom } from '../../../hooks/classroom/useClassroom';
 
+
 const CreateClassForm = ({ setClassModal }) => {
-  const { refetch: activitiesRefetch } = useActivities();
+  const { refetch:activitiesRefetch } = useActivities();
   const { refetch: classroomsRefetch } = useClassroom();
 
   const [className, setClassName] = useState('');
@@ -33,6 +34,7 @@ const CreateClassForm = ({ setClassModal }) => {
         if (res.okay) {
           setCourseCodeList(res.data.courseCodeList);
           setInstructorList(res.data.teacherInfoList.map((t) => t.name));
+          activitiesRefetch();
         } else {
           setCourseCodeList([]);
           setInstructorList([]);
