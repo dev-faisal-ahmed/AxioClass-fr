@@ -86,7 +86,7 @@ export const teacherNavLinks = [
   },
   {
     title: "Classrooms",
-    url: "/teacherclassrooms",
+    url: "/teacher-classrooms",
     icon: <MdClass size={20} />,
   },
 ];

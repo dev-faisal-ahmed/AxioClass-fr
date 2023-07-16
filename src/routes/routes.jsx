@@ -89,7 +89,7 @@ export const routes = createBrowserRouter([
     element: wrapperFunction(<Classroom />),
   },
   {
-    path: "/teacherclassrooms",
+    path: "/teacher-classrooms",
     element: wrapperFunction(<TeacherClassrooms />),
   },
   {
