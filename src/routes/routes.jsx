@@ -21,6 +21,8 @@ import Students from "../pages/admin/students/Students";
 import TeacherData from "../components/page_components/teacherData/TeacherData";
 import Teacher from "../pages/admin/teacher/Teacher";
 import TeacherClassrooms from "../pages/teacher/classrooms/TeacherClassrooms";
+import TeacherProfile from "../components/page_components/teacherData/TeacherProfile";
+import TeacherIdProvider from "../context_api/TeacherIdProvider";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -53,6 +55,14 @@ export const routes = createBrowserRouter([
       <StudentIdProvider>
         <StudentProfile />
       </StudentIdProvider>
+    ),
+  },
+  {
+    path: "/teacher-info/:id",
+    element: wrapperFunction(
+      <TeacherIdProvider>
+        <TeacherProfile />
+      </TeacherIdProvider>
     ),
   },
   { path: "/login", element: <Login /> },
