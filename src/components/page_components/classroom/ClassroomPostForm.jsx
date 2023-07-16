@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { FaChalkboardTeacher } from "react-icons/fa";
 import { ImImages } from "react-icons/im";
 
-const ClassroomPostForm = ({ showForm,setShowForm}) => {
+const ClassroomPostForm = ({ showForm,setShowForm,classCodeID,setNewPost}) => {
   const [imglink, setImglink] = useState(false);
   const [allow, setAllow] = useState(null);
   const onSubmitForm = (e) => {
@@ -13,8 +14,28 @@ const ClassroomPostForm = ({ showForm,setShowForm}) => {
     const formInfo = {
       img,
       text,
-      subOption,
+      classCode:classCodeID
     };
+
+    const url = `http://localhost:5000/classroom/add-post`;
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formInfo),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Post response:', data);
+        setNewPost(data)
+        form.reset(); // Reset the form
+      })
+      .catch(error => {
+        console.log('Error:', error);
+      });
+
     console.log(formInfo);
   };
   return (
@@ -24,12 +45,9 @@ const ClassroomPostForm = ({ showForm,setShowForm}) => {
         showForm ? "p-4" : "h-[65px] overflow-hidden"
       } `}
     >
-      <div
-        style={{
-          backgroundImage: `url(https://e0.pxfuel.com/wallpapers/392/773/desktop-wallpaper-deathpool-marvel-art-drawings-deadpool-artwork-polygon-art-deadpool-polygon.jpg)`,
-        }}
-        className="w-12 h-12 border-2 border-primary-500 rounded-full bg-cover bg-center"
-      ></div>
+      <div className='w-12 h-12 flex items-center justify-center border border-primary-500 bg-cover bg-center rounded-full'>
+          <FaChalkboardTeacher size={30}/>
+        </div>
       <form
         onSubmit={onSubmitForm}
         className="flex flex-col gap-4 items-center w-full"
