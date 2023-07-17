@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 
-const ClassroomFeedCard = ({item}) => {
+const ClassroomFeedCard = ({item,teacher}) => {
   return (
     <div className='rounded-lg p-4 flex flex-col items-center bg-white shadow-sm'>
       '<div className='w-full flex items-center gap-4'>
@@ -9,7 +9,7 @@ const ClassroomFeedCard = ({item}) => {
           <FaChalkboardTeacher size={30}/>
         </div>
         <div>
-          {/* <div className='font-semibold'>Raisul</div> */}
+          <div className='font-semibold'>{teacher}</div>
           <div className='text-gray-500 text-sm'>{item.date}</div>
         </div>
       </div>
