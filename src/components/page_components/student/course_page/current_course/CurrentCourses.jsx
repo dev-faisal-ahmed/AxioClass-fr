@@ -3,7 +3,7 @@ import { getLocalUser } from "../../../../../utils/localStorage";
 
 import { useGetCurrentCourses } from "../../../../../hooks/courses/useGetCurrentCourses";
 
-const CurrentCourses = () => {
+const CurrentCourses = ({grades}) => {
   const { id } = getLocalUser();
   const { currentCourses } = useGetCurrentCourses(id);
 

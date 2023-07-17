@@ -24,6 +24,7 @@ import TeacherClassrooms from "../pages/teacher/classrooms/TeacherClassrooms";
 import Notices from "../pages/notices/Notices";
 import TeacherProfile from "../components/page_components/teacherData/TeacherProfile";
 import TeacherIdProvider from "../context_api/TeacherIdProvider";
+import Grades from "../pages/grades/Grades";
 
 
 const wrapperFunction = (component) => {
@@ -99,6 +100,10 @@ export const routes = createBrowserRouter([
   {
     path: "/notices",
     element: wrapperFunction(<Notices />),
+  },
+  {
+    path: "/grades",
+    element: wrapperFunction(<Grades />),
   },
   {
     path: "/classroom",
