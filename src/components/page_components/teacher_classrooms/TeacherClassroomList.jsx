@@ -7,10 +7,11 @@ import ClassroomList from '../classroom/ClassroomList';
 
 const TeacherClassroomList = () => {
   const [classrooms, setClassrooms] = useState([]);
-  const { id } = getLocalUser();
+  const { name } = getLocalUser();
+  console.log(classrooms);
 
   useEffect(() => {
-    const query = `search?type=teacher&&teacherId=${id}`;
+    const query = `classroom/teacher/${name}`;
     const url = `${serverAddress}/classroom/${query}`;
     console.log(url);
     fetch(url)
