@@ -1,9 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { serverAddress } from "../../../data/serverAddress";
+import { toast } from "react-hot-toast";
+import { postReq } from "../../../utils/postReq";
+import { MdFileDownloadDone } from "react-icons/md";
 
-const ResultForm = ({ item }) => {
+const ResultForm = ({ item, courseCode }) => {
   const midRef = useRef(null);
   const thirtyRef = useRef(null);
   const finalRef = useRef(null);
+  const [submitted, setSubmitted] = useState(false);
 
   const submitResult = ({ classCode }) => {
     const mid = midRef.current.value;
@@ -27,11 +32,23 @@ const ResultForm = ({ item }) => {
       mid: +mid,
       thirty: +thirty,
       final: +final,
-      classCode,
+      courseCode,
       id: item.id,
     };
 
-    console.log(result);
+    const url = `${serverAddress}/grade/add`;
+    const loadingToast = toast.loading("Wait for it ...");
+    fetch(url, postReq(result))
+      .then((res) => res.json())
+      .then((res) => {
+        toast.dismiss(loadingToast);
+        if (res.okay) {
+          toast.success(res.msg);
+          setSubmitted(true);
+        } else {
+          toast.error(res.msg);
+        }
+      });
   };
 
   return (
@@ -60,9 +77,15 @@ const ResultForm = ({ item }) => {
           type="number"
         />
       </div>
-      <button onClick={submitResult} className="button-primary px-4">
-        Submit
-      </button>
+      {submitted ? (
+        <button className="button-primary px-4">
+          <MdFileDownloadDone />
+        </button>
+      ) : (
+        <button onClick={submitResult} className="button-primary px-4">
+          Submit
+        </button>
+      )}
     </>
   );
 };
