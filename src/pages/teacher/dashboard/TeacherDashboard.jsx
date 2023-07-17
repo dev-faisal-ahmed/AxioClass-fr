@@ -6,8 +6,6 @@ import TeacherProfileBox from "../../../components/page_components/teacherData/T
 
 const TeacherDashboard = () => {
   const { id } = getLocalUser();
-  // const { updateTeacherId } = useContext(TeacherIdContext);
-  // updateTeacherId(id);
   const { teacherInfo, refetch } = useGetTeacher(id);
 
   return (
