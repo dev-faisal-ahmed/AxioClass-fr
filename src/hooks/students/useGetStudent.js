@@ -6,7 +6,7 @@ const useGetStudent = (id) => {
   const { data, refetch } = useQuery([`student-info${id}`], () =>
     fetch(url).then((res) => res.json())
   );
-
+  console.log(data)
   return { studentInfo: data?.data, refetch }; // all the data came
 };
 
