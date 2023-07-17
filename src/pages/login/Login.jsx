@@ -30,7 +30,7 @@ const Login = () => {
       return;
     } else if (res?.okay) {
       toast.success(res?.msg, toastConfig);
-      setLocalUser({ id: res?.id, role: res?.role, image: res?.image });
+      setLocalUser({ id: res?.id, role: res?.role, image: res?.image, name: res?.name });
       route("/");
     }
   };
