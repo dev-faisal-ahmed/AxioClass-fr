@@ -19,6 +19,9 @@ const ClassCard = ({
   const { role } = getLocalUser();
   let link;
   if (role === "teacher") link = `/classroom/teacher/${classCode}`;
+  if (role === "student") link = `/classroom/student/${classCode}`;
+  if (role === "admin") link = `/classroom/${classCode}`;
+
   return (
     <div className="bg-white text-gray-500 rounded-xl overflow-hidden">
       {/* Top part of card with title and img */}
