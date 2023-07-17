@@ -18,7 +18,6 @@ const CurrentCourses = () => {
               <th>Course Title</th>
               <th className="pb-3 text-center">Credit</th>
               <th className="pb-3 text-center">Type</th>
-              <th className="pb-3 text-center">Class Room</th>
             </tr>
           </thead>
           <tbody>
