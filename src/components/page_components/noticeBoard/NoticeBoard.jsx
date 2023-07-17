@@ -6,7 +6,7 @@ import NoticeForm from '../noticeForm/NoticeForm';
 import { serverAddress } from '../../../data/serverAddress';
 import { useGetNotices } from '../../../hooks/notices/useGetNotices';
 
-const NoticeBoard = ({ restriced }) => {
+const NoticeBoard = ({ restricted }) => {
   const [noticeForm, setNoticeForm] = useState(false);
   // const [notices, setNotices] = useState([]);
   const { notices } = useGetNotices();
@@ -41,7 +41,7 @@ const NoticeBoard = ({ restriced }) => {
           Latest Notices
         </h1>
 
-        {restriced ? (
+        {restricted ? (
           <button
             onClick={() => {
               setNoticeForm(!noticeForm);
@@ -65,7 +65,7 @@ const NoticeBoard = ({ restriced }) => {
             category={category}
             date={date}
             description={description}
-            restriced={restriced}
+            restricted={restricted}
           />
         );
       })}

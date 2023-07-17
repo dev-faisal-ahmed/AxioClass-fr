@@ -8,7 +8,7 @@ const AddNotice = () => {
   return (
     <AdminLayout pageName={'Notice'}>
       <div>
-        <NoticeBoard restriced={true}/>
+        <NoticeBoard restricted={true}/>
       </div>
     </AdminLayout>
   );
