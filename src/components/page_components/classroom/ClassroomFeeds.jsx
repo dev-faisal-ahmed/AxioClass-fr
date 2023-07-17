@@ -49,17 +49,15 @@ const ClassroomFeeds = ({ classCodeID }) => {
             <div>Intake: {classroomData?.classInfo.intake}</div>
           </div>
           <div className="pb-3 flex">
-            {classroomData?.classInfo.studentList
-              .slice(0, 3)
-              .map((item, index) => (
-                <div
-                  key={index}
-                  style={{
-                    backgroundImage: `url(${item.image})`,
-                  }}
-                  className="mr-[-10px] w-10 h-10 bg-white rounded-full bg-cover bg-center"
-                ></div>
-              ))}
+            {classroomData?.classInfo.studentList.slice(0, 3).map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                }}
+                className="mr-[-10px] w-10 h-10 bg-white rounded-full bg-cover bg-center"
+              ></div>
+            ))}
             {/* <div
               style={{
                 backgroundImage: `url(https://itsastampede615821596.files.wordpress.com/2021/03/review-tom-and-jerry-2021-movie.jpg)`,
@@ -76,12 +74,10 @@ const ClassroomFeeds = ({ classCodeID }) => {
             showStudent={showStudent}
             setShowStudent={setShowStudent}
           />
-          {role == "teacher" && (
-            <button onClick={() => setInputResult(true)}>Result</button>
-          )}
+          {role && <button onClick={() => setInputResult(true)}>Result</button>}
           <ResultInput
             student={classroomData?.classInfo.studentList}
-            classCode={classroomData?.classInfo.classCode}
+            courseCode={classroomData?.classInfo.courseCode}
             showInputResult={showInputResult}
             setInputResult={setInputResult}
           />
