@@ -4,6 +4,7 @@ import { IoFolderOutline } from "react-icons/io5";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { FiClock } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { getLocalUser } from "../../../utils/localStorage";
 
 const ClassCard = ({
   className,
@@ -15,6 +16,12 @@ const ClassCard = ({
   classCode,
   courseCode,
 }) => {
+  const { role } = getLocalUser();
+  let link;
+  if (role === "teacher") link = `/classroom/teacher/${classCode}`;
+  if (role === "student") link = `/classroom/student/${classCode}`;
+  if (role === "admin") link = `/classroom/${classCode}`;
+
   return (
     <div className="bg-white text-gray-500 rounded-xl overflow-hidden">
       {/* Top part of card with title and img */}
@@ -42,7 +49,7 @@ const ClassCard = ({
 
       {/* Bottom button */}
       <Link
-        to={`/classroom/${classCode}`}
+        to={link}
         className="p-4 block text-center hover:bg-primary-600 transition text-primary-600 hover:text-white"
       >
         <p className="text-sm  font-semibold"> View Class</p>
