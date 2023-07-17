@@ -15,11 +15,11 @@ import { serverAddress } from '../../../data/serverAddress';
 import { toastConfig } from '../../../utils/toastConfig';
 import { useGetNotices } from '../../../hooks/notices/useGetNotices';
 
-const NoticeCard = ({ title, category, date, description, id }) => {
+const NoticeCard = ({ title, category, date, description, id, restricted }) => {
   console.log(id);
   const route = useNavigate();
   const [seeDetails, setSeeDetails] = useState(false);
-  const {refetch} = useGetNotices();
+  const { refetch } = useGetNotices();
   const icon =
     category === 'financial' ? (
       <GiTakeMyMoney />
@@ -121,12 +121,17 @@ const NoticeCard = ({ title, category, date, description, id }) => {
 
       {/* Right side buttons */}
       <div className="flex gap-4 items-center">
-        <div
-          title="Delete this notice"
-          className="text-3xl text-primary-900 hover:text-red-600"
-        >
-          <MdDelete onClick={handleDelete} />
-        </div>
+        {restricted ? (
+          <div
+            title="Delete this notice"
+            className="text-3xl text-primary-900 hover:text-red-600"
+          >
+            <MdDelete onClick={handleDelete} />
+          </div>
+        ) : (
+          ''
+        )}
+
         <div
           onClick={() => setSeeDetails(!seeDetails)}
           title="See details"

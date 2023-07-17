@@ -21,6 +21,7 @@ import Students from "../pages/admin/students/Students";
 import TeacherData from "../components/page_components/teacherData/TeacherData";
 import Teacher from "../pages/admin/teacher/Teacher";
 import TeacherClassrooms from "../pages/teacher/classrooms/TeacherClassrooms";
+import Notices from "../pages/notices/Notices";
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -83,6 +84,10 @@ export const routes = createBrowserRouter([
   {
     path: "/add-notice",
     element: wrapperFunction(<AddNotice />),
+  },
+  {
+    path: "/notices",
+    element: wrapperFunction(<Notices />),
   },
   {
     path: "/classroom",
