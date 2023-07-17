@@ -5,7 +5,13 @@ import { GiMoneyStack, GiTakeMyMoney } from 'react-icons/gi';
 import { TbCurrencyDollarOff, TbCurrencyTaka } from 'react-icons/tb';
 import { RiBookReadFill, RiBookFill, RiInformationLine } from 'react-icons/ri';
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
-const StatAdmin = () => {
+const StatAdmin = ({
+  totalCourses,
+  totalDemand,
+  totalRevenue,
+  totalStudent,
+  totalTeacher,
+}) => {
   // function
   const statBox = ({
     icon,
@@ -63,7 +69,7 @@ const StatAdmin = () => {
       {statBox({
         icon: <FaUserGraduate size={30} />,
         title: 'Students',
-        amount: 5000,
+        amount: totalStudent,
         growth: 'up',
         growthAmount: 5.67,
       })}
@@ -71,7 +77,7 @@ const StatAdmin = () => {
       {statBox({
         icon: <FaUserSecret size={30} />,
         title: 'Faculties',
-        amount: 250,
+        amount: totalTeacher,
         textColor: 'text-orange-600',
         color: 'bg-orange-100',
         growth: 'down',
@@ -98,7 +104,7 @@ const StatAdmin = () => {
       {statBox({
         icon: <RiBookFill size={30} />,
         title: 'Courses',
-        amount: 56,
+        amount: totalCourses,
         textColor: 'text-blue-600',
         color: 'bg-blue-100',
         growth: 'up',
@@ -108,7 +114,7 @@ const StatAdmin = () => {
       {statBox({
         icon: <TbCurrencyTaka size={30} />,
         title: 'Total Demand',
-        amount: '5000',
+        amount: totalDemand,
         color: 'bg-lime-100',
         textColor: 'text-lime-600',
         growth: 'down',
@@ -119,7 +125,7 @@ const StatAdmin = () => {
       {statBox({
         icon: <GiTakeMyMoney size={30} />,
         title: 'Total Received',
-        amount: 250,
+        amount: totalRevenue,
         textColor: 'text-green-600',
         color: 'bg-green-100',
         growth: 'up',
