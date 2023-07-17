@@ -7,9 +7,10 @@ const ClassroomForStudent = () => {
   const params = useParams();
   const classCode = params.id;
   return (
-    <GlobalLayout pageName={classCode}>
-      <ClassroomFeeds classCodeID={classCode} />
-    </GlobalLayout>
+    <GlobalLayout
+      pageName={classCode}
+      body={<ClassroomFeeds classCodeID={classCode} />}
+    ></GlobalLayout>
   );
 };
 

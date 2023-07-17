@@ -58,23 +58,16 @@ const ClassroomFeeds = ({ classCodeID }) => {
                 className="mr-[-10px] w-10 h-10 bg-white rounded-full bg-cover bg-center"
               ></div>
             ))}
-            {/* <div
-              style={{
-                backgroundImage: `url(https://itsastampede615821596.files.wordpress.com/2021/03/review-tom-and-jerry-2021-movie.jpg)`,
-              }}
-              className="mr-[-10px] w-10 h-10 bg-white rounded-full bg-cover bg-center"
-            ></div> */}
           </div>
         </div>
         <div className="flex w-full justify-start gap-6 text-gray-500 bg-white rounded-b-xl p-2 px-4">
-          <div>Task</div>
           <button onClick={() => setShowStudent(true)}>Student</button>
           <ShowAllStudents
             student={classroomData?.classInfo.studentList}
             showStudent={showStudent}
             setShowStudent={setShowStudent}
           />
-          {role && <button onClick={() => setInputResult(true)}>Result</button>}
+          {role === "teacher" && <button onClick={() => setInputResult(true)}>Result</button>}
           <ResultInput
             student={classroomData?.classInfo.studentList}
             courseCode={classroomData?.classInfo.courseCode}
