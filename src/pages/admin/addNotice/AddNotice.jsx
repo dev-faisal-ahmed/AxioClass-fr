@@ -4,13 +4,11 @@ import NoticeForm from '../../../components/page_components/noticeForm/NoticeFor
 import Modal from '../../../components/shared/modal/Modal';
 import NoticeBoard from '../../../components/page_components/noticeBoard/NoticeBoard';
 
-const AddNotice = () => {
-  
-  
+const AddNotice = () => { 
   return (
     <AdminLayout pageName={'Notice'}>
       <div>
-        <NoticeBoard />
+        <NoticeBoard restriced={true}/>
       </div>
     </AdminLayout>
   );

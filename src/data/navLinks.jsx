@@ -40,6 +40,11 @@ export const navLinks = [
     icon: <RiNumbersFill size={20} />,
   },
   {
+    title: "Notices",
+    url: "/notices",
+    icon: <AiFillNotification size={20} />,
+  },
+  {
     title: "Settings",
     url: "/settings",
     icon: <RiSettings3Fill size={20} />,

@@ -6,10 +6,10 @@ import NoticeForm from '../noticeForm/NoticeForm';
 import { serverAddress } from '../../../data/serverAddress';
 import { useGetNotices } from '../../../hooks/notices/useGetNotices';
 
-const NoticeBoard = () => {
+const NoticeBoard = ({ restriced }) => {
   const [noticeForm, setNoticeForm] = useState(false);
   // const [notices, setNotices] = useState([]);
-  const {notices} = useGetNotices();
+  const { notices } = useGetNotices();
   console.log(notices);
 
   // useEffect(() => {
@@ -40,15 +40,20 @@ const NoticeBoard = () => {
         <h1 className="text-2xl font-semibold text-primary-900">
           Latest Notices
         </h1>
-        <button
-          onClick={() => {
-            setNoticeForm(!noticeForm);
-          }}
-          className="hover:bg-primary-50 text-primary-700 px-3 py-2 rounded-lg font-semibold border border-primary-200 hover:border-primary-600 flex items-center gap-2 transition"
-        >
-          {' '}
-          <TbBellPlus className="text-xl" /> <span>Add notice</span>
-        </button>
+
+        {restriced ? (
+          <button
+            onClick={() => {
+              setNoticeForm(!noticeForm);
+            }}
+            className="hover:bg-primary-50 text-primary-700 px-3 py-2 rounded-lg font-semibold border border-primary-200 hover:border-primary-600 flex items-center gap-2 transition"
+          >
+            {' '}
+            <TbBellPlus className="text-xl" /> <span>Add notice</span>
+          </button>
+        ) : (
+          ''
+        )}
       </div>
 
       {notices.map(({ title, category, date, description, _id }) => {
@@ -60,6 +65,7 @@ const NoticeBoard = () => {
             category={category}
             date={date}
             description={description}
+            restriced={restriced}
           />
         );
       })}
