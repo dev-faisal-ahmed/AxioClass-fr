@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { serverAddress } from '../../../data/serverAddress';
-import { getLocalUser } from '../../../utils/localStorage';
-import { toastConfig } from '../../../utils/toastConfig';
-import { toast } from 'react-hot-toast';
-import ClassroomList from '../classroom/ClassroomList';
+import React, { useEffect, useState } from "react";
+import { serverAddress } from "../../../data/serverAddress";
+import { getLocalUser } from "../../../utils/localStorage";
+import { toastConfig } from "../../../utils/toastConfig";
+import { toast } from "react-hot-toast";
+import ClassroomList from "../classroom/ClassroomList";
 
 const TeacherClassroomList = () => {
   const [classrooms, setClassrooms] = useState([]);
   const { name } = getLocalUser();
-  console.log(classrooms);
 
   useEffect(() => {
-    const query = `classroom/teacher/${name}`;
-    const url = `${serverAddress}/classroom/${query}`;
-    console.log(url);
+    const url = `${serverAddress}/classroom/teacher/${name}`;
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         if (res.okay) {
           setClassrooms(res.data);
         } else {
@@ -26,12 +24,7 @@ const TeacherClassroomList = () => {
       });
   }, []);
 
-  console.log(classrooms);
-  return (
-    <div>
-      <ClassroomList classrooms={classrooms} />
-    </div>
-  );
+  return <div>{classrooms && <ClassroomList classrooms={classrooms} />}</div>;
 };
 
 export default TeacherClassroomList;
