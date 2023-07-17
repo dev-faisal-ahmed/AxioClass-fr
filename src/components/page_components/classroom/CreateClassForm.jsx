@@ -6,9 +6,12 @@ import { postReq } from '../../../utils/postReq';
 import { toast } from 'react-hot-toast';
 import { toastConfig } from '../../../utils/toastConfig';
 import { useActivities } from '../../../hooks/activities/useActivities';
+import { useClassroom } from '../../../hooks/classroom/useClassroom';
+
 
 const CreateClassForm = ({ setClassModal }) => {
   const { refetch:activitiesRefetch } = useActivities();
+  const { refetch: classroomsRefetch } = useClassroom();
 
   const [className, setClassName] = useState('');
   const [img, setImg] = useState('');
@@ -63,6 +66,8 @@ const CreateClassForm = ({ setClassModal }) => {
         } else {
           toast.success('Classroom created', toastConfig);
           setClassModal(false);
+          activitiesRefetch();
+          classroomsRefetch();
         }
       });
   };

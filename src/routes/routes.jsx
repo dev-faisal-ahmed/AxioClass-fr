@@ -20,6 +20,17 @@ import ClassRoomUI from "../pages/admin/classroom/ClassRoomUI";
 import Students from "../pages/admin/students/Students";
 import TeacherData from "../components/page_components/teacherData/TeacherData";
 import Teacher from "../pages/admin/teacher/Teacher";
+import TeacherClassrooms from "../pages/teacher/classrooms/TeacherClassrooms";
+import Notices from "../pages/notices/Notices";
+import TeacherProfile from "../components/page_components/teacherData/TeacherProfile";
+import TeacherIdProvider from "../context_api/TeacherIdProvider";
+
+import Grades from "../pages/grades/Grades";
+
+import ClassForTeacher from "../pages/classroom_teacher/classForTeacher";
+import ClassroomForStudent from "../pages/classroom_student/ClassroomForStudent";
+
+
 
 const wrapperFunction = (component) => {
   return <LoginProvider>{component}</LoginProvider>;
@@ -54,6 +65,14 @@ export const routes = createBrowserRouter([
       </StudentIdProvider>
     ),
   },
+  {
+    path: "/teacher-info/:id",
+    element: wrapperFunction(
+      <TeacherIdProvider>
+        <TeacherProfile />
+      </TeacherIdProvider>
+    ),
+  },
   { path: "/login", element: <Login /> },
   {
     path: "/add-student",
@@ -76,10 +95,6 @@ export const routes = createBrowserRouter([
     element: wrapperFunction(<TeacherDocumentPdf />),
   },
   {
-    path: "/student-document/:id",
-    element: wrapperFunction(<StudentDocumentPdf />),
-  },
-  {
     path: "/fees",
     element: wrapperFunction(<AdminFeesPage />),
   },
@@ -88,8 +103,28 @@ export const routes = createBrowserRouter([
     element: wrapperFunction(<AddNotice />),
   },
   {
+    path: "/notices",
+    element: wrapperFunction(<Notices />),
+  },
+  {
+    path: "/grades",
+    element: wrapperFunction(<Grades />),
+  },
+  {
     path: "/classroom",
     element: wrapperFunction(<Classroom />),
+  },
+  {
+    path: "/teacher-classrooms",
+    element: wrapperFunction(<TeacherClassrooms />),
+  },
+  {
+    path: "/classroom/teacher/:id",
+    element: <ClassForTeacher />,
+  },
+  {
+    path: "/classroom/student/:id",
+    element: <ClassroomForStudent />,
   },
   {
     path: "/classroom/:id",

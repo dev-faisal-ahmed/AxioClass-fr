@@ -30,14 +30,19 @@ const Login = () => {
       return;
     } else if (res?.okay) {
       toast.success(res?.msg, toastConfig);
-      setLocalUser({ id: res?.id, role: res?.role, image: res?.image });
+      setLocalUser({
+        id: res?.id,
+        role: res?.role,
+        image: res?.image,
+        name: res?.name,
+      });
       route("/");
     }
   };
 
   return (
     <div className="flex flex-col md:flex-row justify-center items-center h-screen w-screen bg-[#EFF0FE]">
-      <div className="h-1/4 md:h-4/5 md:w-2/3 flex flex-col items-center justify-center text-center bg-[url(https://images.pexels.com/photos/1269968/pexels-photo-1269968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-cover">
+      <div className="h-full md:w-2/3 flex flex-col items-center justify-center text-center bg-[url(https://i.ibb.co/zfQJmbB/login-bg.jpg)] bg-cover">
         <div className="bg-transparent backdrop-blur-md w-full p-6">
           <h3 className="text-4xl text-white">Axio-Class</h3>
           <p className="text-gray-200 font-light">
@@ -85,12 +90,16 @@ const Login = () => {
               id="pass"
             />
           </div>
-          <p className="text-gray-500 font-light text-sm">Forgot password? contact admin.</p>
+          <p className="text-gray-500 font-light text-sm">
+            Forgot password? contact admin.
+          </p>
           <button className="rounded bg-[#7A68EC] text-[#fff] p-2 w-1/3 min-w-[250px] hover:bg-transparent hover:text-[#000] border border-transparent hover:border-black transition-all">
             Login
           </button>
         </form>
-        <p className="text-gray-500 font-light text-sm">Don't have an account? Contact admin.</p>
+        <p className="text-gray-500 font-light text-sm">
+          Don't have an account? Contact admin.
+        </p>
       </div>
     </div>
   );

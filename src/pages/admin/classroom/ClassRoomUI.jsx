@@ -10,7 +10,7 @@ const ClassRoomUI = () => {
 
   return (
     <AdminLayout pageName={classCode.id}>
-      <ClassroomFeeds />
+      <ClassroomFeeds classCodeID={classCode.id} />
     </AdminLayout>
   );
 };

@@ -40,6 +40,11 @@ export const navLinks = [
     icon: <RiNumbersFill size={20} />,
   },
   {
+    title: "Notices",
+    url: "/notices",
+    icon: <AiFillNotification size={20} />,
+  },
+  {
     title: "Settings",
     url: "/settings",
     icon: <RiSettings3Fill size={20} />,
@@ -76,5 +81,17 @@ export const adminNavLinks = [
     title: "Notice",
     url: "/add-notice",
     icon: <AiFillNotification size={20} />,
+  },
+];
+export const teacherNavLinks = [
+  {
+    title: "Dashboard",
+    url: "/",
+    icon: <MdDashboard size={20} />,
+  },
+  {
+    title: "Classrooms",
+    url: "/teacher-classrooms",
+    icon: <MdClass size={20} />,
   },
 ];

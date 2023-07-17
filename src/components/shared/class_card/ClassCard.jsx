@@ -1,13 +1,10 @@
-import React from 'react';
-import {
-  BsFillPersonFill,
-  BsThreeDotsVertical,
-  BsFileEarmarkText,
-} from 'react-icons/bs';
-import { IoFolderOutline } from 'react-icons/io5';
-import { HiOutlineUserGroup } from 'react-icons/hi';
-import { FiClock } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { BsFillPersonFill, BsThreeDotsVertical, BsFileEarmarkText } from "react-icons/bs";
+import { IoFolderOutline } from "react-icons/io5";
+import { HiOutlineUserGroup } from "react-icons/hi";
+import { FiClock } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { getLocalUser } from "../../../utils/localStorage";
 
 const ClassCard = ({
   className,
@@ -16,9 +13,15 @@ const ClassCard = ({
   credits,
   students,
   hours,
-  classNumber,
-  courseCode
+  classCode,
+  courseCode,
 }) => {
+  const { role } = getLocalUser();
+  let link;
+  if (role === "teacher") link = `/classroom/teacher/${classCode}`;
+  if (role === "student") link = `/classroom/student/${classCode}`;
+  if (role === "admin") link = `/classroom/${classCode}`;
+
   return (
     <div className="bg-white text-gray-500 rounded-xl overflow-hidden">
       {/* Top part of card with title and img */}
@@ -37,21 +40,18 @@ const ClassCard = ({
       {/* Bottom part of card with class info */}
       <div className="p-5 px-6 border-b border-gray-100 ">
         <div className="grid grid-cols-2 gap-3">
-          <IconText
-            icon={<IoFolderOutline />}
-            title={`${courseCode}`}
-          />
+          <IconText icon={<IoFolderOutline />} title={`${courseCode}`} />
           <IconText icon={<BsFileEarmarkText />} title={`${credits} credits`} />
-          <IconText
-            icon={<HiOutlineUserGroup />}
-            title={`${students} students`}
-          />
+          <IconText icon={<HiOutlineUserGroup />} title={`${students} students`} />
           <IconText icon={<FiClock />} title={`${hours} hours/week`} />
         </div>
       </div>
 
       {/* Bottom button */}
-      <Link to={"/classroom/234"} className="p-4 block text-center hover:bg-primary-600 transition text-primary-600 hover:text-white">
+      <Link
+        to={link}
+        className="p-4 block text-center hover:bg-primary-600 transition text-primary-600 hover:text-white"
+      >
         <p className="text-sm  font-semibold"> View Class</p>
       </Link>
     </div>
