@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { serverAddress } from "../../../data/serverAddress";
 import { toast } from "react-hot-toast";
@@ -9,7 +8,7 @@ import { postReq } from "../../../utils/postReq";
 import { AiOutlineFileAdd } from "react-icons/ai";
 import Modal from "../../shared/modal/Modal";
 import StudentDocumentPdf from "../../../pages/admin/student_document/StudentDocumentPdf";
-  import { useActivities } from '../../../hooks/activities/useActivities';
+import { useActivities } from "../../../hooks/activities/useActivities";
 
 const AddStudentData = () => {
   const { refetch: activitiesRefetch } = useActivities();
@@ -42,7 +41,7 @@ const AddStudentData = () => {
     const intake = form.intake.value;
 
     const formData = {
-      name: fName.trim() + ' ' + lName.trim(),
+      name: fName.trim() + " " + lName.trim(),
       dob: DOfBirth,
       birthPlace: DOfPlace,
       sex,
@@ -72,7 +71,7 @@ const AddStudentData = () => {
           toast.error(res.msg, toastConfig);
         } else {
           toast.success("Student Admitted", toastConfig);
-          useActivities();
+          activitiesRefetch();
           setStudentId(res.id);
           setStudentPdfModal(true);
           form.reset();
@@ -90,7 +89,7 @@ const AddStudentData = () => {
           <div className="bg-white rounded-b-lg p-6 flex flex-col gap-6">
             <div className="flex flex-col items-end">
               <div className="flex flex-col gap-2">
-                <StudentInfoLabel label={'photo'} htmlFor={'image'} />
+                <StudentInfoLabel label={"photo"} htmlFor={"image"} />
                 <label
                   style={{ backgroundImage: `url(${imageLink})` }}
                   className="bg-cover border border-dashed border-[#7A68EC] rounded-md h-[150px] w-[150px] p-2 flex items-center justify-center"
@@ -112,45 +111,45 @@ const AddStudentData = () => {
             </div>
             <div className="grid grid-cols-2 justify-around gap-6">
               <div className="flex flex-col">
-                <StudentInfoLabel label={'First Name'} htmlFor={'fName'} />
+                <StudentInfoLabel label={"First Name"} htmlFor={"fName"} />
                 <StudentInfoInput
-                  placeholder={'John'}
-                  type={'text'}
-                  id={'fName'}
-                  name={'fName'}
+                  placeholder={"John"}
+                  type={"text"}
+                  id={"fName"}
+                  name={"fName"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'Last Name'} htmlFor={'lName'} />
+                <StudentInfoLabel label={"Last Name"} htmlFor={"lName"} />
                 <StudentInfoInput
-                  placeholder={'Wick'}
-                  type={'text'}
-                  id={'lName'}
-                  name={'lName'}
+                  placeholder={"Wick"}
+                  type={"text"}
+                  id={"lName"}
+                  name={"lName"}
                 />
               </div>
               <div className="flex  flex-col">
                 <StudentInfoLabel
-                  label={'Date of birth & place'}
-                  htmlFor={'DOfBirth'}
+                  label={"Date of birth & place"}
+                  htmlFor={"DOfBirth"}
                 />
                 <div className="flex gap-6 justify-between">
                   <StudentInfoInput
-                    placeholder={''}
-                    type={'date'}
-                    id={'DOfBirth'}
-                    name={'DOfBirth'}
+                    placeholder={""}
+                    type={"date"}
+                    id={"DOfBirth"}
+                    name={"DOfBirth"}
                   />
                   <StudentInfoInput
-                    placeholder={'Dhaka'}
-                    type={'text'}
-                    id={'DOfPlace'}
-                    name={'DOfPlace'}
+                    placeholder={"Dhaka"}
+                    type={"text"}
+                    id={"DOfPlace"}
+                    name={"DOfPlace"}
                   />
                 </div>
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'Sex'} htmlFor={'Sex'} />
+                <StudentInfoLabel label={"Sex"} htmlFor={"Sex"} />
                 <select
                   className="border border-[#7A68EC] rounded-md p-2"
                   name="sex"
@@ -162,44 +161,44 @@ const AddStudentData = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'Email'} htmlFor={'email'} />
+                <StudentInfoLabel label={"Email"} htmlFor={"email"} />
                 <StudentInfoInput
-                  placeholder={'johnwick@example.com'}
-                  type={'email'}
-                  id={'email'}
-                  name={'email'}
+                  placeholder={"johnwick@example.com"}
+                  type={"email"}
+                  id={"email"}
+                  name={"email"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'number'} htmlFor={'number'} />
+                <StudentInfoLabel label={"number"} htmlFor={"number"} />
                 <StudentInfoInput
-                  placeholder={'+8801234567890'}
-                  type={'number'}
-                  id={'number'}
-                  name={'number'}
+                  placeholder={"+8801234567890"}
+                  type={"number"}
+                  id={"number"}
+                  name={"number"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'Parents Name'} htmlFor={'pName'} />
+                <StudentInfoLabel label={"Parents Name"} htmlFor={"pName"} />
                 <StudentInfoInput
-                  placeholder={'Wick'}
-                  type={'text'}
-                  id={'pName'}
-                  name={'pName'}
+                  placeholder={"Wick"}
+                  type={"text"}
+                  id={"pName"}
+                  name={"pName"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'Parents Number'} htmlFor={'pNum'} />
+                <StudentInfoLabel label={"Parents Number"} htmlFor={"pNum"} />
                 <StudentInfoInput
-                  placeholder={'+8801234567890'}
-                  type={'number'}
-                  id={'pNum'}
-                  name={'pNum'}
+                  placeholder={"+8801234567890"}
+                  type={"number"}
+                  id={"pNum"}
+                  name={"pNum"}
                 />
               </div>
             </div>
             <div className="flex flex-col">
-              <StudentInfoLabel label={'Address'} htmlFor={'address'} />
+              <StudentInfoLabel label={"Address"} htmlFor={"address"} />
               <textarea
                 required
                 className="border border-[#7A68EC] rounded-md p-2"
@@ -218,63 +217,63 @@ const AddStudentData = () => {
           <div className="bg-white rounded-b-lg p-6 flex flex-col gap-6">
             <div className="grid grid-cols-2 justify-around gap-6">
               <div className="flex flex-col">
-                <StudentInfoLabel label={'H.S.C'} htmlFor={'hsc-result'} />
+                <StudentInfoLabel label={"H.S.C"} htmlFor={"hsc-result"} />
                 <StudentInfoInput
-                  placeholder={'5.00'}
-                  type={'number'}
+                  placeholder={"5.00"}
+                  type={"number"}
                   step={0.01}
-                  id={'hsc-result'}
-                  name={'hscResult'}
+                  id={"hsc-result"}
+                  name={"hscResult"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'S.S.C'} htmlFor={'ssc-result'} />
+                <StudentInfoLabel label={"S.S.C"} htmlFor={"ssc-result"} />
                 <StudentInfoInput
-                  placeholder={'5.00'}
-                  type={'number'}
+                  placeholder={"5.00"}
+                  type={"number"}
                   step={0.01}
-                  id={'ssc-result'}
-                  name={'sscResult'}
+                  id={"ssc-result"}
+                  name={"sscResult"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'H.S.C year'} htmlFor={'hscYear'} />
+                <StudentInfoLabel label={"H.S.C year"} htmlFor={"hscYear"} />
                 <StudentInfoInput
-                  placeholder={'2123'}
-                  type={'number'}
-                  id={'hscYear'}
-                  name={'hscYear'}
+                  placeholder={"2123"}
+                  type={"number"}
+                  id={"hscYear"}
+                  name={"hscYear"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'S.S.C year'} htmlFor={'sscYear'} />
+                <StudentInfoLabel label={"S.S.C year"} htmlFor={"sscYear"} />
                 <StudentInfoInput
-                  placeholder={'2120'}
-                  type={'number'}
-                  id={'sscYear'}
-                  name={'sscYear'}
+                  placeholder={"2120"}
+                  type={"number"}
+                  id={"sscYear"}
+                  name={"sscYear"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'H.S.C board'} htmlFor={'hscBoard'} />
+                <StudentInfoLabel label={"H.S.C board"} htmlFor={"hscBoard"} />
                 <StudentInfoInput
-                  placeholder={'Barishal'}
-                  type={'text'}
-                  id={'hscBoard'}
-                  name={'hscBoard'}
+                  placeholder={"Barishal"}
+                  type={"text"}
+                  id={"hscBoard"}
+                  name={"hscBoard"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'S.S.C board'} htmlFor={'sscBoard'} />
+                <StudentInfoLabel label={"S.S.C board"} htmlFor={"sscBoard"} />
                 <StudentInfoInput
-                  placeholder={'Barishal'}
-                  type={'text'}
-                  id={'sscBoard'}
-                  name={'sscBoard'}
+                  placeholder={"Barishal"}
+                  type={"text"}
+                  id={"sscBoard"}
+                  name={"sscBoard"}
                 />
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'department'} htmlFor={'dept'} />
+                <StudentInfoLabel label={"department"} htmlFor={"dept"} />
                 <select
                   className="border border-[#7A68EC] rounded-md p-2"
                   name="dept"
@@ -284,12 +283,12 @@ const AddStudentData = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <StudentInfoLabel label={'Intake'} htmlFor={'Intake'} />
+                <StudentInfoLabel label={"Intake"} htmlFor={"Intake"} />
                 <StudentInfoInput
-                  placeholder={'46'}
-                  type={'number'}
-                  id={'intake'}
-                  name={'intake'}
+                  placeholder={"46"}
+                  type={"number"}
+                  id={"intake"}
+                  name={"intake"}
                 />
               </div>
             </div>
@@ -309,7 +308,11 @@ const AddStudentData = () => {
           </div>
         </div>
       </form>
-      <Modal title={"Student PDF"} modalState={studentPdfModal} setModalState={setStudentPdfModal}>
+      <Modal
+        title={"Student PDF"}
+        modalState={studentPdfModal}
+        setModalState={setStudentPdfModal}
+      >
         <StudentDocumentPdf id={studentId} />
       </Modal>
     </div>
